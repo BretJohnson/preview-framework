@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "Windows Machine": {
+      "commandName": "MsixPackage",
+      "nativeDebugging": false
+    },
+    "Example Book": {
+      "commandName": "Project",
+      "commandLineArgs": "-ShowExampleBook"
+    }
+  }
+}
