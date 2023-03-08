@@ -11,7 +11,7 @@ public partial class CurrentWidget
     }
 
 #if DEBUG
-    [Example("My Example")]
-    public static CurrentWidget Example() => new CurrentWidget(new HomeViewModel());
+    //[Example("My Example/State1")]
+    //public static CurrentWidget Example() => new CurrentWidget(new HomeViewModel(1));
 #endif
 }
