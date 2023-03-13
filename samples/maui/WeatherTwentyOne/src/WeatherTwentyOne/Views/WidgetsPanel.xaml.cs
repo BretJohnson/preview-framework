@@ -25,6 +25,8 @@ public partial class WidgetsPanel
 
     }
 
+#if LATER
     [Example]
     public static WidgetsPanel Example() => new WidgetsPanel();
+#endif
 }

@@ -53,13 +53,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <ProjectReference Include="..\..\..\src\ExampleBook.Tooling.Maui\ExampleBook.Tooling.Maui.csproj" />
 	  <ProjectReference Include="..\..\..\src\ExampleBook\ExampleBook.csproj" />
-	</ItemGroup>
-
-	<ItemGroup>
-	  <MauiXaml Update="TestPage1.xaml">
-	    <Generator>MSBuild:Compile</Generator>
-	  </MauiXaml>
 	</ItemGroup>
 
 </Project>

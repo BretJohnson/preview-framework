@@ -1,24 +1,29 @@
-﻿namespace SandboxApp
+﻿using ExampleBook;
+using ExampleBook.Tooling.Maui.Views;
+
+namespace SandboxApp
 {
     public partial class MainPage : ContentPage
     {
-        int count = 0;
-
         public MainPage()
         {
             InitializeComponent();
         }
 
-        private void OnCounterClicked(object sender, EventArgs e)
+        private void OnShowClicked(object sender, EventArgs e)
         {
-            count++;
-
-            if (count == 1)
-                CounterBtn.Text = $"Clicked {count} time";
-            else
-                CounterBtn.Text = $"Clicked {count} times";
-
-            SemanticScreenReader.Announce(CounterBtn.Text);
+            Application.Current.OpenWindow(new Window(new DesktopMainPage()));
         }
+
+/* Non working example examples */
+#if false 
+#if DEBUG
+        [Example("CategoryA/Example1")]
+        public static MainPage Example1() => new MainPage(new MyViewModel("example1data"));
+
+        [Example("CategoryA/Example2")]
+        public static MainPage Example2() => new MainPage(new MyViewModel("example2data"));
+#endif
+#endif
     }
 }
