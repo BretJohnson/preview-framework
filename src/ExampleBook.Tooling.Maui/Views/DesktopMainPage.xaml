@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ExampleBook.Tooling.Maui.Views.DesktopMainPage"
+             Title="Example Book">
+
+    <ScrollView>
+        <Grid WidthRequest="1000">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <ListView Grid.Column="0"
+                      ItemsSource="{Binding ExamplesCollection}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Label Text="{Binding Description}" />
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+
+            <Label Grid.Column="1"
+                   HorizontalOptions="Start"
+                   Text="Right Pane" />
+        </Grid>
+    </ScrollView>
+
+</ContentPage>

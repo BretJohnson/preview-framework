@@ -17,4 +17,24 @@
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
 	</PropertyGroup>
 
+	<ItemGroup>
+	  <ProjectReference Include="..\ExampleBook.Tooling\ExampleBook.Tooling.csproj" />
+	  <ProjectReference Include="..\ExampleBook\ExampleBook.csproj" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="Views\DesktopMainPage.xaml.cs">
+	    <DependentUpon>DesktopMainPage.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="Views\DesktopMainPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\NewPage1.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
+
 </Project>

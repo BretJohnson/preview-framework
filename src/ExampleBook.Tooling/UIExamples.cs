@@ -1,15 +1,14 @@
-﻿using ExampleBook.Tooling;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Reflection;
 
-namespace ExampleBook;
+namespace ExampleBook.Tooling;
 
-public class Examples
+public class UIExamples
 {
-    private readonly List<Example> _examples = new();
+    private readonly List<UIExample> _examples = new();
 
-    public void LoadFromAssembly(Assembly assembly)
+    public void AddFromAssembly(Assembly assembly)
     {
         Type[] types = assembly.GetExportedTypes();
 
@@ -23,12 +22,12 @@ public class Examples
 
                 if (uiExampleAttribute != null)
                 {
-                    var uiExample = new Example(uiExampleAttribute, method);
+                    var uiExample = new UIExample(uiExampleAttribute, method);
                     _examples.Add(uiExample);
                 }
             }
         }
     }
 
-    public IEnumerable<Example> AllExamples => _examples;
+    public IEnumerable<UIExample> AllExamples => _examples;
 }

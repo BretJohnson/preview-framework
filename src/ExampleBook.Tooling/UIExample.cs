@@ -3,20 +3,20 @@ using System.Reflection;
 
 namespace ExampleBook.Tooling;
 
-public class Example
+public class UIExample
 {
-    private string? _description;
+    private string? _title;
     private MethodInfo _methodInfo;
 
-    public Example(string? description, MethodInfo methodInfo)
+    public UIExample(string? title, MethodInfo methodInfo)
     {
-        _description = description;
+        _title = title;
         _methodInfo = methodInfo;
     }
 
-    public Example(ExampleAttribute uiExampleAttribute, MethodInfo methodInfo)
+    public UIExample(ExampleAttribute uiExampleAttribute, MethodInfo methodInfo)
     {
-        _description = uiExampleAttribute.Title;
+        _title = uiExampleAttribute.Title;
         _methodInfo = methodInfo;
     }
 
@@ -33,12 +33,10 @@ public class Example
     /// messages.
     /// </summary>
     /// <returns>user friendly name of example method</returns>
-    public string GetMethodDisplayName()
-    {
-        return $"{_methodInfo.DeclaringType.Name}.{_methodInfo.Name}";
-    }
+    public string GetMethodDisplayName() =>
+        $"{_methodInfo.DeclaringType.Name}.{_methodInfo.Name}";
 
-    public string? Description => _description;
+    public string? Title => _title;
 
     public MethodInfo MethodInfo => _methodInfo;
 }
