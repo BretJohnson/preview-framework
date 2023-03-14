@@ -11,8 +11,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{D2D7
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "maui", "maui", "{2D3F8C1A-337A-4913-A321-5167F7B49CE0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WeatherTwentyOne", "samples\maui\WeatherTwentyOne\src\WeatherTwentyOne\WeatherTwentyOne.csproj", "{1750B809-D9B1-407B-8AB5-D11B56FD55D2}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExampleBook.Tooling.Maui", "src\ExampleBook.Tooling.Maui\ExampleBook.Tooling.Maui.csproj", "{BDF28A19-0605-44EC-B43E-7044E0C8EF2A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MauiTestStub", "src\MauiTestStub\MauiTestStub.csproj", "{4C10A4ED-97CD-4D8B-A8F7-2BD4B6910212}"
@@ -33,12 +31,6 @@ Global
 		{B002BA78-E2E3-4DC1-BBA8-8655589C7DEE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B002BA78-E2E3-4DC1-BBA8-8655589C7DEE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B002BA78-E2E3-4DC1-BBA8-8655589C7DEE}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1750B809-D9B1-407B-8AB5-D11B56FD55D2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{1750B809-D9B1-407B-8AB5-D11B56FD55D2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{1750B809-D9B1-407B-8AB5-D11B56FD55D2}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
-		{1750B809-D9B1-407B-8AB5-D11B56FD55D2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{1750B809-D9B1-407B-8AB5-D11B56FD55D2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{1750B809-D9B1-407B-8AB5-D11B56FD55D2}.Release|Any CPU.Deploy.0 = Release|Any CPU
 		{BDF28A19-0605-44EC-B43E-7044E0C8EF2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BDF28A19-0605-44EC-B43E-7044E0C8EF2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BDF28A19-0605-44EC-B43E-7044E0C8EF2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -61,7 +53,6 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{2D3F8C1A-337A-4913-A321-5167F7B49CE0} = {D2D79087-63DE-48DA-A903-D915B1FAE013}
-		{1750B809-D9B1-407B-8AB5-D11B56FD55D2} = {2D3F8C1A-337A-4913-A321-5167F7B49CE0}
 		{904F28F6-030C-4A49-B0CA-A6CBBF94E8C9} = {2D3F8C1A-337A-4913-A321-5167F7B49CE0}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution

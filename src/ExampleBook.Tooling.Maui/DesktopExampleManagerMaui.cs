@@ -12,12 +12,10 @@ public static class ExamplesManagerDesktopMaui
         if (_window == null)
         {
             var desktopMainPage = new DesktopMainPage();
-
             desktopMainPage.BindingContext = new UIExamplesManagerDesktopViewModel(CurrentAppUIExamplesManager.Instance);
 
-            _window = new Window();
-
-            Application.Current.OpenWindow(new Window());
+            _window = new Window(desktopMainPage);
+            Application.Current.OpenWindow(_window);
         }
     }
 }

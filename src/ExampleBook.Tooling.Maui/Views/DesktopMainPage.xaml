@@ -12,17 +12,18 @@
             </Grid.ColumnDefinitions>
 
             <ListView Grid.Column="0"
-                      ItemsSource="{Binding ExamplesCollection}">
+                      ItemsSource="{Binding CurrentExamples}"
+                      ItemSelected="OnExampleSelected">
                 <ListView.ItemTemplate>
                     <DataTemplate>
-                        <Label Text="{Binding Description}" />
+                        <ViewCell>
+                            <Label Text="{Binding Title}" />
+                        </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>
 
-            <Label Grid.Column="1"
-                   HorizontalOptions="Start"
-                   Text="Right Pane" />
+            <ContentView x:Name="ExampleWrapper" Grid.Column="1" />
         </Grid>
     </ScrollView>
 

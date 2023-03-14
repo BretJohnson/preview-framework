@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 
 namespace ExampleBook.Tooling.Maui.ViewModels;
 
@@ -10,6 +11,8 @@ public class UIExamplesManagerDesktopViewModel
     {
         _uiExamplesManager = uiExamplesManager;
     }
+
+    public IEnumerable CurrentExamples => _uiExamplesManager.UIExamples.CurrentExamples;
 
     public IEnumerable<UIExample> AllExamples => _uiExamplesManager.UIExamples.AllExamples;
 }

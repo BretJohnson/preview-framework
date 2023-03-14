@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
 
@@ -28,6 +29,8 @@ public class UIExamples
             }
         }
     }
+
+    public IEnumerable CurrentExamples => _examples;
 
     public IEnumerable<UIExample> AllExamples => _examples;
 }
