@@ -27,8 +27,11 @@
             </t:TreeView>
         </ScrollView>
 
-        <ScrollView Grid.Column="1" BackgroundColor="Black">
+        <ScrollView x:Name="rightScroll" Grid.Column="1" BackgroundColor="Black">
             <Label x:Name="label1"/>
+            <VerticalStackLayout x:Name="stackTime" Padding="8,8">
+
+            </VerticalStackLayout>
         </ScrollView>
     </Grid>
     </ContentPage.Content>
