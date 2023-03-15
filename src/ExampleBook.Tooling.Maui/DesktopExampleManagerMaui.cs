@@ -16,7 +16,7 @@ public static class ExamplesManagerMaui
         if (true /* isDesktop */)
         {
             var desktopMainPage = new DesktopMainPage();
-            desktopMainPage.BindingContext = new UIExamplesManagerDesktopViewModel(CurrentAppUIExamplesManager.Instance);
+            //desktopMainPage.BindingContext = new UIExamplesManagerDesktopViewModel(CurrentAppUIExamplesManager.Instance);
 
             app.MainPage = desktopMainPage;
             return true;
@@ -52,7 +52,7 @@ public static class ExamplesManagerMaui
         if (_window == null)
         {
             var desktopMainPage = new DesktopMainPage();
-            desktopMainPage.BindingContext = new UIExamplesManagerDesktopViewModel(CurrentAppUIExamplesManager.Instance);
+            //desktopMainPage.BindingContext = new UIExamplesManagerDesktopViewModel(CurrentAppUIExamplesManager.Instance);
 
             _window = new Window(desktopMainPage);
             Application.Current.OpenWindow(_window);

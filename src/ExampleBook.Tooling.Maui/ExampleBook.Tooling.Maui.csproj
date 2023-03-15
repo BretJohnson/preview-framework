@@ -18,6 +18,10 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <PackageReference Include="TreeView.Maui" Version="1.0.5" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <ProjectReference Include="..\ExampleBook.Tooling\ExampleBook.Tooling.csproj" />
 	  <ProjectReference Include="..\ExampleBook\ExampleBook.csproj" />
 	</ItemGroup>
