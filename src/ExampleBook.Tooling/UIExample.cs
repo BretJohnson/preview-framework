@@ -14,7 +14,7 @@ public class UIExample
         _methodInfo = methodInfo;
     }
 
-    public UIExample(ExampleAttribute uiExampleAttribute, MethodInfo methodInfo)
+    public UIExample(UIExampleAttribute uiExampleAttribute, MethodInfo methodInfo)
     {
         _title = uiExampleAttribute.Title;
         _methodInfo = methodInfo;
@@ -36,7 +36,18 @@ public class UIExample
     public string GetMethodDisplayName() =>
         $"{_methodInfo.DeclaringType.Name}.{_methodInfo.Name}";
 
-    public string? Title => _title;
+    public string? Title
+    {
+        get
+        {
+            // If there's a title explicitly set, use it
+            if (_title != null)
+                return _title;
+
+            // Otherwise default to the component type name
+            return _methodInfo.ReturnType.Name;
+        }
+    }
 
     public MethodInfo MethodInfo => _methodInfo;
 }

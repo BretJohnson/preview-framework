@@ -19,7 +19,7 @@ public class UIExamples
 
             foreach (MethodInfo method in methods)
             {
-                ExampleAttribute? uiExampleAttribute = method.GetCustomAttribute<ExampleAttribute>(false);
+                UIExampleAttribute? uiExampleAttribute = method.GetCustomAttribute<UIExampleAttribute>(false);
 
                 if (uiExampleAttribute != null)
                 {

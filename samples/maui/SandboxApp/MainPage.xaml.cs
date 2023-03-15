@@ -13,14 +13,14 @@ namespace SandboxApp
 
         private void OnShowClicked(object sender, EventArgs e)
         {
-            ExamplesManagerDesktopMaui.ShowWindow();
+            ExamplesManagerMaui.ShowWindow();
         }
 
 #if DEBUG
-        [Example("CategoryA/Example1")]
+        [UIExample("CategoryA/Example1")]
         public static MainPage Example1() => new MainPage();
 
-        [Example("CategoryA/Example2")]
+        [UIExample("CategoryA/Example2")]
         public static MainPage Example2() => new MainPage();
 #endif
     }

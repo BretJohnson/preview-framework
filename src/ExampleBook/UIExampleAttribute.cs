@@ -7,7 +7,7 @@ namespace ExampleBook;
 /// Examples can be shown in a gallery viewer, doc, etc.
 /// </summary>
 [AttributeUsage(AttributeTargets.Method)]
-public sealed class ExampleAttribute : Attribute
+public sealed class UIExampleAttribute : Attribute
 {
     /// <summary>
     /// Optional title for the example, determining how it appears in navigation UI.
@@ -15,11 +15,11 @@ public sealed class ExampleAttribute : Attribute
     /// </summary>
     public string? Title { get; }
 
-    public ExampleAttribute()
+    public UIExampleAttribute()
     {
     }
 
-    public ExampleAttribute(string title)
+    public UIExampleAttribute(string title)
     {
         Title = title;
     }
