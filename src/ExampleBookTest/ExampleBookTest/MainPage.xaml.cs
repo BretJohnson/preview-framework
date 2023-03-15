@@ -6,14 +6,14 @@ public partial class MainPage : ContentPage
 {
 
     public TreeViewNode node { get; set; }
-    public MainPageViewModel vm {get; set; }
+    public ExampleTreeViewModel vm {get; set; }
 
 	public MainPage()
     {
 
         InitializeComponent();
 
-        vm = new MainPageViewModel();
+        vm = new ExampleTreeViewModel();
 
         this.BindingContext = vm;
 
@@ -34,9 +34,14 @@ public partial class MainPage : ContentPage
             var binding = ((HorizontalStackLayout)sender).Parent.BindingContext;
             if (binding is TreeViewNode)
             {
-                if (((TreeViewNode)binding).IsLeaf)
+                if (((TreeViewNode)binding).Value != null)
                 {
+                    stackTime.Clear();
                     this.vm.SelectedNodeContent = ((TreeViewNode)binding).Name;
+                    //stackContent.Add((TreeViewNode)binding).Value);
+
+
+                    stackTime.Add((View)((TreeViewNode)binding).Value);
                 }
             }
         }
