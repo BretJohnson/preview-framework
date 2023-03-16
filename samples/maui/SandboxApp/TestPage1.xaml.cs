@@ -10,7 +10,7 @@ public partial class TestPage1 : ContentPage
 	}
 
 #if DEBUG
-    [UIExample("MyCategory/Example With Custom Params")]
+    [UIExample("Example With Custom Params")]
     public static TestPage1 Example1() => new TestPage1();
 #endif
 }

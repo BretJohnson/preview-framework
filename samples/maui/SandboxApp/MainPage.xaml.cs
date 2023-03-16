@@ -17,11 +17,14 @@ namespace SandboxApp
         }
 
 #if DEBUG
-        [UIExample("CategoryA/Example1")]
+        [UIExample("Example1")]
         public static MainPage Example1() => new MainPage();
 
-        [UIExample("CategoryA/Example2")]
+        [UIExample("Example1/Example1LightMode")]
         public static MainPage Example2() => new MainPage();
+
+        [UIExample("Example1/Example1DarkMode")]
+        public static MainPage Example3() => new MainPage();
 #endif
     }
 }
