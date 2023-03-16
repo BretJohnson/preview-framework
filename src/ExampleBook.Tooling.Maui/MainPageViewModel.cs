@@ -9,8 +9,14 @@ public class ExampleTreeViewModel : BindableObject, INotifyPropertyChanged
     private String node; 
     public event PropertyChangedEventHandler PropertyChanged;
 
+    public List<PropertyDefinition> SelectedItemsProperties { get; set; } = new();
+
     public ExampleTreeViewModel()
     {
+        InitializeTreeView(CurrentAppUIExamplesManager.Instance.UIComponents.Components);
+        SelectedItemsProperties = new List<PropertyDefinition>();
+        SelectedItemsProperties.Add(new PropertyDefinition("test1", "99"));
+        SelectedItemsProperties.Add(new PropertyDefinition("test2", "89"));
         InitializeTreeView(CurrentAppUIExamplesManager.Instance.UIComponents.Components);
     }
 
@@ -44,6 +50,20 @@ public class ExampleTreeViewModel : BindableObject, INotifyPropertyChanged
             }
 
             Nodes.Add(componentNode);
+
         }
     }
+
+    public class PropertyDefinition
+    {
+        public string Name { get; set; }
+        public string Value { get; set; }
+
+        public PropertyDefinition(string name, string value)
+        {
+            this.Name = name;
+            this.Value = value;
+        }
+    }
+
 }
