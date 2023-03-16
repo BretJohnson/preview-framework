@@ -11,19 +11,7 @@ public class ExampleTreeViewModel : BindableObject, INotifyPropertyChanged
 
     public ExampleTreeViewModel()
     {
-        /*
-        List<UIExample> list = new List<UIExample>();
-        list.Add(new UIExample("MainPage", null));
-        list.Add(new UIExample("MainPage/Child1", null));
-        list.Add(new UIExample("MainPage/Child2", null));
-
-        list.Add(new UIExample("MainPage2", null));
-        list.Add(new UIExample("MainPage2/Child1A", null));
-        list.Add(new UIExample("MainPage2/Child2B", null));
-        list.Add(new UIExample("MainPage2/Child2B/Child2BElement", null));
-        */
-
-        InitializeTreeView(CurrentAppUIExamplesManager.Instance.UIExamples.AllExamples);
+        InitializeTreeView(CurrentAppUIExamplesManager.Instance.UIComponents.Components);
     }
 
     public ObservableCollection<TreeViewNode> Nodes { get; set; } = new();
@@ -39,47 +27,23 @@ public class ExampleTreeViewModel : BindableObject, INotifyPropertyChanged
                 node = value;
                 PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SelectedNodeContent"));
             }
-
         }
     }
 
-    //Doesn't Allow Duplicate Names.
-    public void InitializeTreeView(IEnumerable<UIExample> examples)
+    // For now ignore the case where the example Titles contain "/" characters for a deeper
+    // hierarchy
+    public void InitializeTreeView(IEnumerable<UIComponent> components)
     {
-        Dictionary<string, TreeViewNode> nodes = new Dictionary<string, TreeViewNode>();
-        foreach (UIExample exp in examples)
+        foreach (UIComponent component in components)
         {
-            string name;
-            if (exp.Title.Contains('/'))
+            var componentNode = new TreeViewNode(component.Title, component);
+            foreach (UIExample example in component.Examples)
             {
-                var splitName = exp.Title.Split('/');
-                name = splitName[splitName.Length - 1];
-                var node = new TreeViewNode(name, exp);
-                nodes.Add(name, node);
+                var exampleNode = new TreeViewNode(example.Title, example);
+                componentNode.Children.Add(exampleNode);
             }
-            else
-            {
-                name = exp.Title;
-                var node = new TreeViewNode(name, exp);
-                nodes.Add(name, node);
 
-            }
-        }
-
-        foreach (TreeViewNode node in nodes.Values)
-        {
-            var val = (UIExample)node.Value;
-
-            if (val.Title.Contains('/'))
-            {
-                var splitName = val.Title.Split('/');
-                nodes[splitName[splitName.Length - 2]].Children.Add(node);
-            }
-            else
-            {
-                Nodes.Add(node);
-                    
-            }
+            Nodes.Add(componentNode);
         }
     }
 }

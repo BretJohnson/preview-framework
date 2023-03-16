@@ -2,5 +2,5 @@
 
 public abstract class UIExamplesManager
 {
-    public abstract UIExamples UIExamples { get; }
+    public abstract UIComponents UIComponents { get; }
 }

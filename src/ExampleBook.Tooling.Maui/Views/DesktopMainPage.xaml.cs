@@ -26,6 +26,7 @@ public partial class DesktopMainPage : ContentPage
                     if (exampleUI is ContentPage contentPage)
                     {
                         ExampleWrapper.Content = contentPage.Content;
+                        ExampleWrapper.BindingContext = contentPage.BindingContext;
                     }
                     else if (exampleUI is View view)
                     {

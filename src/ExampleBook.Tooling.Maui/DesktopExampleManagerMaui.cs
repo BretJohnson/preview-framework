@@ -1,5 +1,4 @@
-﻿using ExampleBook.Tooling.Maui.ViewModels;
-using ExampleBook.Tooling.Maui.Views;
+﻿using ExampleBook.Tooling.Maui.Views;
 using System.Diagnostics;
 
 namespace ExampleBook.Tooling.Maui;

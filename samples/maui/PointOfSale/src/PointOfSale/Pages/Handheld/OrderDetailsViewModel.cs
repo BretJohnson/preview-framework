@@ -11,6 +11,15 @@ public partial class OrderDetailsViewModel
     [ObservableProperty]
     Item added;
 
+    public OrderDetailsViewModel()
+    {
+    }
+
+    public OrderDetailsViewModel(Order order)
+    {
+        this.order = order;
+    }
+
     [RelayCommand]
     async Task Pay()
     {

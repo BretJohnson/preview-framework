@@ -5,8 +5,8 @@ namespace ExampleBook.Tooling;
 
 public class UIExample
 {
-    private string? _title;
-    private MethodInfo _methodInfo;
+    private readonly string? _title;
+    private readonly MethodInfo _methodInfo;
 
     public UIExample(string? title, MethodInfo methodInfo)
     {
@@ -44,8 +44,8 @@ public class UIExample
             if (_title != null)
                 return _title;
 
-            // Otherwise default to the component type name
-            return _methodInfo.ReturnType.Name;
+            // Otherwise default to the method name
+            return _methodInfo.Name;
         }
     }
 
