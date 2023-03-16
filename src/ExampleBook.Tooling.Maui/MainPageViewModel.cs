@@ -4,6 +4,19 @@ using TreeView.Maui.Core;
 
 namespace ExampleBook.Tooling.Maui;
 
+
+//For Each Public Property in Bound View Models Type
+//Is it a primitive
+//Display it and its type
+//Else
+//For Each Public Property in Property
+// Recurse
+
+
+//Add To List
+//Either as Header
+//Or Entry
+
 public class ExampleTreeViewModel : BindableObject, INotifyPropertyChanged
 {
     private String node; 
@@ -50,7 +63,6 @@ public class ExampleTreeViewModel : BindableObject, INotifyPropertyChanged
             }
 
             Nodes.Add(componentNode);
-
         }
     }
 

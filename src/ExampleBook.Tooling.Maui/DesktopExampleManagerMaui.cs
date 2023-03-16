@@ -9,8 +9,8 @@ public static class ExamplesManagerMaui
 
     public static bool LaunchInExamplesMode(Application app, string? environmentVariable = null)
     {
-        if (! ShouldLaunchInExamplesMode(environmentVariable))
-            return false;
+        //if (! ShouldLaunchInExamplesMode(environmentVariable))
+            //return false;
 
         if (true /* isDesktop */)
         {

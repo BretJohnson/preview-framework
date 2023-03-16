@@ -25,6 +25,7 @@ public partial class DesktopMainPage : ContentPage
 
                     if (exampleUI is ContentPage contentPage)
                     {
+                        ExampleWrapper.BackgroundColor = contentPage.BackgroundColor;
                         ExampleWrapper.Content = contentPage.Content;
                         ExampleWrapper.BindingContext = contentPage.BindingContext;
                     }

@@ -5,13 +5,13 @@
             x:Class="ExampleBook.Tooling.Maui.Views.DesktopMainPage"
             Title="Example Book">
 
-    <Grid WidthRequest="1000">
+    <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto" />
+            <ColumnDefinition Width="200" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="400"/>
+            <RowDefinition Height="*"/>
             <RowDefinition Height="40"/>
             <RowDefinition Height="300"/>
         </Grid.RowDefinitions>
@@ -35,19 +35,25 @@
             </t:TreeView>
         </ScrollView>
 
-        <ContentView x:Name="ExampleWrapper"
-                        Grid.Column="1"
-                        Grid.Row="0"
-                        BackgroundColor="Black" />
+        <ScrollView Grid.Column="1" Grid.Row="0">
+            <ContentView x:Name="ExampleWrapper"
+                         />
+        </ScrollView>
 
-        <HorizontalStackLayout Grid.Column="1" Grid.Row="1" BackgroundColor="Gray">
+        <HorizontalStackLayout Grid.Column="1" Grid.Row="1" BackgroundColor="White">
             <Button Text="Properties"></Button>
+            <Button Text="Accesability"></Button>
         </HorizontalStackLayout>
-         <ScrollView Grid.Column="1" Grid.Row="2" BackgroundColor="Blue">
+
+         <ScrollView Grid.Column="1" Grid.Row="2" BackgroundColor="White" Padding="8">
             <CollectionView ItemsSource="{Binding SelectedItemsProperties}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <HorizontalStackLayout>
+                        <!--<Grid>
+                            <Grid.Row width= "100"/>
+                            <Grid.Row width= "100"/>
+                        </Grid>-->
+                        <HorizontalStackLayout Padding="8,8,0,0">
                             <Label Text="{Binding Name}" TextColor="Black"/>
                             <Label Text="{Binding Value}" TextColor="Black"/>
                         </HorizontalStackLayout>
