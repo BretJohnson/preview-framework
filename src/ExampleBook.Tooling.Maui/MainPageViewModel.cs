@@ -26,11 +26,11 @@ public class ExampleTreeViewModel : BindableObject, INotifyPropertyChanged
 
     public ExampleTreeViewModel()
     {
-        InitializeTreeView(CurrentAppUIExamplesManager.Instance.UIComponents.Components);
+        InitializeTreeView(UIExamplesManager.Instance.UIComponents.Components);
         SelectedItemsProperties = new List<PropertyDefinition>();
         SelectedItemsProperties.Add(new PropertyDefinition("test1", "99"));
         SelectedItemsProperties.Add(new PropertyDefinition("test2", "89"));
-        InitializeTreeView(CurrentAppUIExamplesManager.Instance.UIComponents.Components);
+        InitializeTreeView(UIExamplesManager.Instance.UIComponents.Components);
     }
 
     public ObservableCollection<TreeViewNode> Nodes { get; set; } = new();

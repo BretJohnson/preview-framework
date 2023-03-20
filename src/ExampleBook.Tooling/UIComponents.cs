@@ -37,4 +37,17 @@ public class UIComponents
     }
 
     public IEnumerable<UIComponent> Components => _components;
+
+    public UIComponent? GetComponentWithName(string name)
+    {
+        foreach (UIComponent component in _components)
+        {
+            if (component.Name == name)
+            {
+                return component;
+            }
+        }
+
+        return null;
+    }
 }

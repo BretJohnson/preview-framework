@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Reflection;
+using System.Linq;
 
 namespace ExampleBook.Tooling;
 
@@ -16,7 +16,12 @@ public class UIComponent
         _type = type;
     }
 
-    public string? Title
+    /// <summary>
+    /// Title is intended to be what's shown in the UI to identify the component. It can contain spaces and
+    /// isn't necessarily unique. It defaults to the class name (with no namespace qualifier) but can be
+    /// overridden by the developer.
+    /// </summary>
+    public string Title
     {
         get
         {
@@ -29,6 +34,12 @@ public class UIComponent
         }
     }
 
+    /// <summary>
+    /// Name is intended to be what's used by the code to identify the component. It's just the component's
+    /// full qualitified type name. It's unique.
+    /// </summary>
+    public string Name => _type.FullName;
+
     public Type Type => _type;
 
     public void AddExample(UIExample example)
@@ -37,4 +48,19 @@ public class UIComponent
     }
 
     public IEnumerable<UIExample> Examples => _examples;
+
+    public UIExample? GetExampleWithName(string name)
+    {
+        foreach (UIExample example in _examples)
+        {
+            if (example.Name == name)
+            {
+                return example;
+            }
+        }
+
+        return null;
+    }
+
+    public UIExample? GetDefaultExample() => _examples.FirstOrDefault();
 }

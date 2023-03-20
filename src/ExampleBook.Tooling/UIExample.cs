@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Data;
 using System.Reflection;
 
 namespace ExampleBook.Tooling;
@@ -29,14 +30,18 @@ public class UIExample
     }
 
     /// <summary>
-    /// Get a user friendly display name for the example method, suitable for error
+    /// Get a user friendly display title for the example method, suitable for error
     /// messages.
     /// </summary>
-    /// <returns>user friendly name of example method</returns>
+    /// <returns>user friendly title of example method</returns>
     public string GetMethodDisplayName() =>
         $"{_methodInfo.DeclaringType.Name}.{_methodInfo.Name}";
 
-    public string? Title
+    /// <summary>
+    /// Title is intended to be what's shown in the UI to identify the example. It can contain spaces and
+    /// isn't necessarily unique. It defaults to the method name but can be overridden by the developer.
+    /// </summary>
+    public string Title
     {
         get
         {
@@ -48,6 +53,12 @@ public class UIExample
             return _methodInfo.Name;
         }
     }
+
+    /// <summary>
+    /// Name is intended to be what's used by the code to identify the example. It's the examples's
+    /// full qualitified method name.
+    /// </summary>
+    public string Name => _methodInfo.DeclaringType.FullName + "." + _methodInfo.Name;
 
     public MethodInfo MethodInfo => _methodInfo;
 }
