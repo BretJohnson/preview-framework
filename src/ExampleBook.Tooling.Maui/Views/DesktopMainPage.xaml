@@ -40,22 +40,20 @@
                          />
         </ScrollView>
 
-        <HorizontalStackLayout Grid.Column="1" Grid.Row="1" BackgroundColor="White">
-            <Button Text="Properties"></Button>
-            <Button Text="Accesability"></Button>
-        </HorizontalStackLayout>
+        <Border Grid.Column="1" Grid.Row="1" >
+            <HorizontalStackLayout BackgroundColor="White" Spacing="10" Padding="8,2">
+                <Button BackgroundColor="SkyBlue" Text="Properties" ></Button>
+                <Button BackgroundColor="SkyBlue" Text="Accesability" ></Button>
+            </HorizontalStackLayout>
+        </Border>
 
-         <ScrollView Grid.Column="1" Grid.Row="2" BackgroundColor="White" Padding="8">
+            <ScrollView  Orientation="Vertical" Grid.Column="1" Grid.Row="2" BackgroundColor="White" Padding="8">
             <CollectionView ItemsSource="{Binding SelectedItemsProperties}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
-                        <!--<Grid>
-                            <Grid.Row width= "100"/>
-                            <Grid.Row width= "100"/>
-                        </Grid>-->
-                        <HorizontalStackLayout Padding="8,8,0,0">
-                            <Label Text="{Binding Name}" TextColor="Black"/>
-                            <Label Text="{Binding Value}" TextColor="Black"/>
+                        <HorizontalStackLayout>
+                            <Label WidthRequest="300" Text="{Binding Name}" TextColor="Black"/>
+                            <Label WidthRequest="400" Text="{Binding Value}" TextColor="Black"/>
                         </HorizontalStackLayout>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>

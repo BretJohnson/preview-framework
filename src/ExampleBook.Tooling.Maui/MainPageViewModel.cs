@@ -1,5 +1,6 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Reflection;
 using TreeView.Maui.Core;
 
 namespace ExampleBook.Tooling.Maui;
@@ -28,8 +29,8 @@ public class ExampleTreeViewModel : BindableObject, INotifyPropertyChanged
     {
         InitializeTreeView(UIExamplesManager.Instance.UIComponents.Components);
         SelectedItemsProperties = new List<PropertyDefinition>();
-        SelectedItemsProperties.Add(new PropertyDefinition("test1", "99"));
-        SelectedItemsProperties.Add(new PropertyDefinition("test2", "89"));
+        //SelectedItemsProperties.Add(new PropertyDefinition("test1", "99"));
+        //SelectedItemsProperties.Add(new PropertyDefinition("test2", "89"));
         InitializeTreeView(UIExamplesManager.Instance.UIComponents.Components);
     }
 
@@ -65,6 +66,30 @@ public class ExampleTreeViewModel : BindableObject, INotifyPropertyChanged
             Nodes.Add(componentNode);
         }
     }
+
+    public void GetPropertiesForObject(object obj)
+    {
+        var propertyInfos = obj.GetType().GetProperties(BindingFlags.Public | BindingFlags.Instance);//By default, it will return only public properties.
+        // sort properties by name
+        Array.Sort(propertyInfos,
+                   (propertyInfo1, propertyInfo2) => propertyInfo1.Name.CompareTo(propertyInfo2.Name));
+
+        SelectedItemsProperties.Clear();
+        foreach (PropertyInfo p in propertyInfos)
+        {
+            var name = p.Name;
+            var prop = p.GetValue(obj);
+            if (prop != null && p.GetValue(obj)?.ToString() != null)
+            {
+                var val = p.GetValue(obj).ToString();
+                SelectedItemsProperties.Add(new PropertyDefinition(name, val));
+            }
+        }
+        SelectedItemsProperties.Add(new PropertyDefinition("", ""));
+
+    }
+
+
 
     public class PropertyDefinition
     {

@@ -1,5 +1,6 @@
 ﻿using ExampleBook.Tooling.Maui.Views;
 using System.Diagnostics;
+using System.Reflection;
 
 namespace ExampleBook.Tooling.Maui;
 
