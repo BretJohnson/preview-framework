@@ -38,7 +38,7 @@ public class UIComponents
 
     public IEnumerable<UIComponent> Components => _components;
 
-    public UIComponent? GetComponentWithName(string name)
+    public UIComponent? GetComponent(string name)
     {
         foreach (UIComponent component in _components)
         {

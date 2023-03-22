@@ -49,7 +49,7 @@ public class UIComponent
 
     public IEnumerable<UIExample> Examples => _examples;
 
-    public UIExample? GetExampleWithName(string name)
+    public UIExample? GetExample(string name)
     {
         foreach (UIExample example in _examples)
         {

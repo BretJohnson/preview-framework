@@ -23,25 +23,4 @@ public class UIExamplesManager
     }
 
     public UIComponents UIComponents => _uiComponents;
-
-    public void SetCurrentExample(string componentName, string? exampleName)
-    {
-        UIComponent? component = _uiComponents.GetComponentWithName(componentName);
-        if (component == null)
-            return;
-
-        UIExample? example;
-        if (exampleName != null)
-        {
-            example = component.GetExampleWithName(exampleName);
-        }
-        else
-        {
-            example = component.GetDefaultExample();
-        }
-        if (example == null)
-            return;
-
-
-    }
 }
