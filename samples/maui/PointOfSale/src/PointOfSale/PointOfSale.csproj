@@ -78,8 +78,8 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\..\..\..\..\src\ExampleBook.Tooling.Maui\ExampleBook.Tooling.Maui.csproj" />
-	  <ProjectReference Include="..\..\..\..\..\src\ExampleBook\ExampleBook.csproj" />
+	  <ProjectReference Include="..\..\..\..\..\src\ExampleFramework.Tooling.Maui\ExampleFramework.Tooling.Maui.csproj" />
+	  <ProjectReference Include="..\..\..\..\..\src\ExampleFramework\ExampleFramework.csproj" />
 	</ItemGroup>
 	
 </Project>

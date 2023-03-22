@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExampleBook", "src\ExampleBook\ExampleBook.csproj", "{D0041716-74DA-45E3-A0D3-B4CC5CAC766B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExampleFramework", "src\ExampleFramework\ExampleFramework.csproj", "{D0041716-74DA-45E3-A0D3-B4CC5CAC766B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExampleBook.Tooling", "src\ExampleBook.Tooling\ExampleBook.Tooling.csproj", "{B002BA78-E2E3-4DC1-BBA8-8655589C7DEE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExampleFramework.Tooling", "src\ExampleFramework.Tooling\ExampleFramework.Tooling.csproj", "{B002BA78-E2E3-4DC1-BBA8-8655589C7DEE}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{D2D79087-63DE-48DA-A903-D915B1FAE013}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "maui", "maui", "{2D3F8C1A-337A-4913-A321-5167F7B49CE0}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExampleBook.Tooling.Maui", "src\ExampleBook.Tooling.Maui\ExampleBook.Tooling.Maui.csproj", "{BDF28A19-0605-44EC-B43E-7044E0C8EF2A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExampleFramework.Tooling.Maui", "src\ExampleFramework.Tooling.Maui\ExampleFramework.Tooling.Maui.csproj", "{BDF28A19-0605-44EC-B43E-7044E0C8EF2A}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SandboxApp", "samples\maui\SandboxApp\SandboxApp.csproj", "{904F28F6-030C-4A49-B0CA-A6CBBF94E8C9}"
 EndProject
