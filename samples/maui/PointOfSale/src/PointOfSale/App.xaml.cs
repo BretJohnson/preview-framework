@@ -10,7 +10,7 @@ public partial class App : Application
 
         App.Current.UserAppTheme = AppTheme.Dark;
 
-#if DEBUG
+#if EXAMPLES
         if (ExamplesManagerMaui.LaunchInExamplesMode(this, "EXAMPLES_MODE"))
         {
             return;

@@ -14,7 +14,7 @@ public partial class OrdersPage : ContentPage
 	{
     }
 
-#if DEBUG
+#if EXAMPLES
     [UIExample]
     public static OrdersPage Default() => new();
 #endif

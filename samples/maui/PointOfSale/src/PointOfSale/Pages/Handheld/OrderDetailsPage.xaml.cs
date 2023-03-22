@@ -15,7 +15,7 @@ public partial class OrderDetailsPage : ContentPage
     {
     }
 
-#if DEBUG
+#if EXAMPLES
     [UIExample]
     public static OrderDetailsPage EmptyOrder() =>
         new(
