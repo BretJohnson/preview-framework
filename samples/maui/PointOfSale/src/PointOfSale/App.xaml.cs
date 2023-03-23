@@ -1,4 +1,4 @@
-﻿using ExampleBook.Tooling.Maui;
+﻿using ExampleFramework.Tooling.Maui;
 
 namespace PointOfSale;
 

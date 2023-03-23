@@ -1,17 +1,15 @@
-﻿using ExampleBook.Tooling.Maui.Views;
-using System.Diagnostics;
-using System.Reflection;
+﻿using ExampleFramework.Tooling.Maui.Views;
 
-namespace ExampleBook.Tooling.Maui;
+namespace ExampleFramework.Tooling.Maui;
 
 public static class ExamplesManagerMaui
 {
-    private static Window _window = null;
+    private static Window? _window = null;
 
     public static bool LaunchInExamplesMode(Application app, string? environmentVariable = null)
     {
-        //if (! ShouldLaunchInExamplesMode(environmentVariable))
-            //return false;
+        if (! ShouldLaunchInExamplesMode(environmentVariable))
+            return false;
 
         if (true /* isDesktop */)
         {

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Reflection;
 
-namespace ExampleBook.Tooling;
+namespace ExampleFramework.Tooling;
 
 public static class RemoteControlManager
 {

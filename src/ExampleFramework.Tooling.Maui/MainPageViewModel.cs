@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.Reflection;
 using TreeView.Maui.Core;
 
-namespace ExampleBook.Tooling.Maui;
+namespace ExampleFramework.Tooling.Maui;
 
 
 //For Each Public Property in Bound View Models Type

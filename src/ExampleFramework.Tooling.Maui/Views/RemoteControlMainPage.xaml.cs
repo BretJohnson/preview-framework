@@ -1,4 +1,4 @@
-namespace ExampleBook.Tooling.Maui.Views;
+namespace ExampleFramework.Tooling.Maui.Views;
 
 public partial class RemoteControlMainPage : ContentPage
 {

@@ -1,4 +1,4 @@
-﻿namespace ExampleBook.Tooling.Maui
+﻿namespace ExampleFramework.Tooling.Maui
 {
     // All the code in this file is only included on Mac Catalyst.
     public class PlatformClass1

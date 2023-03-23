@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ExampleBook;
+namespace ExampleFramework;
 
 /// <summary>
 /// An attribute that specifies this is an example, for a control or other UI.

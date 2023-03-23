@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace ExampleBook.Tooling;
+namespace ExampleFramework.Tooling;
 
 public class UIComponent
 {

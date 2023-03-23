@@ -1,5 +1,4 @@
-﻿using ExampleBook;
-using SkiaSharp;
+﻿using SkiaSharp;
 using SkiaSharp.Views.Maui;
 
 namespace PointOfSale.Pages.Handheld;

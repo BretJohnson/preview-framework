@@ -1,7 +1,6 @@
-﻿using System;
-using System.Reflection;
+﻿using System.Reflection;
 
-namespace ExampleBook.Tooling;
+namespace ExampleFramework.Tooling;
 
 public class UIExamplesManager
 {

@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ExampleBook;
+namespace ExampleFramework;
 
 /// <summary>
 /// An attribute that specifies metadata for UI component that has examples.

@@ -1,6 +1,6 @@
 using TreeView.Maui.Core;
 
-namespace ExampleBook.Tooling.Maui.Views;
+namespace ExampleFramework.Tooling.Maui.Views;
 
 public partial class DesktopMainPage : ContentPage
 {
@@ -28,7 +28,7 @@ public partial class DesktopMainPage : ContentPage
                         //ExampleWrapper.BackgroundColor = contentPage.BackgroundColor;
                         ExampleWrapper.Content = contentPage.Content;
                         ExampleWrapper.BindingContext = contentPage.BindingContext;
-
+                        
                         ((ExampleTreeViewModel)this.BindingContext).GetPropertiesForObject(contentPage);
                     }
                     else if (exampleUI is View view)
