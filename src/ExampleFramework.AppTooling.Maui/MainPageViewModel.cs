@@ -20,7 +20,7 @@ namespace ExampleFramework.Tooling.Maui;
 
 public class ExampleTreeViewModel : BindableObject, INotifyPropertyChanged
 {
-    private String node; 
+    private string? node; 
     public event PropertyChangedEventHandler PropertyChanged;
 
     public List<PropertyDefinition> SelectedItemsProperties { get; set; } = new();
@@ -29,13 +29,10 @@ public class ExampleTreeViewModel : BindableObject, INotifyPropertyChanged
     {
         InitializeTreeView(UIExamplesManager.Instance.UIComponents.Components);
         SelectedItemsProperties = new List<PropertyDefinition>();
-        //SelectedItemsProperties.Add(new PropertyDefinition("test1", "99"));
-        //SelectedItemsProperties.Add(new PropertyDefinition("test2", "89"));
-        InitializeTreeView(UIExamplesManager.Instance.UIComponents.Components);
     }
 
     public ObservableCollection<TreeViewNode> Nodes { get; set; } = new();
-    public String SelectedNodeContent {
+    public string? SelectedNodeContent {
         get
         {
             return node;
@@ -67,14 +64,14 @@ public class ExampleTreeViewModel : BindableObject, INotifyPropertyChanged
         }
     }
 
-    public void GetPropertiesForObject(object obj)
+    public void UpdatePropertiesForObject(object obj)
     {
         var propertyInfos = obj.GetType().GetProperties(BindingFlags.Public | BindingFlags.Instance);//By default, it will return only public properties.
         // sort properties by name
         Array.Sort(propertyInfos,
                    (propertyInfo1, propertyInfo2) => propertyInfo1.Name.CompareTo(propertyInfo2.Name));
 
-        SelectedItemsProperties.Clear();
+        List <PropertyDefinition> properties = new List<PropertyDefinition>();
         foreach (PropertyInfo p in propertyInfos)
         {
             var name = p.Name;
@@ -82,14 +79,14 @@ public class ExampleTreeViewModel : BindableObject, INotifyPropertyChanged
             if (prop != null && p.GetValue(obj)?.ToString() != null)
             {
                 var val = p.GetValue(obj).ToString();
-                SelectedItemsProperties.Add(new PropertyDefinition(name, val));
+                properties.Add(new PropertyDefinition(name, val));
             }
         }
-        SelectedItemsProperties.Add(new PropertyDefinition("", ""));
+        properties.Add(new PropertyDefinition("", ""));
 
+        SelectedItemsProperties = properties;
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SelectedItemsProperties"));
     }
-
-
 
     public class PropertyDefinition
     {

@@ -11,7 +11,7 @@ public partial class App : Application
         App.Current.UserAppTheme = AppTheme.Dark;
 
 #if EXAMPLES
-        if (ExamplesManagerMaui.LaunchInExamplesMode(this, "EXAMPLES_MODE"))
+        if (ExamplesManagerMaui.LaunchInExamplesMode(this, "PointOfSale App - Gallery", "EXAMPLES_MODE"))
         {
             return;
         }

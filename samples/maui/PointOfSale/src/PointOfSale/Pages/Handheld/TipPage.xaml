@@ -29,7 +29,7 @@
     >
         <VerticalStackLayout VerticalOptions="Center" Spacing="8" Grid.ColumnSpan="2">
             <Label Text="Add a Tip" Style="{StaticResource LargeTitle}"/>
-            <Label Text="{Binding Order.Total, StringFormat='Your Bill: ${0}'}"/>
+            <Label Text="{Binding Order.Total, StringFormat='Your Bill is : ${0}'}"/>
             <BoxView Style="{StaticResource HRule}"/>
         </VerticalStackLayout>
         

@@ -1,11 +1,10 @@
-﻿using System;
-using System.Reflection;
+﻿namespace ExampleFramework.Tooling;
 
-namespace ExampleFramework.Tooling;
-
-public static class RemoteControlManager
+public abstract class RemoteControlManager : IRemoteControlManager
 {
-    public static void SetCurrentExample(string componentName, string? exampleName)
+    public abstract void SetCurrentExample(string componentName, string? exampleName);
+
+    public void SetCurrentExampleHelper(string componentName, string? exampleName)
     {
         UIComponents components = UIExamplesManager.Instance.UIComponents;
 
@@ -26,8 +25,6 @@ public static class RemoteControlManager
         }
         if (example == null)
             return;
-
-
 
     }
 }

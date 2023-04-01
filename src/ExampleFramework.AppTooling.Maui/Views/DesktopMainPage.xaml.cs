@@ -9,6 +9,14 @@ public partial class DesktopMainPage : ContentPage
 		InitializeComponent();
 
         this.BindingContext = new ExampleTreeViewModel();
+        this.Loaded += DesktopMainPage_Loaded;
+    }
+
+    private void DesktopMainPage_Loaded(object? sender, EventArgs e)
+    {
+        IReadOnlyList<Window> appWindows = Application.Current.Windows;
+        if (appWindows.Count > 0)
+            appWindows[0].Title = "PointOfSale App Gallery";
     }
 
     private void OnExampleTapped(object sender, TappedEventArgs e)
@@ -29,7 +37,7 @@ public partial class DesktopMainPage : ContentPage
                         ExampleWrapper.Content = contentPage.Content;
                         ExampleWrapper.BindingContext = contentPage.BindingContext;
                         
-                        ((ExampleTreeViewModel)this.BindingContext).GetPropertiesForObject(contentPage);
+                        ((ExampleTreeViewModel)this.BindingContext).UpdatePropertiesForObject(contentPage);
                     }
                     else if (exampleUI is View view)
                     {

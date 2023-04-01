@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace ExampleFramework;
+﻿namespace ExampleFramework;
 
 /// <summary>
 /// An attribute that specifies metadata for UI component that has examples.
@@ -12,7 +10,7 @@ public sealed class UIExamplesAttribute : Attribute
 {
     /// <summary>
     /// Optional title for the example, determining how it appears in navigation UI.
-    /// "/" delimeters can be used to indicate hierarchy.
+    /// "/" delimiters can be used to indicate hierarchy.
     /// </summary>
     public string? Title { get; }
 

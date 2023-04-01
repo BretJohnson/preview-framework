@@ -1,4 +1,5 @@
 ﻿using CommunityToolkit.Maui;
+using ExampleFramework.Tooling;
 using Microsoft.Maui.LifecycleEvents;
 using Microsoft.Maui.Platform;
 using SkiaSharp.Views.Maui.Controls.Hosting;
@@ -20,7 +21,7 @@ public static class MauiProgram
 {
 	public static MauiApp CreateMauiApp()
 	{
-		var builder = MauiApp.CreateBuilder();
+        var builder = MauiApp.CreateBuilder();
 		builder
 			.UseMauiApp<App>()
             .UseBarcodeReader()

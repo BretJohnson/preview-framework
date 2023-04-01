@@ -13,7 +13,7 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
             <RowDefinition Height="40"/>
-            <RowDefinition Height="300"/>
+            <RowDefinition Height="200"/>
         </Grid.RowDefinitions>
 
         <ScrollView Grid.Column="0"
@@ -40,14 +40,13 @@
                          />
         </ScrollView>
 
-        <Border Grid.Column="1" Grid.Row="1" >
-            <HorizontalStackLayout BackgroundColor="White" Spacing="10" Padding="8,2">
-                <Button BackgroundColor="SkyBlue" Text="Properties" ></Button>
-                <Button BackgroundColor="SkyBlue" Text="Accesability" ></Button>
-            </HorizontalStackLayout>
-        </Border>
+        <HorizontalStackLayout Grid.Column="1" Grid.Row="1" BackgroundColor="White" Spacing="10" Padding="8,2" >
+            <Button BackgroundColor="DarkBlue" Text="Properties"></Button>
+            <Button BackgroundColor="SkyBlue" Text="Emitted Events"></Button>
+            <Button BackgroundColor="SkyBlue" Text="Accessibility" ></Button>
+        </HorizontalStackLayout>
 
-            <ScrollView  Orientation="Vertical" Grid.Column="1" Grid.Row="2" BackgroundColor="White" Padding="8">
+        <ScrollView Orientation="Vertical" Grid.Column="1" Grid.Row="2" BackgroundColor="White" Padding="8">
             <CollectionView ItemsSource="{Binding SelectedItemsProperties}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>

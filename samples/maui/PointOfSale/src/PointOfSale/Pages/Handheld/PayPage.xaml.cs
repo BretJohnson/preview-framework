@@ -12,6 +12,6 @@ public partial class PayPage : ContentPage
 
 #if EXAMPLES
     [UIExample]
-    public static PayPage Example() => new();
+    public static PayPage Default() => new();
 #endif
 }

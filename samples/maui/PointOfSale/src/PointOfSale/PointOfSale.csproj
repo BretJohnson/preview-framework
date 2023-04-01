@@ -78,7 +78,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\..\..\..\..\src\ExampleFramework.Tooling.Maui\ExampleFramework.Tooling.Maui.csproj" />
+	  <ProjectReference Include="..\..\..\..\..\src\ExampleFramework.AppTooling.Maui\ExampleFramework.AppTooling.Maui.csproj" />
 	  <ProjectReference Include="..\..\..\..\..\src\ExampleFramework\ExampleFramework.csproj" />
 	</ItemGroup>
 	

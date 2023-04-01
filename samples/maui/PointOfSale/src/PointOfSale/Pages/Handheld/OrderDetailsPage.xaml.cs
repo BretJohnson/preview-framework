@@ -15,12 +15,6 @@ public partial class OrderDetailsPage : ContentPage
 
 #if EXAMPLES
     [UIExample]
-    public static OrderDetailsPage EmptyOrder() =>
-        new(
-            new OrderDetailsViewModel(
-                AppData.GenerateSampleOrder(7, "Ready to Order")));
-
-    [UIExample]
     public static OrderDetailsPage SmallOrder() =>
         new(
             new OrderDetailsViewModel(
@@ -44,5 +38,11 @@ public partial class OrderDetailsPage : ContentPage
                     new Item() { Title = "Coffee", Price = 4.00, Quantity = 1, Category = ItemCategory.Beverages, Image = "coffee.png" },
                     new Item() { Title = "Milk", Price = 5.00, Quantity = 1, Category = ItemCategory.Beverages, Image = "milk.png" }
                 )));
+
+    [UIExample]
+    public static OrderDetailsPage EmptyOrder() =>
+        new(
+            new OrderDetailsViewModel(
+                AppData.GenerateSampleOrder(7, "Ready to Order")));
 #endif
 }
