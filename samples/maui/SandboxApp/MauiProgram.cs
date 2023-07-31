@@ -15,8 +15,8 @@ namespace SandboxApp
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
 
-#if DEBUG
-            builder.Logging.AddDebug();
+#if EXAMPLES
+            builder.EnableExamplesMode<App>();
 #endif
 
             return builder.Build();

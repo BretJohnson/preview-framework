@@ -1,4 +1,4 @@
-﻿using ExampleBook.Tooling.Maui;
+﻿using ExampleFramework.Tooling.Maui;
 
 namespace SandboxApp
 {
@@ -7,13 +7,6 @@ namespace SandboxApp
         public App()
         {
             InitializeComponent();
-
-#if DEBUG
-            if (ExamplesManagerMaui.LaunchInExamplesMode(this, "EXAMPLES_MODE"))
-            {
-                return;
-            }
-#endif
 
             MainPage = new AppShell();
         }

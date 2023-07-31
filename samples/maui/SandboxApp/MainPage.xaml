@@ -23,13 +23,6 @@
                 FontSize="18"
                 HorizontalOptions="Center" />
 
-            <Button
-                x:Name="ShowExampleBookWindow"
-                Text="Show ExampleBook Window"
-                SemanticProperties.Hint="Counts the number of times you click"
-                Clicked="OnShowClicked"
-                HorizontalOptions="Center" />
-
         </VerticalStackLayout>
     </ScrollView>
 

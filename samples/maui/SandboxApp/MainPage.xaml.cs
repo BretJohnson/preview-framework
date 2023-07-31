@@ -1,6 +1,5 @@
-﻿using ExampleBook;
-using ExampleBook.Tooling.Maui;
-using ExampleBook.Tooling.Maui.Views;
+﻿using ExampleFramework;
+using ExampleFramework.Tooling.Maui;
 
 namespace SandboxApp
 {
@@ -11,12 +10,7 @@ namespace SandboxApp
             InitializeComponent();
         }
 
-        private void OnShowClicked(object sender, EventArgs e)
-        {
-            ExamplesManagerMaui.ShowWindow();
-        }
-
-#if DEBUG
+#if EXAMPLES
         [UIExample("Example1")]
         public static MainPage Example1() => new MainPage();
 

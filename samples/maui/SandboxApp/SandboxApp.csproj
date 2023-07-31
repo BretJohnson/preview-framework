@@ -31,8 +31,13 @@
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-ios|AnyCPU'">
-	  <CreatePackage>false</CreatePackage>
+		<CreatePackage>false</CreatePackage>
 	</PropertyGroup>
+	<PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+		<DefineConstants>$(DefineConstants);EXAMPLES</DefineConstants>
+		<Examples>true</Examples>
+	</PropertyGroup>
+
 	<ItemGroup>
 		<!-- App Icon -->
 		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
@@ -55,9 +60,9 @@
 		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="7.0.0" />
 	</ItemGroup>
 
-	<ItemGroup>
-	  <ProjectReference Include="..\..\..\src\ExampleBook.Tooling.Maui\ExampleBook.Tooling.Maui.csproj" />
-	  <ProjectReference Include="..\..\..\src\ExampleBook\ExampleBook.csproj" />
+	<ItemGroup Condition="$(Examples) != ''">
+		<ProjectReference Include="..\..\..\src\ExampleFramework.Tooling.Maui\ExampleFramework.Tooling.Maui.csproj" />
+		<ProjectReference Include="..\..\..\src\ExampleFramework\ExampleFramework.csproj" />
 	</ItemGroup>
 
 </Project>
