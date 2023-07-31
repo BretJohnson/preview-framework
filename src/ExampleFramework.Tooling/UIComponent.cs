@@ -1,6 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Reflection;
 
 namespace ExampleFramework.Tooling;
 
@@ -9,6 +7,7 @@ public class UIComponent
     private string? _title;
     private readonly Type _type;
     private readonly List<UIExample> _examples = new();
+    private List<UIProperty>? _properties = null;
 
     public UIComponent(string? title, Type type)
     {
@@ -35,10 +34,10 @@ public class UIComponent
     }
 
     /// <summary>
-    /// Name is intended to be what's used by the code to identify the component. It's just the component's
+    /// FullName is intended to be what's used by the code to identify the component. It's just the component's
     /// full qualitified type name. It's unique.
     /// </summary>
-    public string Name => _type.FullName;
+    public string FullName => _type.FullName;
 
     public Type Type => _type;
 
@@ -53,13 +52,61 @@ public class UIComponent
     {
         foreach (UIExample example in _examples)
         {
-            if (example.Name == name)
+            if (example.FullName == name)
             {
                 return example;
             }
         }
 
         return null;
+    }
+
+    public List<UIProperty> GetProperties()
+    {
+        if (_properties != null)
+        {
+            return _properties;
+        }
+
+        var properties = new List<UIProperty>();
+        var typesProcessed = new HashSet<Type>();
+        AddReflectionProperties(_type, typesProcessed, properties);
+
+        _properties = properties;
+        return _properties;
+    }
+
+    public static void AddReflectionProperties(Type type, HashSet<Type> typesProcessed, List<UIProperty> properties)
+    {
+        if (typesProcessed.Contains(type))
+            return;
+
+        foreach (PropertyInfo propertyInfo in type.GetProperties(BindingFlags.Instance | BindingFlags.Public))
+        {
+            // Only include properties that can both be read & written
+            if (!propertyInfo.CanRead || !propertyInfo.CanWrite)
+                continue;
+
+            properties.Add(new ReflectionUIProperty(propertyInfo));
+        }
+
+        typesProcessed.Add(type);
+
+        if (type.IsInterface)
+        {
+            foreach (var baseInterface in type.GetInterfaces())
+            {
+                AddReflectionProperties(baseInterface, typesProcessed, properties);
+            }
+        }
+        else if (type.IsClass)
+        {
+            Type? baseType = type.BaseType;
+            if (baseType != null)
+            {
+                AddReflectionProperties(baseType, typesProcessed, properties);
+            }
+        }
     }
 
     public UIExample? GetDefaultExample() => _examples.FirstOrDefault();

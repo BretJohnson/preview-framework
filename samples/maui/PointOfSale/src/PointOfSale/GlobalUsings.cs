@@ -5,4 +5,7 @@ global using CommunityToolkit.Mvvm.ComponentModel;
 global using CommunityToolkit.Mvvm.Input;
 global using PointOfSale.Models;
 global using CommunityToolkit.Mvvm.Messaging;
+#if EXAMPLES
 global using ExampleFramework;
+global using ExampleFramework.Tooling.Maui;
+#endif

@@ -1,5 +1,4 @@
 ﻿using CommunityToolkit.Maui;
-using ExampleFramework.Tooling;
 using Microsoft.Maui.LifecycleEvents;
 using Microsoft.Maui.Platform;
 using SkiaSharp.Views.Maui.Controls.Hosting;
@@ -60,6 +59,10 @@ public static class MauiProgram
 #endif
 
         ModifyEntry();
+
+#if EXAMPLES
+        builder.EnableExamplesMode<App>();
+#endif
 
         return builder.Build();
 	}

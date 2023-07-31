@@ -27,7 +27,7 @@ public class ExampleTreeViewModel : BindableObject, INotifyPropertyChanged
 
     public ExampleTreeViewModel()
     {
-        InitializeTreeView(UIExamplesManager.Instance.UIComponents.Components);
+        InitializeTreeView(AppUIExamplesManager.Instance.UIComponents.Components);
         SelectedItemsProperties = new List<PropertyDefinition>();
     }
 

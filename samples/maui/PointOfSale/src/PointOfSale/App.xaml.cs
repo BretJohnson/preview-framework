@@ -5,17 +5,10 @@ namespace PointOfSale;
 public partial class App : Application
 {
     public App()
-	{
-		InitializeComponent();
+    {
+        InitializeComponent();
 
         App.Current.UserAppTheme = AppTheme.Dark;
-
-#if EXAMPLES
-        if (ExamplesManagerMaui.LaunchInExamplesMode(this, "PointOfSale App - Gallery", "EXAMPLES_MODE"))
-        {
-            return;
-        }
-#endif
 
         if (true /* DeviceInfo.Idiom == DeviceIdiom.Phone */)
         {
@@ -25,5 +18,5 @@ public partial class App : Application
         {
             MainPage = new AppShell();
         }
-	}
+    }
 }

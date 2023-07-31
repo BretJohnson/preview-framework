@@ -9,7 +9,7 @@ public class RemoteControlManagerMaui : RemoteControlManager
 {
     public override void SetCurrentExample(string componentName, string? exampleName)
     {
-        UIComponents components = UIExamplesManager.Instance.UIComponents;
+        UIComponents components = AppUIExamplesManager.Instance.UIComponents;
 
         UIComponent? component = components.GetComponent(componentName);
         if (component == null)
@@ -29,7 +29,6 @@ public class RemoteControlManagerMaui : RemoteControlManager
         if (example == null)
             return;
 
-        var app = Application.Current;
         if (Application.Current?.MainPage is RemoteControlMainPage remoteControlMainPage)
             remoteControlMainPage.SetExample(example);
     }

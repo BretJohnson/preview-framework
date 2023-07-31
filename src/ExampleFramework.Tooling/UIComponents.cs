@@ -42,7 +42,7 @@ public class UIComponents
     {
         foreach (UIComponent component in _components)
         {
-            if (component.Name == name)
+            if (component.FullName == name)
             {
                 return component;
             }

@@ -6,7 +6,7 @@ public abstract class RemoteControlManager : IRemoteControlManager
 
     public void SetCurrentExampleHelper(string componentName, string? exampleName)
     {
-        UIComponents components = UIExamplesManager.Instance.UIComponents;
+        UIComponents components = AppUIExamplesManager.Instance.UIComponents;
 
         UIComponent? component = components.GetComponent(componentName);
         if (component == null)

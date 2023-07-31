@@ -1,31 +1,31 @@
-﻿using System;
-using System.Reflection;
+﻿using System.Reflection;
 
 namespace ExampleFramework.Tooling;
 
 public class UIExample
 {
     private readonly string? _title;
-    private readonly MethodInfo _methodInfo;
+
+    public MethodInfo MethodInfo { get; }
 
     public UIExample(string? title, MethodInfo methodInfo)
     {
         _title = title;
-        _methodInfo = methodInfo;
+        MethodInfo = methodInfo;
     }
 
     public UIExample(UIExampleAttribute uiExampleAttribute, MethodInfo methodInfo)
     {
         _title = uiExampleAttribute.Title;
-        _methodInfo = methodInfo;
+        MethodInfo = methodInfo;
     }
 
     public object Create()
     {
-        if (_methodInfo.GetParameters().Length != 0)
+        if (MethodInfo.GetParameters().Length != 0)
             throw new InvalidOperationException($"Examples that take parameters aren't yet supported: {GetMethodDisplayName()}");
 
-        return _methodInfo.Invoke(null, null);
+        return MethodInfo.Invoke(null, null);
     }
 
     /// <summary>
@@ -34,7 +34,7 @@ public class UIExample
     /// </summary>
     /// <returns>user friendly title of example method</returns>
     public string GetMethodDisplayName() =>
-        $"{_methodInfo.DeclaringType.Name}.{_methodInfo.Name}";
+        $"{MethodInfo.DeclaringType.Name}.{MethodInfo.Name}";
 
     /// <summary>
     /// Title is intended to be what's shown in the UI to identify the example. It can contain spaces and
@@ -49,15 +49,13 @@ public class UIExample
                 return _title;
 
             // Otherwise default to the method name
-            return _methodInfo.Name;
+            return MethodInfo.Name;
         }
     }
 
     /// <summary>
-    /// Name is intended to be what's used by the code to identify the example. It's the examples's
+    /// FullName is intended to be what's used by the code to identify the example. It's the examples's
     /// full qualitified method name.
     /// </summary>
-    public string Name => _methodInfo.DeclaringType.FullName + "." + _methodInfo.Name;
-
-    public MethodInfo MethodInfo => _methodInfo;
+    public string FullName => MethodInfo.DeclaringType.FullName + "." + MethodInfo.Name;
 }
