@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <EnableExampleFrameworkCopyResources Condition=" '$(EnableExampleFrameworkCopyResources)' == '' ">true</EnableExampleFrameworkCopyResources>
+  </PropertyGroup>
+
+  <Target Name="GetExampleFrameworkCultureHierarchy">
+    <!--
+      Only traversing 5 levels in the culture hierarchy. This is the maximum length for all cultures and should be sufficient
+      to get to a culture name that maps to a resource folder we package.
+      The root culture name for all cultures is invariant whose name is '' (empty) and the parent for invariant culture is
+      invariant itself. (https://msdn.microsoft.com/library/system.globalization.cultureinfo.parent.aspx)
+      So the below code should not break build in any case.
+      -->
+    <ItemGroup>
+      <CurrentUICultureHierarchy Include="$([System.Globalization.CultureInfo]::CurrentUICulture.Name)" />
+      <CurrentUICultureHierarchy Include="$([System.Globalization.CultureInfo]::CurrentUICulture.Parent.Name)"  Condition=" '$([System.Globalization.CultureInfo]::CurrentUICulture.Parent.Name)' != '' "/>
+      <CurrentUICultureHierarchy Include="$([System.Globalization.CultureInfo]::CurrentUICulture.Parent.Parent.Name)"  Condition=" '$([System.Globalization.CultureInfo]::CurrentUICulture.Parent.Parent.Name)' != '' "/>
+      <CurrentUICultureHierarchy Include="$([System.Globalization.CultureInfo]::CurrentUICulture.Parent.Parent.Parent.Name)"  Condition=" '$([System.Globalization.CultureInfo]::CurrentUICulture.Parent.Parent.Parent.Name)' != '' "/>
+      <CurrentUICultureHierarchy Include="$([System.Globalization.CultureInfo]::CurrentUICulture.Parent.Parent.Parent.Parent.Name)"  Condition=" '$([System.Globalization.CultureInfo]::CurrentUICulture.Parent.Parent.Parent.Parent.Name)' != '' "/>
+    </ItemGroup>
+  </Target>
+
+  <!-- Copy resources over to $(TargetDir) if this is a localized build. -->
+  <Target Name="CopyExampleFrameworkResources" BeforeTargets="PrepareForBuild" Condition=" '$(EnableExampleFrameworkCopyResources)' == 'true' " DependsOnTargets="GetExampleFrameworkCultureHierarchy">
+    <ItemGroup>
+      <ExampleFrameworkResourceFiles Include="$(MSBuildThisFileDirectory)..\_localization\%(CurrentUICultureHierarchy.Identity)\*resources.dll">
+        <CultureString>%(CurrentUICultureHierarchy.Identity)</CultureString>
+      </ExampleFrameworkResourceFiles>
+
+      <Content Include="@(ExampleFrameworkResourceFiles)" Condition=" @(ExampleFrameworkResourceFiles) != '' ">
+        <Link>%(ExampleFrameworkResourceFiles.CultureString)\%(Filename)%(Extension)</Link>
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+        <Visible>False</Visible>
+      </Content>
+    </ItemGroup>
+  </Target>
+
+</Project>

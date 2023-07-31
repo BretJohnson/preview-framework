@@ -1,0 +1,123 @@
+// Copyright (c) Microsoft Corporation. All rights reserved.
+// Licensed under the MIT license. See LICENSE file in the project root for full license information.
+
+using ExampleFramework.TestAdapater.PlatformServices.Services;
+using ExampleFramework.TestAdapter.PlatformServices.Interfaces;
+using ExampleFramework.TestAdapter.PlatformServices.Services;
+using ExampleFramework.Tooling;
+
+namespace ExampleFramework.TestAdapter;
+
+/// <summary>
+/// The main service provider class that exposes all the platform services available.
+/// </summary>
+internal class PlatformServiceProvider : IPlatformServiceProvider
+{
+    private static IPlatformServiceProvider? s_instance;
+
+    private ITestSource? _testSource;
+    private IFileOperations? _fileOperations;
+    private IAdapterTraceLogger? _traceLogger;
+    private ISettingsProvider? _settingsProvider;
+    private IReflectionOperations? _reflectionOperations;
+
+    /// <summary>
+    /// Initializes a new instance of the <see cref="PlatformServiceProvider"/> class - a singleton.
+    /// </summary>
+    private PlatformServiceProvider()
+    {
+    }
+
+    /// <summary>
+    /// Gets an instance to the platform service validator for test sources.
+    /// </summary>
+    public ITestSource TestSource => _testSource ??= new TestSource();
+
+    /// <summary>
+    /// Gets an instance to the platform service for file operations.
+    /// </summary>
+    public IFileOperations FileOperations => _fileOperations ??= new FileOperations();
+
+    /// <summary>
+    /// Gets an instance to the platform service for trace logging.
+    /// </summary>
+    public IAdapterTraceLogger AdapterTraceLogger => _traceLogger ??= new AdapterTraceLogger();
+
+    /// <summary>
+    /// Gets an instance to the platform service for a Settings Provider.
+    /// </summary>
+    public ISettingsProvider SettingsProvider => _settingsProvider ??= new TestSettingsProvider();
+
+    /// <summary>
+    /// Gets an instance to the platform service for reflection operations specific to a platform.
+    /// </summary>
+    public IReflectionOperations ReflectionOperations => _reflectionOperations ??= new ReflectionOperations();
+
+    /// <summary>
+    /// Gets or sets the instance for the platform service.
+    /// </summary>
+    internal static IPlatformServiceProvider Instance
+    {
+        get => s_instance ??= new PlatformServiceProvider();
+        set => s_instance = value;
+    }
+
+    /// <summary>
+    /// Creates an instance to the platform service for a test source host.
+    /// </summary>
+    /// <param name="source">
+    /// The source.
+    /// </param>
+    /// <param name="runSettings">
+    /// The run Settings for the session.
+    /// </param>
+    /// <param name="frameworkHandle">
+    /// The handle to the test platform.
+    /// </param>
+    /// <returns>
+    /// Returns the host for the source provided.
+    /// </returns>
+    public ITestSourceHost CreateTestSourceHost(
+        string source,
+        Microsoft.VisualStudio.TestPlatform.ObjectModel.Adapter.IRunSettings? runSettings,
+        Microsoft.VisualStudio.TestPlatform.ObjectModel.Adapter.IFrameworkHandle? frameworkHandle)
+    {
+        var testSourceHost = new TestSourceHost(source, runSettings, frameworkHandle);
+        testSourceHost.SetupHost();
+
+        return testSourceHost;
+    }
+
+    /// <summary>
+    /// Gets an instance to the platform service listener who monitors trace and debug output
+    /// on provided text writer.
+    /// </summary>
+    /// <param name="textWriter">
+    /// The text Writer.
+    /// </param>
+    /// <returns>
+    /// The <see cref="ITraceListener"/>.
+    /// </returns>
+    public ITraceListener GetTraceListener(TextWriter textWriter)
+    {
+        return new TraceListenerWrapper(textWriter);
+    }
+
+    /// <summary>
+    /// Gets an instance to the platform service trace-listener manager which updates the output/error streams
+    /// with redirected streams and performs operations on the listener provided as argument.
+    /// </summary>
+    /// <param name="outputWriter">
+    /// The redirected output stream writer.
+    /// </param>
+    /// <param name="errorWriter">
+    /// The redirected error stream writer.
+    /// </param>
+    /// <returns>
+    /// The manager for trace listeners.
+    /// </returns>
+    public ITraceListenerManager GetTraceListenerManager(TextWriter outputWriter, TextWriter errorWriter)
+    {
+        return new TraceListenerManager(outputWriter, errorWriter);
+    }
+}

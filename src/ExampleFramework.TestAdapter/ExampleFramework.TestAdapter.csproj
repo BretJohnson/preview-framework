@@ -1,0 +1,63 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+	  <TargetFrameworks>net472;net6.0</TargetFrameworks>
+	  <LangVersion>10.0</LangVersion>
+	  <Nullable>enable</Nullable>
+	  <ImplicitUsings>enable</ImplicitUsings>
+
+    <DevelopmentDependency>true</DevelopmentDependency>
+    <BuildOutputTargetFolder>build</BuildOutputTargetFolder>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+  </PropertyGroup>
+
+  <PropertyGroup>
+	  <IsPackable>true</IsPackable>
+	  <PackageId>ExampleFramework.TestAdapter</PackageId>
+	  <PackageTags>ExampleFramework VisualTesting VisualRegressionTesting SnapshotTesting VisualStudio</PackageTags>
+    <PackageDescription>
+	    This package includes the adapter logic to discover and run ExampleFramework examples as visual regression tests.
+      To create examples in your code, install the ExampleFramework package.
+
+	    Currently supported platforms:
+	    - .NET 4.7.2+
+	    - .NET 6.0
+    </PackageDescription>
+	  <!-- Nothing in lib but that's expected -->
+	  <NoWarn>$(NoWarn);NU5127;NU5128</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup Label="Package">
+    <!-- net6.0 -->
+    <None Include="Build\Net6\ExampleFramework.TestAdapter.props" PackagePath="build\net6.0\ExampleFramework.TestAdapter.props" Pack="true" />
+    <None Include="Build\Net6\ExampleFramework.TestAdapter.targets" PackagePath="build\net6.0\ExampleFramework.TestAdapter.targets" Pack="true" />
+
+    <!-- net472 -->
+    <None Include="Build\Desktop\ExampleFramework.TestAdapter.props" PackagePath="build\net472\" Pack="true" />
+    <None Include="Build\Desktop\ExampleFramework.TestAdapter.targets" PackagePath="build\net472\" Pack="true" />
+  </ItemGroup>
+
+  <ItemGroup>
+	  <PackageReference Include="Microsoft.TestPlatform.ObjectModel" Version="17.5.0" />
+	  <PackageReference Include="Microsoft.TestPlatform.AdapterUtilities" Version="17.5.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ExampleFramework.Tooling\ExampleFramework.Tooling.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+	  <Compile Update="Resources\Resource.Designer.cs">
+		  <AutoGen>True</AutoGen>
+		  <DesignTime>True</DesignTime>
+		  <DependentUpon>Resource.resx</DependentUpon>
+	  </Compile>
+	  <EmbeddedResource Update="Resources\Resource.resx">
+		  <Generator>ResXFileCodeGenerator</Generator>
+		  <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+		  <CustomToolNamespace>ExampleFramework.TestAdapter</CustomToolNamespace>
+		  <SubType>Designer</SubType>
+	  </EmbeddedResource>
+  </ItemGroup>
+
+</Project>
