@@ -40,10 +40,10 @@
 
 	<ItemGroup>
 	  <Compile Update="App.xaml.cs">
-	    <DependentUpon>%(Filename)</DependentUpon>
+	    <DependentUpon>App.xaml</DependentUpon>
 	  </Compile>
-	  <Compile Update="Views\DesktopMainPage.xaml.cs">
-	    <DependentUpon>DesktopMainPage.xaml</DependentUpon>
+	  <Compile Update="Views\DesktopGalleryMainPage.xaml.cs">
+	    <DependentUpon>DesktopGalleryMainPage.xaml</DependentUpon>
 	  </Compile>
 	</ItemGroup>
 
@@ -57,7 +57,7 @@
 	  <MauiXaml Update="Resources\Styles\Styles.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="Views\DesktopMainPage.xaml">
+	  <MauiXaml Update="Views\DesktopGalleryMainPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	</ItemGroup>

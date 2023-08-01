@@ -9,7 +9,7 @@ namespace ExampleFramework.Tooling.Maui
             InitializeComponent();
 
             //MainPage = new AppShell();
-            MainPage = new DesktopMainPage();
+            MainPage = new DesktopGalleryMainPage();
         }
     }
 }

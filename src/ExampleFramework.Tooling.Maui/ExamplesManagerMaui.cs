@@ -26,7 +26,7 @@ public static class ExamplesManagerMaui
 
         if (examplesMode == ExamplesMode.Gallery)
         {
-            app.MainPage = new DesktopMainPage();
+            app.MainPage = new DesktopGalleryMainPage();
 
             IReadOnlyList<Window> appWindows = app.Windows;
             if (appWindows.Count > 0)
