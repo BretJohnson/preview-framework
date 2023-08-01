@@ -6,10 +6,10 @@ namespace ExampleFramework.Tooling.Maui
     {
         public App()
         {
-            InitializeComponent();
+            this.InitializeComponent();
 
             //MainPage = new AppShell();
-            MainPage = new DesktopGalleryMainPage();
+            this.MainPage = new DesktopGalleryMainPage();
         }
     }
 }
