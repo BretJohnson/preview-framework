@@ -1,4 +1,4 @@
-using TreeView.Maui.Core;
+using ExampleFramework.Tooling.Maui.Controls.TreeView;
 
 namespace ExampleFramework.Tooling.Maui.Views;
 
@@ -14,7 +14,7 @@ public partial class DesktopGalleryMainPage : ContentPage
 
     private void DesktopMainPage_Loaded(object? sender, EventArgs e)
     {
-        IReadOnlyList<Window> appWindows = Application.Current.Windows;
+        IReadOnlyList<Window> appWindows = Application.Current!.Windows;
         if (appWindows.Count > 0)
             appWindows[0].Title = "PointOfSale App Gallery";
     }

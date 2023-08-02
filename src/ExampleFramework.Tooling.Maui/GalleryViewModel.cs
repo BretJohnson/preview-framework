@@ -1,7 +1,7 @@
 ﻿using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Reflection;
-using TreeView.Maui.Core;
+using ExampleFramework.Tooling.Maui.Controls.TreeView;
 
 namespace ExampleFramework.Tooling.Maui;
 
@@ -45,7 +45,7 @@ public class GalleryViewModel : INotifyPropertyChanged
                 componentNode.Children.Add(exampleNode);
             }
 
-            Nodes.Add(componentNode);
+            this.Nodes.Add(componentNode);
         }
     }
 
@@ -69,7 +69,7 @@ public class GalleryViewModel : INotifyPropertyChanged
         }
         properties.Add(new PropertyDefinition("", ""));
 
-        SelectedItemsProperties = properties;
+        this.SelectedItemsProperties = properties;
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SelectedItemsProperties"));
     }
 
