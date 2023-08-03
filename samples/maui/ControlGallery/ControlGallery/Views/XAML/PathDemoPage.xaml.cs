@@ -1,0 +1,17 @@
+﻿using Microsoft.Maui.Controls;
+
+namespace ControlGallery.Views.XAML
+{
+    public partial class PathDemoPage : ContentPage
+    {
+        public PathDemoPage()
+        {
+            InitializeComponent();
+        }
+
+#if EXAMPLES
+        [UIExample("Example")]
+        public static PathDemoPage Example() => new PathDemoPage();
+#endif
+    }
+}
