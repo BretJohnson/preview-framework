@@ -11,21 +11,21 @@ public class UIExample
     public UIExample(string? title, MethodInfo methodInfo)
     {
         _title = title;
-        MethodInfo = methodInfo;
+        this.MethodInfo = methodInfo;
     }
 
     public UIExample(UIExampleAttribute uiExampleAttribute, MethodInfo methodInfo)
     {
         _title = uiExampleAttribute.Title;
-        MethodInfo = methodInfo;
+        this.MethodInfo = methodInfo;
     }
 
     public object Create()
     {
-        if (MethodInfo.GetParameters().Length != 0)
+        if (this.MethodInfo.GetParameters().Length != 0)
             throw new InvalidOperationException($"Examples that take parameters aren't yet supported: {GetMethodDisplayName()}");
 
-        return MethodInfo.Invoke(null, null);
+        return this.MethodInfo.Invoke(null, null);
     }
 
     /// <summary>
@@ -34,7 +34,7 @@ public class UIExample
     /// </summary>
     /// <returns>user friendly title of example method</returns>
     public string GetMethodDisplayName() =>
-        $"{MethodInfo.DeclaringType.Name}.{MethodInfo.Name}";
+        $"{this.MethodInfo.DeclaringType.Name}.{this.MethodInfo.Name}";
 
     /// <summary>
     /// Title is intended to be what's shown in the UI to identify the example. It can contain spaces and
@@ -49,7 +49,7 @@ public class UIExample
                 return _title;
 
             // Otherwise default to the method name
-            return MethodInfo.Name;
+            return this.MethodInfo.Name;
         }
     }
 
@@ -57,5 +57,5 @@ public class UIExample
     /// FullName is intended to be what's used by the code to identify the example. It's the examples's
     /// full qualitified method name.
     /// </summary>
-    public string FullName => MethodInfo.DeclaringType.FullName + "." + MethodInfo.Name;
+    public string FullName => this.MethodInfo.DeclaringType.FullName + "." + this.MethodInfo.Name;
 }
