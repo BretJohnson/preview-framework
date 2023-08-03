@@ -1,4 +1,5 @@
 using ExampleFramework.Tooling.Maui.Controls.TreeView;
+using ExampleFramework.Tooling.Maui.ViewModels;
 
 namespace ExampleFramework.Tooling.Maui.Views;
 
@@ -19,13 +20,15 @@ public partial class DesktopGalleryMainPage : ContentPage
             appWindows[0].Title = "PointOfSale App Gallery";
     }
 
-    private void OnExampleTapped(object sender, TappedEventArgs e)
+    private void OnTreeNodeTapped(object sender, TappedEventArgs e)
     {
         if (sender is HorizontalStackLayout horizonalStackLayout)
         {
             var binding = horizonalStackLayout.Parent.BindingContext;
             if (binding is TreeViewNode treeViewNode)
             {
+                NavigationTree.SelectedItem = treeViewNode;
+
                 var value = treeViewNode.Value;
                 if (value is UIExample uiExample)
                 {

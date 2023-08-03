@@ -3,23 +3,13 @@ using System.ComponentModel;
 using System.Reflection;
 using ExampleFramework.Tooling.Maui.Controls.TreeView;
 
-namespace ExampleFramework.Tooling.Maui;
+namespace ExampleFramework.Tooling.Maui.ViewModels;
 
-
-//For Each Public Property in Bound View Models Type
-//Is it a primitive
-//Display it and its type
-//Else
-//For Each Public Property in Property
-// Recurse
-
-
-//Add To List
-//Either as Header
-//Or Entry
 
 public class GalleryViewModel : INotifyPropertyChanged
 {
+    public ObservableCollection<TreeViewNode> Nodes { get; set; } = new();
+
     public event PropertyChangedEventHandler? PropertyChanged;
 
     public List<PropertyDefinition> SelectedItemsProperties { get; set; } = new();
@@ -29,8 +19,6 @@ public class GalleryViewModel : INotifyPropertyChanged
         this.InitializeTreeView(AppUIExamplesManager.Instance.UIComponents.Components);
         this.SelectedItemsProperties = new List<PropertyDefinition>();
     }
-
-    public ObservableCollection<TreeViewNode> Nodes { get; set; } = new();
 
     // For now ignore the case where the example Titles contain "/" characters for a deeper
     // hierarchy
@@ -70,7 +58,7 @@ public class GalleryViewModel : INotifyPropertyChanged
         properties.Add(new PropertyDefinition("", ""));
 
         this.SelectedItemsProperties = properties;
-        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs("SelectedItemsProperties"));
+        PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(nameof(this.SelectedItemsProperties)));
     }
 
     public class PropertyDefinition

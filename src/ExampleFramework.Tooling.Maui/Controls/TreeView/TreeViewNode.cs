@@ -8,13 +8,14 @@ public class TreeViewNode : BindableObject, ILazyLoadTreeViewNode
     private bool? _isLeaf;
     private string _name = string.Empty;
     private bool _isExtended;
+    private bool _isSelected;
     private object? _value;
 
     public TreeViewNode(string name, object? value = null, bool isExtended = false, IList<IHasChildrenTreeViewNode>? children = null)
     {
         this.Name = name;
         this.Value = value;
-        this.IsExtended = isExtended;
+        this.IsExpanded = isExtended;
 
         if (children != null)
         {
@@ -23,7 +24,8 @@ public class TreeViewNode : BindableObject, ILazyLoadTreeViewNode
     }
 
     public virtual string Name { get => _name; set => this.SetProperty(ref _name, value); }
-    public virtual bool IsExtended { get => _isExtended; set => this.SetProperty(ref _isExtended, value); }
+    public virtual bool IsExpanded { get => _isExtended; set => this.SetProperty(ref _isExtended, value); }
+    public virtual bool IsSelected { get => _isSelected; set => this.SetProperty(ref _isSelected, value); }
     public virtual object? Value { get => _value; set => this.SetProperty(ref _value, value); }
     public virtual IList<IHasChildrenTreeViewNode> Children { get; set; } = new ObservableCollection<IHasChildrenTreeViewNode>();
     public virtual Func<ITreeViewNode, IEnumerable<IHasChildrenTreeViewNode>>? GetChildren { get; set; }

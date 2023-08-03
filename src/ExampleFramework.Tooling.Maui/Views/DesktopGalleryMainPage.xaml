@@ -7,7 +7,7 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="200" />
+            <ColumnDefinition Width="300" />
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -19,13 +19,15 @@
         <ScrollView Grid.Column="0"
                     Grid.Row="0"
                     Grid.RowSpan="3"
-                    BackgroundColor="DeepSkyBlue">
-            <t:TreeView ItemsSource="{Binding Nodes}">
+                    BackgroundColor="{AppThemeBinding Light=#f3f3f3, Dark=#202020}">
+            <t:TreeView x:Name="NavigationTree"
+                        ItemsSource="{Binding Nodes}"
+                        SelectedItemColor="{AppThemeBinding Light=#eaeaea, Dark=#292929}">
                 <t:TreeView.ItemTemplate>
                     <DataTemplate>
                         <HorizontalStackLayout Padding="8,8">
                             <HorizontalStackLayout.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="OnExampleTapped"
+                                <TapGestureRecognizer Tapped="OnTreeNodeTapped"
                                                         NumberOfTapsRequired="1" />
                             </HorizontalStackLayout.GestureRecognizers>
                             <Label Text="{Binding Name}" />
