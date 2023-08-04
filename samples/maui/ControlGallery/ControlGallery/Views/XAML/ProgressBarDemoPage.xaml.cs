@@ -9,6 +9,14 @@ namespace ControlGallery.Views.XAML
         public ProgressBarDemoPage()
         {
             InitializeComponent();
+
+#if EXAMPLES
+
+            timer = Dispatcher.CreateTimer();
+            timer.Interval = TimeSpan.FromSeconds(0.1);
+            timer.Tick += OnTimerTick;
+            timer.Start();
+#endif
         }
 
 #if EXAMPLES
