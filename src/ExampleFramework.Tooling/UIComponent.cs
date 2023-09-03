@@ -48,6 +48,8 @@ public class UIComponent
 
     public IEnumerable<UIExample> Examples => _examples;
 
+    public int ExamplesCount => _examples.Count;
+
     public UIExample? GetExample(string name)
     {
         foreach (UIExample example in _examples)

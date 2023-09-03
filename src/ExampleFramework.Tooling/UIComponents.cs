@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Reflection;
+﻿using System.Reflection;
 
 namespace ExampleFramework.Tooling;
 
 public class UIComponents
 {
-    private readonly List<UIComponent> _components = new();
+    private readonly Dictionary<string, UIComponent> _uiComponentsCollection = new();
 
     public void AddFromAssembly(Assembly assembly)
     {
@@ -14,40 +12,46 @@ public class UIComponents
 
         foreach (Type type in types)
         {
-            MethodInfo[] methods = type.GetMethods(BindingFlags.Static | BindingFlags.Public | BindingFlags.DeclaredOnly);
+            UIExampleAttribute? typeExampleAttribute = type.GetCustomAttribute<UIExampleAttribute>(false);
+            if (typeExampleAttribute != null)
+            {
+                AddExample(new ClassUIExample(typeExampleAttribute, type));
+            }
 
-            UIComponent? component = null;
+            MethodInfo[] methods = type.GetMethods(BindingFlags.Static | BindingFlags.Public | BindingFlags.DeclaredOnly);
             foreach (MethodInfo method in methods)
             {
                 UIExampleAttribute? uiExampleAttribute = method.GetCustomAttribute<UIExampleAttribute>(false);
 
                 if (uiExampleAttribute != null)
                 {
-                    if (component == null)
-                    {
-                        component = new UIComponent(null, method.ReturnType);
-                        _components.Add(component);
-                    }
-
-                    var uiExample = new UIExample(uiExampleAttribute, method);
-                    component.AddExample(uiExample);
+                    AddExample(new StaticMethodUIExample(uiExampleAttribute, method));
                 }
             }
         }
     }
 
-    public IEnumerable<UIComponent> Components => _components;
+    public IEnumerable<UIComponent> UIComponentsCollection => _uiComponentsCollection.Values;
 
-    public UIComponent? GetComponent(string name)
+    public UIComponent? GetUIComponent(string name) =>
+        _uiComponentsCollection.TryGetValue(name, out UIComponent? uiComponent) ? uiComponent : null;
+
+    public UIComponent GetOrAddUIComponent(Type type)
     {
-        foreach (UIComponent component in _components)
+        string name = type.FullName;
+
+        if (!_uiComponentsCollection.TryGetValue(name, out UIComponent? uiComponent))
         {
-            if (component.FullName == name)
-            {
-                return component;
-            }
+            uiComponent = new UIComponent(null, type);
+            _uiComponentsCollection.Add(name, uiComponent);
         }
 
-        return null;
+        return uiComponent;
+    }
+
+    public void AddExample(UIExample uiExample)
+    {
+        UIComponent uiComponent = GetOrAddUIComponent(uiExample.UIComponentType);
+        uiComponent.AddExample(uiExample);
     }
 }

@@ -5,7 +5,6 @@ using ExampleFramework.Tooling.Maui.Controls.TreeView;
 
 namespace ExampleFramework.Tooling.Maui.ViewModels;
 
-
 public class GalleryViewModel : INotifyPropertyChanged
 {
     public ObservableCollection<TreeViewNode> Nodes { get; set; } = new();
@@ -16,8 +15,8 @@ public class GalleryViewModel : INotifyPropertyChanged
 
     public GalleryViewModel()
     {
-        this.InitializeTreeView(AppUIExamplesManager.Instance.UIComponents.Components);
-        this.SelectedItemsProperties = new List<PropertyDefinition>();
+        InitializeTreeView(AppUIExamplesManager.Instance.UIComponents.UIComponentsCollection);
+        SelectedItemsProperties = new List<PropertyDefinition>();
     }
 
     // For now ignore the case where the example Titles contain "/" characters for a deeper
@@ -27,10 +26,13 @@ public class GalleryViewModel : INotifyPropertyChanged
         foreach (UIComponent component in components)
         {
             var componentNode = new TreeViewNode(component.Title, component);
-            foreach (UIExample example in component.Examples)
+
+            if (component.ExamplesCount > 1)
             {
-                var exampleNode = new TreeViewNode(example.Title, example);
-                componentNode.Children.Add(exampleNode);
+                foreach (UIExample example in component.Examples)
+                {
+                    componentNode.Children.Add(new TreeViewNode(example.Title, example));
+                }
             }
 
             this.Nodes.Add(componentNode);

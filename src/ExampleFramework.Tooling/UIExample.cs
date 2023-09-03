@@ -1,61 +1,53 @@
-﻿using System.Reflection;
+﻿namespace ExampleFramework.Tooling;
 
-namespace ExampleFramework.Tooling;
-
-public class UIExample
+public abstract class UIExample
 {
     private readonly string? _title;
+    private readonly Type? _uiComponentType;
 
-    public MethodInfo MethodInfo { get; }
-
-    public UIExample(string? title, MethodInfo methodInfo)
-    {
-        _title = title;
-        this.MethodInfo = methodInfo;
-    }
-
-    public UIExample(UIExampleAttribute uiExampleAttribute, MethodInfo methodInfo)
+    public UIExample(UIExampleAttribute uiExampleAttribute)
     {
         _title = uiExampleAttribute.Title;
-        this.MethodInfo = methodInfo;
+        _uiComponentType = uiExampleAttribute.UIComponentType;
     }
 
-    public object Create()
-    {
-        if (this.MethodInfo.GetParameters().Length != 0)
-            throw new InvalidOperationException($"Examples that take parameters aren't yet supported: {GetMethodDisplayName()}");
-
-        return this.MethodInfo.Invoke(null, null);
-    }
-
-    /// <summary>
-    /// Get a user friendly display title for the example method, suitable for error
-    /// messages.
-    /// </summary>
-    /// <returns>user friendly title of example method</returns>
-    public string GetMethodDisplayName() =>
-        $"{this.MethodInfo.DeclaringType.Name}.{this.MethodInfo.Name}";
+    public abstract object Create();
 
     /// <summary>
     /// Title is intended to be what's shown in the UI to identify the example. It can contain spaces and
-    /// isn't necessarily unique. It defaults to the method name but can be overridden by the developer.
+    /// isn't necessarily unique. It defaults to the example method/class name but can be overridden by
+    /// the developer.
     /// </summary>
-    public string Title
+    public string Title => _title ?? DefaultTitle;
+
+    /// <summary>
+    /// Default title based on the example method/class name, ignoring any title override.
+    /// </summary>
+    public abstract string DefaultTitle { get; }
+
+    public Type UIComponentType
     {
         get
         {
-            // If there's a title explicitly set, use it
-            if (_title != null)
-                return _title;
+            if (_uiComponentType != null)
+                return _uiComponentType;
 
-            // Otherwise default to the method name
-            return this.MethodInfo.Name;
+            Type? defaultUIComponentType = DefaultUIComponentType;
+            if (defaultUIComponentType == null)
+                throw new InvalidOperationException($"No DefaultUICompentType specified for example: {FullName}");
+            else return defaultUIComponentType;
         }
     }
+
+    /// <summary>
+    /// Default component type (when there is one), e.g. based on the method return type. If there's no default
+    /// type, this will be null.
+    /// </summary>
+    public abstract Type? DefaultUIComponentType { get; }
 
     /// <summary>
     /// FullName is intended to be what's used by the code to identify the example. It's the examples's
     /// full qualitified method name.
     /// </summary>
-    public string FullName => this.MethodInfo.DeclaringType.FullName + "." + this.MethodInfo.Name;
+    public abstract string FullName { get; }
 }

@@ -30,9 +30,20 @@ public partial class DesktopGalleryMainPage : ContentPage
                 NavigationTree.SelectedItem = treeViewNode;
 
                 var value = treeViewNode.Value;
-                if (value is UIExample uiExample)
+
+                UIExample? uiExample = null;
+                if (value is UIComponent uiComponent)
                 {
-                    object? exampleUI = uiExample.MethodInfo.Invoke(null, Array.Empty<object>());
+                    uiExample = uiComponent.GetDefaultExample();
+                }
+                else if (value is UIExample uiExampleValue)
+                {
+                    uiExample = uiExampleValue;
+                }
+
+                if (uiExample != null)
+                {
+                    object? exampleUI = uiExample.Create();
 
                     if (exampleUI is ContentPage contentPage)
                     {

@@ -4,7 +4,7 @@
 /// An attribute that specifies this is an example, for a control or other UI.
 /// Examples can be shown in a gallery viewer, doc, etc.
 /// </summary>
-[AttributeUsage(AttributeTargets.Method)]
+[AttributeUsage(AttributeTargets.Class | AttributeTargets.Method)]
 public sealed class UIExampleAttribute : Attribute
 {
     /// <summary>
@@ -13,12 +13,20 @@ public sealed class UIExampleAttribute : Attribute
     /// </summary>
     public string? Title { get; }
 
+    public Type? UIComponentType { get; }
+
     public UIExampleAttribute()
     {
     }
 
-    public UIExampleAttribute(string title)
+    public UIExampleAttribute(string? title = null, Type? uiComponent = null)
     {
         Title = title;
+        UIComponentType = uiComponent;
+    }
+
+    public UIExampleAttribute(Type uiComponent)
+    {
+        UIComponentType = uiComponent;
     }
 }

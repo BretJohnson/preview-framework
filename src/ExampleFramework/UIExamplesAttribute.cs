@@ -20,6 +20,6 @@ public sealed class UIExamplesAttribute : Attribute
 
     public UIExamplesAttribute(string title)
     {
-        Title = title;
+        this.Title = title;
     }
 }
