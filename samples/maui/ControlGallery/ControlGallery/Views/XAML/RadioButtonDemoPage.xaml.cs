@@ -2,6 +2,7 @@
 
 namespace ControlGallery.Views.XAML
 {
+    [UIExample(typeof(RadioButton))]
     public partial class RadioButtonDemoPage : ContentPage
     {
         public RadioButtonDemoPage()
@@ -9,10 +10,6 @@ namespace ControlGallery.Views.XAML
             InitializeComponent();
         }
 
-#if EXAMPLES
-        [UIExample("Example")]
-        public static RadioButtonDemoPage Example() => new RadioButtonDemoPage();
-#endif
         void OnColorsRadioButtonCheckedChanged(object sender, CheckedChangedEventArgs e)
         {
             RadioButton button = sender as RadioButton;

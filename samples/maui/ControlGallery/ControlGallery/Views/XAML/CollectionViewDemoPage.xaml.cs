@@ -4,6 +4,7 @@ using ControlGallery.Models;
 
 namespace ControlGallery.Views.XAML
 {
+    [UIExample(typeof(CollectionView))]
     public partial class CollectionViewDemoPage : ContentPage
     {
         public IList<Monkey> Monkeys { get; private set; }
@@ -14,11 +15,6 @@ namespace ControlGallery.Views.XAML
             CreateMonkeyCollection();
             BindingContext = this;
         }
-
-#if EXAMPLES
-        [UIExample("Example")]
-        public static CollectionViewDemoPage Example() => new CollectionViewDemoPage();
-#endif
 
         void CreateMonkeyCollection()
         {

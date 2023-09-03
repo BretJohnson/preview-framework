@@ -4,6 +4,7 @@ using Microsoft.Maui.Graphics;
 
 namespace ControlGallery.Views.XAML
 {
+    [UIExample(typeof(AbsoluteLayout))]
     public partial class AbsoluteLayoutDemoPage : ContentPage
     {
         Timer timer;
@@ -34,11 +35,6 @@ namespace ControlGallery.Views.XAML
                 TimeSpan.FromSeconds(1.0 / 30));
 #endif
         }
-
-#if EXAMPLES
-        [UIExample("Example")]
-        public static AbsoluteLayoutDemoPage Example() => new AbsoluteLayoutDemoPage();
-#endif
 
         ~AbsoluteLayoutDemoPage() => timer.Dispose();
 

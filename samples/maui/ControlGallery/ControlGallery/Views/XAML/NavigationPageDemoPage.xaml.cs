@@ -4,17 +4,13 @@ using Microsoft.Maui.Controls;
 
 namespace ControlGallery.Views.XAML
 {
+    [UIExample(typeof(NavigationPage))]
     public partial class NavigationPageDemoPage : ContentPage
     {
         public NavigationPageDemoPage()
         {
             InitializeComponent();
         }
-
-#if EXAMPLES
-        [UIExample("Example")]
-        public static NavigationPageDemoPage Example() => new NavigationPageDemoPage();
-#endif
 
         async void OnButtonClicked(object sender, EventArgs e)
         {

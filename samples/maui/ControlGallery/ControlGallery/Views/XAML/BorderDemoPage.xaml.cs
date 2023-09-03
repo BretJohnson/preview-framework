@@ -2,16 +2,12 @@
 
 namespace ControlGallery.Views.XAML
 {
+    [UIExample(typeof(Border))]
     public partial class BorderDemoPage : ContentPage
     {
         public BorderDemoPage()
         {
             InitializeComponent();
         }
-
-#if EXAMPLES
-        [UIExample("Example")]
-        public static BorderDemoPage Example() => new BorderDemoPage();
-#endif
     }
 }

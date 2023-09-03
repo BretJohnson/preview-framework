@@ -1,9 +1,8 @@
-﻿using System;
-using System.Windows.Input;
-using Microsoft.Maui.Controls;
+﻿using System.Windows.Input;
 
 namespace ControlGallery.Views.XAML
 {
+    [UIExample(typeof(TableView))]
     public partial class TableViewMenuDemoPage : ContentPage
     {
         public TableViewMenuDemoPage()
@@ -19,11 +18,6 @@ namespace ControlGallery.Views.XAML
 
             BindingContext = this;
         }
-
-#if EXAMPLES
-        [UIExample("Example")]
-        public static TableViewMenuDemoPage Example() => new TableViewMenuDemoPage();
-#endif
 
         public ICommand NavigateCommand { private set; get; }
     }

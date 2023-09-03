@@ -3,16 +3,12 @@ using Microsoft.Maui.Controls;
 
 namespace ControlGallery.Views.XAML
 {
+    [UIExample(typeof(SwitchCell))]
     public partial class SwitchCellDemoPage : ContentPage
     {
         public SwitchCellDemoPage()
         {
             InitializeComponent();
         }
-
-#if EXAMPLES
-        [UIExample("Example")]
-        public static SwitchCellDemoPage Example() => new SwitchCellDemoPage();
-#endif
     }
 }

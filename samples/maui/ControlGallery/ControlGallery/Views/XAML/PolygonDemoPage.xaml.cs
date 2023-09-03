@@ -1,17 +1,13 @@
-﻿using Microsoft.Maui.Controls;
+﻿using Microsoft.Maui.Controls.Shapes;
 
 namespace ControlGallery.Views.XAML
 {
+    [UIExample(typeof(Polygon))]
     public partial class PolygonDemoPage : ContentPage
     {
         public PolygonDemoPage()
         {
             InitializeComponent();
         }
-
-#if EXAMPLES
-        [UIExample("Example")]
-        public static PolygonDemoPage Example() => new PolygonDemoPage();
-#endif
     }
 }

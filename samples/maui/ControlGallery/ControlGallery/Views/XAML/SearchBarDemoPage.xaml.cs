@@ -6,17 +6,13 @@ using Microsoft.Maui.Controls;
 
 namespace ControlGallery.Views.XAML
 {
+    [UIExample(typeof(SearchBar))]
     public partial class SearchBarDemoPage : ContentPage
     {
         public SearchBarDemoPage()
         {
             InitializeComponent();
         }
-
-#if EXAMPLES
-        [UIExample("Example")]
-        public static SearchBarDemoPage Example() => new SearchBarDemoPage();
-#endif
 
         void OnSearchBarButtonPressed(object sender, EventArgs args)
         {

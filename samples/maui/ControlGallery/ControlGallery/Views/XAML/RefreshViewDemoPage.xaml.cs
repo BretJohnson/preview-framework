@@ -2,16 +2,12 @@
 
 namespace ControlGallery.Views.XAML
 {
+    [UIExample(typeof(RefreshView))]
     public partial class RefreshViewDemoPage : ContentPage
     {
         public RefreshViewDemoPage()
         {
             InitializeComponent();
         }
-
-#if EXAMPLES
-        [UIExample("Example")]
-        public static RefreshViewDemoPage Example() => new RefreshViewDemoPage();
-#endif
     }
 }

@@ -3,6 +3,7 @@ using Microsoft.Maui.Controls;
 
 namespace ControlGallery.Views.XAML
 {
+    [UIExample(typeof(FlyoutPage))]
     public partial class FlyoutPageDemoPage : FlyoutPage
     {
         public FlyoutPageDemoPage()
@@ -11,11 +12,6 @@ namespace ControlGallery.Views.XAML
 
             listView.SelectedItem = (listView.ItemsSource as IList)?[0];
         }
-
-#if EXAMPLES
-        [UIExample("Example")]
-        public static FlyoutPageDemoPage Example() => new FlyoutPageDemoPage();
-#endif
 
         void OnListViewItemTapped(object sender, ItemTappedEventArgs e)
         {

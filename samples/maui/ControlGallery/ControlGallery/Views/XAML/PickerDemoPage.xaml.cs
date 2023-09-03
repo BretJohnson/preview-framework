@@ -5,17 +5,13 @@ using Microsoft.Maui.Graphics;
 
 namespace ControlGallery.Views.XAML
 {
+    [UIExample(typeof(Picker))]
     public partial class PickerDemoPage : ContentPage
     {
         public PickerDemoPage()
         {
             InitializeComponent();
         }
-
-#if EXAMPLES
-        [UIExample("Example")]
-        public static PickerDemoPage Example() => new PickerDemoPage();
-#endif
 
         void OnPickerSelectedIndexChanged(object sender, EventArgs e)
         {

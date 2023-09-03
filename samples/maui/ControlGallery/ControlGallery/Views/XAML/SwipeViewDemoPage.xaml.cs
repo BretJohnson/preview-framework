@@ -5,6 +5,7 @@ using ControlGallery.Models;
 
 namespace ControlGallery.Views.XAML
 {
+    [UIExample(typeof(SwipeView))]
     public partial class SwipeViewDemoPage : ContentPage
     {        
         public ObservableCollection<Monkey> Monkeys { get; private set; }
@@ -16,11 +17,6 @@ namespace ControlGallery.Views.XAML
             CreateMonkeyCollection();
             BindingContext = this;
         }
-
-#if EXAMPLES
-        [UIExample("Example")]
-        public static SwipeViewDemoPage Example() => new SwipeViewDemoPage();
-#endif
 
         void CreateMonkeyCollection()
         {

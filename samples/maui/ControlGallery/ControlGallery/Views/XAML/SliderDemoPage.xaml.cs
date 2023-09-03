@@ -3,16 +3,12 @@ using Microsoft.Maui.Controls;
 
 namespace ControlGallery.Views.XAML
 {
+    [UIExample(typeof(Slider))]
     public partial class SliderDemoPage : ContentPage
     {
         public SliderDemoPage()
         {
             InitializeComponent();
         }
-
-#if EXAMPLES
-        [UIExample("Example")]
-        public static SliderDemoPage Example() => new SliderDemoPage();
-#endif
     }
 }

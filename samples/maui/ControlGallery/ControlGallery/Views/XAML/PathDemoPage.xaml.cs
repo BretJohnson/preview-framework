@@ -2,16 +2,12 @@
 
 namespace ControlGallery.Views.XAML
 {
+    [UIExample(typeof(Path))]
     public partial class PathDemoPage : ContentPage
     {
         public PathDemoPage()
         {
             InitializeComponent();
         }
-
-#if EXAMPLES
-        [UIExample("Example")]
-        public static PathDemoPage Example() => new PathDemoPage();
-#endif
     }
 }

@@ -3,6 +3,7 @@ using Microsoft.Maui.Controls;
 
 namespace ControlGallery.Views.XAML
 {
+    [UIExample(typeof(Button))]
     public partial class ButtonDemoPage : ContentPage
     {
         static int clickTotal;
@@ -11,11 +12,6 @@ namespace ControlGallery.Views.XAML
         {
             InitializeComponent();
         }
-
-#if EXAMPLES
-        [UIExample("Example")]
-        public static ButtonDemoPage Example() => new ButtonDemoPage();
-#endif
 
         void OnButtonClicked(object sender, EventArgs e)
         {

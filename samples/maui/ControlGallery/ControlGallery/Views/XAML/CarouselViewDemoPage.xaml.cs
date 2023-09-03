@@ -4,13 +4,9 @@ using ControlGallery.Models;
 
 namespace ControlGallery.Views.XAML
 {
+    [UIExample(typeof(CarouselView))]
     public partial class CarouselViewDemoPage : ContentPage
     {
-#if EXAMPLES
-        [UIExample("Example")]
-        public static CarouselViewDemoPage Example() => new CarouselViewDemoPage();
-#endif
-
         public IList<Monkey> Monkeys { get; private set; }
 
         public CarouselViewDemoPage()

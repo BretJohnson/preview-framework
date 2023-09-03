@@ -2,16 +2,12 @@
 
 namespace ControlGallery.Views.XAML
 {
+    [UIExample(typeof(GraphicsView))]
     public partial class GraphicsViewDemoPage : ContentPage
     {
         public GraphicsViewDemoPage()
         {
             InitializeComponent();
         }
-
-#if EXAMPLES
-        [UIExample("Example")]
-        public static GraphicsViewDemoPage Example() => new GraphicsViewDemoPage();
-#endif
     }
 }

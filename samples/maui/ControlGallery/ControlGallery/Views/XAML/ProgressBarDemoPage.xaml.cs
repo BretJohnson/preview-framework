@@ -2,6 +2,7 @@
 
 namespace ControlGallery.Views.XAML
 {
+    [UIExample(typeof(ProgressBar))]
     public partial class ProgressBarDemoPage : ContentPage
     {
         IDispatcherTimer timer;
@@ -19,10 +20,6 @@ namespace ControlGallery.Views.XAML
 #endif
         }
 
-#if EXAMPLES
-        [UIExample("Example")]
-        public static ProgressBarDemoPage Example() => new ProgressBarDemoPage();
-#endif
         ~ProgressBarDemoPage() => timer.Tick -= OnTimerTick;
 
         protected override void OnAppearing()

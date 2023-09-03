@@ -3,16 +3,12 @@ using Microsoft.Maui.Controls;
 
 namespace ControlGallery.Views.XAML
 {
+    [UIExample(typeof(TabbedPage))]
     public partial class TabbedPageDemoPage : TabbedPage
     {
         public TabbedPageDemoPage()
         {
             InitializeComponent();
         }
-
-#if EXAMPLES
-        [UIExample("Example")]
-        public static TabbedPageDemoPage Example() => new TabbedPageDemoPage();
-#endif
     }
 }
