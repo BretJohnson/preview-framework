@@ -148,9 +148,10 @@ public class TreeViewNodeView : ContentView
             BackgroundColor = Colors.Transparent,
             Opacity = node.IsLeaf ? 0 : 1, // Using opacity instead isvisible to keep alignment
             Rotation = node.IsExpanded ? 0 : -90,
-            HeightRequest = 30,
-            WidthRequest = 30,
-            CornerRadius = 15
+            HeightRequest = 24,
+            WidthRequest = 24,
+            Padding = -10,
+            Margin = -10,
         };
 
         _expandButton.Triggers.Add(new DataTrigger(typeof(ImageButton))
@@ -229,6 +230,7 @@ public class TreeViewNodeView : ContentView
 
             Content = new StackLayout
             {
+                Spacing = 0,
                 Orientation = StackOrientation.Horizontal,
                 Children =
                 {
