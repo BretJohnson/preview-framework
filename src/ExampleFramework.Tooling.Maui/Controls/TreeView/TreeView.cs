@@ -21,7 +21,7 @@ public class TreeView : ContentView
 
     public TreeView()
     {
-        this.Content = _root;
+        Content = _root;
     }
 
     public IEnumerable ItemsSource { get => (IEnumerable)this.GetValue(ItemsSourceProperty); set => this.SetValue(ItemsSourceProperty, value); }

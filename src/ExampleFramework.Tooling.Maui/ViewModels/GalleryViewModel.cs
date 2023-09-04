@@ -73,11 +73,16 @@ public class GalleryViewModel : INotifyPropertyChanged
             foreach (UIComponent component in _componentsByCategory[category])
             {
                 var componentNode = new TreeViewNode(component.Title, component);
+                componentNode.ToolTip = component.FullName;
+
                 if (component.ExamplesCount > 1)
                 {
                     foreach (UIExample example in component.Examples)
                     {
-                        componentNode.Children.Add(new TreeViewNode(example.Title, example));
+                        var exampleNode = new TreeViewNode(example.Title, example);
+                        exampleNode.ToolTip = example.FullName;
+
+                        componentNode.Children.Add(exampleNode);
                     }
                 }
 
