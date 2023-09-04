@@ -4,12 +4,13 @@ namespace ExampleFramework.Tooling;
 
 public class UIComponent
 {
+    private UIComponentCategory? _category;
     private string? _title;
     private readonly Type _type;
     private readonly List<UIExample> _examples = new();
     private List<UIProperty>? _properties = null;
 
-    public UIComponent(string? title, Type type)
+    internal UIComponent(string? title, Type type)
     {
         _title = title;
         _type = type;
@@ -40,6 +41,17 @@ public class UIComponent
     public string FullName => _type.FullName;
 
     public Type Type => _type;
+
+    public UIComponentCategory? Category => _category;
+
+    internal void SetCategoryFailIfAlreadySet(UIComponentCategory category)
+    {
+        if (_category != null && string.Compare(_category.Name, category.Name, StringComparison.OrdinalIgnoreCase) != 0)
+        {
+            throw new InvalidOperationException($"Component '{FullName}' can't be set to category '{category.Name}' since it already has category '{_category.Name}' set");
+        }
+        _category = category;
+    }
 
     public void AddExample(UIExample example)
     {

@@ -4,12 +4,24 @@ namespace ExampleFramework.Tooling;
 
 public class UIComponents
 {
-    private readonly Dictionary<string, UIComponent> _uiComponentsCollection = new();
+    private readonly Dictionary<string, UIComponentCategory> _categories = new();
+    private readonly Dictionary<string, UIComponent> _components = new();
 
     public void AddFromAssembly(Assembly assembly)
     {
-        Type[] types = assembly.GetExportedTypes();
+        IEnumerable<UIComponentCategoryAttribute> uiComponentCategoryAttributes = assembly.GetCustomAttributes<UIComponentCategoryAttribute>();
+        foreach (UIComponentCategoryAttribute uiComponentCategoryAttribute in uiComponentCategoryAttributes)
+        {
+            UIComponentCategory category = GetOrAddCatgegory(uiComponentCategoryAttribute.Name);
 
+            foreach (Type type in uiComponentCategoryAttribute.UIComponentTypes)
+            {
+                UIComponent component = GetOrAddUIComponent(type);
+                component.SetCategoryFailIfAlreadySet(category);
+            }
+        }
+
+        Type[] types = assembly.GetExportedTypes();
         foreach (Type type in types)
         {
             UIExampleAttribute? typeExampleAttribute = type.GetCustomAttribute<UIExampleAttribute>(false);
@@ -31,19 +43,32 @@ public class UIComponents
         }
     }
 
-    public IEnumerable<UIComponent> UIComponentsCollection => _uiComponentsCollection.Values;
+    public IEnumerable<UIComponentCategory> Categories => _categories.Values;
+
+    public IEnumerable<UIComponent> Components => _components.Values;
 
     public UIComponent? GetUIComponent(string name) =>
-        _uiComponentsCollection.TryGetValue(name, out UIComponent? uiComponent) ? uiComponent : null;
+        _components.TryGetValue(name, out UIComponent? uiComponent) ? uiComponent : null;
+
+    public UIComponentCategory GetOrAddCatgegory(string name)
+    {
+        if (!_categories.TryGetValue(name, out UIComponentCategory? category))
+        {
+            category = new UIComponentCategory(name);
+            _categories.Add(name, category);
+        }
+
+        return category;
+    }
 
     public UIComponent GetOrAddUIComponent(Type type)
     {
         string name = type.FullName;
 
-        if (!_uiComponentsCollection.TryGetValue(name, out UIComponent? uiComponent))
+        if (!_components.TryGetValue(name, out UIComponent? uiComponent))
         {
             uiComponent = new UIComponent(null, type);
-            _uiComponentsCollection.Add(name, uiComponent);
+            _components.Add(name, uiComponent);
         }
 
         return uiComponent;
