@@ -5,11 +5,6 @@
              Title="ImageCell Demo"
              Padding="10, 0">
     <StackLayout>
-        <Label Text="ImageCell"
-               FontSize="50"
-               FontAttributes="Bold"
-               HorizontalOptions="Center" />
-
         <TableView Intent="Form"
                    Margin="10, 0">
             <TableRoot>

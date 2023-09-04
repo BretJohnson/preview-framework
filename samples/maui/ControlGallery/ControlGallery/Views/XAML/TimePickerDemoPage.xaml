@@ -4,11 +4,6 @@
              x:Class="ControlGallery.Views.XAML.TimePickerDemoPage"
              Title="TimePicker Demo">
     <StackLayout>
-        <Label Text="TimePicker"
-               FontSize="50"
-               FontAttributes="Bold"
-               HorizontalOptions="Center" />
-
         <TimePicker Format="T"
                     VerticalOptions="CenterAndExpand"
                     Margin="10, 0" />

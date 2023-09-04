@@ -4,11 +4,6 @@
              x:Class="ControlGallery.Views.XAML.SwitchDemoPage"
              Title="Switch Demo">
     <StackLayout>
-        <Label Text="Switch"
-               FontSize="50"
-               FontAttributes="Bold"
-               HorizontalOptions="Center" />
-
         <Switch x:Name="switch"
                 HorizontalOptions="Center"
                 VerticalOptions="CenterAndExpand" />

@@ -4,11 +4,6 @@
              x:Class="ControlGallery.Views.XAML.AbsoluteLayoutDemoPage"
              Title="AbsoluteLayout Demo">
     <StackLayout>
-        <Label Text="AbsoluteLayout"
-               FontSize="40"
-               FontAttributes="Bold"
-               HorizontalOptions="Center" />
-
         <AbsoluteLayout BackgroundColor="#CCCCFF"
                         VerticalOptions="FillAndExpand">
             

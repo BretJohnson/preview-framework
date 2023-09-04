@@ -4,10 +4,6 @@
              x:Class="ControlGallery.Views.XAML.EllipseDemoPage"
              Title="Ellipse Demo">
     <StackLayout>
-        <Label Text="Ellipse"
-               FontSize="50"
-               FontAttributes="Bold"
-               HorizontalOptions="Center" />
         <Ellipse Fill="Red"
                  WidthRequest="150"
                  HeightRequest="50"

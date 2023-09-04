@@ -4,10 +4,6 @@
              x:Class="ControlGallery.Views.XAML.RectangleDemoPage"
              Title="Rectangle Demo">
     <StackLayout Spacing="6">
-        <Label Text="Rectangle"
-               FontSize="50"
-               FontAttributes="Bold"
-               HorizontalOptions="Center" />
         <Rectangle Fill="Red"
                    WidthRequest="150"
                    HeightRequest="50"

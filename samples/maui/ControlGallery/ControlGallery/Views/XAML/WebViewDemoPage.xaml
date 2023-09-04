@@ -4,11 +4,6 @@
              x:Class="ControlGallery.Views.XAML.WebViewDemoPage"
              Title="WebView Demo">
     <StackLayout>
-        <Label Text="WebView"
-               FontSize="50"
-               FontAttributes="Bold"
-               HorizontalOptions="Center" />
-
         <WebView Source="https://www.microsoft.com"
                  VerticalOptions="FillAndExpand" />
     </StackLayout>

@@ -4,11 +4,6 @@
              x:Class="ControlGallery.Views.XAML.ContentViewDemoPage"
              Title="ContentView Demo">
     <StackLayout>
-        <Label Text="ContentView"
-               FontSize="50"
-               FontAttributes="Bold"
-               HorizontalOptions="Center" />
-
         <ContentView BackgroundColor="Aqua"
                      Margin="10"
                      Padding="25"

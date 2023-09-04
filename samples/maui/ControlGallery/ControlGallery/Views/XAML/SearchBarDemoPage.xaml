@@ -5,11 +5,6 @@
              Title="SearchBar Demo"
              Padding="10, 0">
     <StackLayout>
-        <Label Text="SearchBar"
-               FontSize="50"
-               FontAttributes="Bold"
-               HorizontalOptions="Center" />
-
         <SearchBar Placeholder=".NET MAUI property"
                    SearchButtonPressed="OnSearchBarButtonPressed" />
 

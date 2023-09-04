@@ -4,10 +4,6 @@
              x:Class="ControlGallery.Views.XAML.PathDemoPage"
              Title="Path Demo">
     <StackLayout>
-        <Label Text="Path"
-               FontSize="50"
-               FontAttributes="Bold"
-               HorizontalOptions="Center" />
         <Path Stroke="Black"
               Aspect="Uniform"
               HorizontalOptions="Center"

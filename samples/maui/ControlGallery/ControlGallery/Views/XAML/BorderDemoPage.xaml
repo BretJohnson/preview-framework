@@ -4,10 +4,6 @@
              x:Class="ControlGallery.Views.XAML.BorderDemoPage"
              Title="Border Demo">
     <VerticalStackLayout Spacing="6">
-        <Label Text="Border"
-               FontSize="50"
-               FontAttributes="Bold"
-               HorizontalOptions="Center" />
         <Border Stroke="#C49B33"
                 StrokeThickness="4"
                 Background="#2B0B98"

@@ -5,11 +5,6 @@
              Title="Entry"
              Padding="10, 0">
     <StackLayout>
-        <Label Text="Entry"
-               FontSize="50"
-               FontAttributes="Bold"
-               HorizontalOptions="Center" />
-
         <Entry Keyboard="Email"
                Placeholder="Enter email address"
                VerticalOptions="CenterAndExpand" />

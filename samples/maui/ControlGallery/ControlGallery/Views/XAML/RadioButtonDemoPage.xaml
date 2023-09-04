@@ -4,10 +4,6 @@
              x:Class="ControlGallery.Views.XAML.RadioButtonDemoPage"
              Title="RadioButton Demo">
     <StackLayout Margin="10">
-        <Label Text="RadioButton"
-               FontSize="50"
-               FontAttributes="Bold"
-               HorizontalOptions="Center" />
         <Label Text="What's your favorite color?" />
         <RadioButton Content="Red"
                      TextColor="Red"

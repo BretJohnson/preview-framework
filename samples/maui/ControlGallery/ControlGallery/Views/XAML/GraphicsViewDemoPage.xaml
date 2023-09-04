@@ -8,10 +8,6 @@
         <drawable:GraphicsDrawable x:Key="drawable" />
     </ContentPage.Resources>
     <VerticalStackLayout Spacing="6">
-        <Label Text="GraphicsView"
-               FontSize="50"
-               FontAttributes="Bold"
-               HorizontalOptions="Center" />
         <GraphicsView Drawable="{StaticResource drawable}"
                       HeightRequest="300"
                       WidthRequest="400" />

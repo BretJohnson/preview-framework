@@ -4,11 +4,6 @@
              x:Class="ControlGallery.Views.XAML.StepperDemoPage"
              Title="Stepper Demo">
     <StackLayout>
-        <Label Text="Stepper"
-               FontSize="50"
-               FontAttributes="Bold"
-               HorizontalOptions="Center" />
-
         <Stepper x:Name="stepper"
                  Minimum="0"
                  Maximum="10"

@@ -4,11 +4,6 @@
              x:Class="ControlGallery.Views.XAML.CheckBoxPage"
              Title="CheckBox Demo">
     <StackLayout>
-        <Label Text="CheckBox"
-               FontSize="50"
-               FontAttributes="Bold"
-               HorizontalOptions="Center" />
-        
         <CheckBox x:Name="checkbox"
                   HorizontalOptions="Center"
                   VerticalOptions="CenterAndExpand" />

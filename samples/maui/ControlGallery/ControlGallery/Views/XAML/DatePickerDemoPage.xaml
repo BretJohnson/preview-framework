@@ -4,11 +4,6 @@
              x:Class="ControlGallery.Views.XAML.DatePickerDemoPage"
              Title="DatePicker Demo">
     <StackLayout>
-        <Label Text="DatePicker"
-               FontSize="50"
-               FontAttributes="Bold"
-               HorizontalOptions="Center" />
-
         <DatePicker Format="D"
                     VerticalOptions="CenterAndExpand"
                     Margin="10, 0" />

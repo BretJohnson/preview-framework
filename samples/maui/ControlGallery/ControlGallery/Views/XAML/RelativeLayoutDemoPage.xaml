@@ -19,12 +19,6 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <Label Text="RelativeLayout"
-               Grid.Row="0"
-               FontSize="40"
-               FontAttributes="Bold"
-               HorizontalTextAlignment="Center" />
-
         <!--<RelativeLayout Grid.Row="1" 
                         Margin="10">
             

@@ -5,11 +5,6 @@
              x:Class="ControlGallery.Views.XAML.ListViewDemoPage"
              Title="ListView Demo">
     <StackLayout>
-        <Label Text="ListView"
-               FontSize="50"
-               FontAttributes="Bold"
-               HorizontalOptions="Center" />
-
         <ListView Margin="10, 0">
             <ListView.ItemsSource>
                 <x:Array Type="{x:Type models:Person}">

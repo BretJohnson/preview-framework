@@ -5,11 +5,6 @@
              Title="ContentPage Demo"
              Padding="10, 0">
     <StackLayout>
-        <Label Text="ContentPage"
-               FontSize="40"
-               FontAttributes="Bold"
-               HorizontalOptions="Center" />
-
         <Label Text="ContentPage is the simplest type of page."
                FontSize="20" />
 

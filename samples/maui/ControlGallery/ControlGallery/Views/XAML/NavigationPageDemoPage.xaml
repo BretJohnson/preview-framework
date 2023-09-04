@@ -9,11 +9,6 @@
          is launched as an ApplicationPage in App. -->
 
     <StackLayout>
-        <Label Text="NavigationPage"
-               FontSize="40"
-               FontAttributes="Bold"
-               HorizontalOptions="Center" />
-
         <StackLayout HorizontalOptions="Center">
 
             <Button Text=" Go to Label Demo Page "

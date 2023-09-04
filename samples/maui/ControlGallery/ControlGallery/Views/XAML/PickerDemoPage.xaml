@@ -4,11 +4,6 @@
              x:Class="ControlGallery.Views.XAML.PickerDemoPage"
              Title="Picker Demo">
     <StackLayout>
-        <Label Text="Picker"
-               FontSize="50"
-               FontAttributes="Bold"
-               HorizontalOptions="Center" />
-
         <Picker Title="Color"
                 VerticalOptions="CenterAndExpand"
                 Margin="10, 0"

@@ -4,11 +4,6 @@
              x:Class="ControlGallery.Views.XAML.FrameDemoPage"
              Title="Frame Demo">
     <StackLayout>
-        <Label Text="Frame"
-               FontSize="50"
-               FontAttributes="Bold"
-               HorizontalOptions="Center" />
-
         <Frame BorderColor="Silver"
                HasShadow="True"
                HorizontalOptions="Center"

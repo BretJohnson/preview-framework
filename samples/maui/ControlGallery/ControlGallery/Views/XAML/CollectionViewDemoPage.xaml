@@ -4,11 +4,6 @@
              x:Class="ControlGallery.Views.XAML.CollectionViewDemoPage"
              Title="CollectionView Demo">
     <StackLayout Margin="20">
-        <Label Text="CollectionView"
-               FontSize="50"
-               FontAttributes="Bold"
-               HorizontalOptions="Center" />
-        
         <CollectionView ItemsSource="{Binding Monkeys}"
                         ItemsLayout="VerticalGrid, 2">
             <CollectionView.ItemTemplate>

@@ -5,11 +5,6 @@
              x:Class="ControlGallery.Views.XAML.TableViewMenuDemoPage"
              Title="TableView for a menu Demo">
     <StackLayout>
-        <Label Text="TableView Menu"
-               FontSize="30"
-               FontAttributes="Bold"
-               HorizontalOptions="Center" />
-
         <TableView Intent="Menu">
             <TableRoot>
                 <TableSection Title="Views for Presentation">

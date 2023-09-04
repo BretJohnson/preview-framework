@@ -5,10 +5,6 @@
              Title="VerticalStackLayout demo">
     <VerticalStackLayout Margin="20"
                          Spacing="10">
-        <Label Text="VerticalStackLayout"
-               FontSize="50"
-               FontAttributes="Bold"
-               HorizontalOptions="Center" />
         <Label Text="Primary colors" />
         <Rectangle Fill="Red"
                    HeightRequest="30"

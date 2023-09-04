@@ -4,11 +4,6 @@
              x:Class="ControlGallery.Views.XAML.EditorDemoPage"
              Title="Editor">
     <StackLayout>
-        <Label Text="Editor"
-               FontSize="50"
-               FontAttributes="Bold"
-               HorizontalOptions="Center" />
-
         <Editor VerticalOptions="FillAndExpand"
                 Margin="10" />
     </StackLayout>

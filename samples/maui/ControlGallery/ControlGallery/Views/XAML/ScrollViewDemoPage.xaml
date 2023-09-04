@@ -4,11 +4,6 @@
              x:Class="ControlGallery.Views.XAML.ScrollViewDemoPage"
              Title="ScrollView Demo">
     <StackLayout>
-        <Label Text="ScrollView"
-               FontSize="50"
-               FontAttributes="Bold"
-               HorizontalOptions="Center" />
-
         <ScrollView VerticalOptions="FillAndExpand"
                     Margin="10">
 

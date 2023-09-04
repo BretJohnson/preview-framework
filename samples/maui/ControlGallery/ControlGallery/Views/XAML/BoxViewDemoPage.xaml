@@ -1,18 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ControlGallery.Views.XAML.BoxViewDemoPage"
-             Title="BoxView Demo">
+<ContentPage
+    x:Class="ControlGallery.Views.XAML.BoxViewDemoPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="BoxView Demo">
     <StackLayout>
-        <Label Text="BoxView"
-               FontSize="50"
-               FontAttributes="Bold"
-               HorizontalOptions="Center" />
-
-        <BoxView Color="SkyBlue"
-                 WidthRequest="150"
-                 HeightRequest="150"
-                 HorizontalOptions="Center"
-                 VerticalOptions="CenterAndExpand" />
+        <BoxView
+            HeightRequest="150"
+            HorizontalOptions="Center"
+            VerticalOptions="CenterAndExpand"
+            WidthRequest="150"
+            Color="SkyBlue" />
     </StackLayout>
 </ContentPage>

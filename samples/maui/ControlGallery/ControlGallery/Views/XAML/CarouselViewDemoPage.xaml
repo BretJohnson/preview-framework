@@ -4,10 +4,6 @@
              x:Class="ControlGallery.Views.XAML.CarouselViewDemoPage"
              Title="CarouselView Demo">
     <StackLayout Margin="20">
-        <Label Text="CarouselView"
-               FontSize="50"
-               FontAttributes="Bold"
-               HorizontalOptions="Center" />
         <CarouselView ItemsSource="{Binding Monkeys}">
             <CarouselView.ItemTemplate>
                 <DataTemplate>

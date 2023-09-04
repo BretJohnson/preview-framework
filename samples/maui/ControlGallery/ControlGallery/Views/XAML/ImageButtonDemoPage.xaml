@@ -4,11 +4,6 @@
              x:Class="ControlGallery.Views.XAML.ImageButtonDemoPage"
              Title="ImageButton Demo">
     <StackLayout>
-        <Label Text="ImageButton"
-               FontSize="50"
-               FontAttributes="Bold"
-               HorizontalOptions="Center" />
-
        <ImageButton Source="dotnet_bot.png"
                     HorizontalOptions="Center"
                     VerticalOptions="Center"

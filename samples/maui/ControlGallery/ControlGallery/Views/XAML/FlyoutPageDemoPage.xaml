@@ -7,11 +7,6 @@
     <FlyoutPage.Flyout>
         <ContentPage Title="Color List">
             <StackLayout>
-                <Label Text="FlyoutPage"
-                       FontSize="30"
-                       FontAttributes="Bold"
-                       HorizontalOptions="Center" />
-
                 <ListView x:Name="listView"
                           Margin="10, 0"
                           ItemTapped="OnListViewItemTapped">

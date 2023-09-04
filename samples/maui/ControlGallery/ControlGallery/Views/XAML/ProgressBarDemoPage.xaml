@@ -4,11 +4,6 @@
              x:Class="ControlGallery.Views.XAML.ProgressBarDemoPage"
              Title="ProgressBar">
     <StackLayout>
-        <Label Text="ProgressBar"
-               FontSize="50"
-               FontAttributes="Bold"
-               HorizontalOptions="Center" />
-
         <ProgressBar x:Name="progressBar"
                      VerticalOptions="CenterAndExpand"
                      Margin="10, 0" />

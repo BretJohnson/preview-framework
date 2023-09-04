@@ -4,10 +4,6 @@
              x:Class="ControlGallery.Views.XAML.HorizontalStackLayoutDemoPage"
              Title="HorizontalStackLayout demo">
     <VerticalStackLayout Margin="20">
-        <Label Text="HorizontalStackLayout"
-               FontSize="50"
-               FontAttributes="Bold"
-               HorizontalOptions="Center" />
         <HorizontalStackLayout Spacing="10">
             <Rectangle Fill="Red"
                        HeightRequest="30"
