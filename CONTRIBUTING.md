@@ -40,3 +40,15 @@ This repository can be built on Windows, Linux, and OSX.
 Building, testing, and packing this repository can be done by using the standard dotnet CLI commands (e.g. `dotnet build`, `dotnet test`, `dotnet pack`, etc.).
 
 [pwsh]: https://docs.microsoft.com/powershell/scripting/install/installing-powershell?view=powershell-6
+
+## Repo template
+
+This repo is based on Andrew Arnott's library template, used by several other VS repos. See https://aka.ms/lib.template and https://github.com/aarnott/Library.Template/tree/microbuild.
+Periodically we should follow the steps there to get the latest updates in the template. In brief those steps are:
+
+```ps1
+git checkout main           # your default branch
+git pull                    # make sure you're at tip
+git fetch libtemplate       # fetch latest Library.Template
+git merge libtemplate/main  # then resolve any merge conflicts
+```
