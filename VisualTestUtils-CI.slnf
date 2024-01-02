@@ -1,0 +1,12 @@
+{
+  "solution": {
+    "path": "VisualTestUtils.sln",
+    "projects": [
+      "src\\VisualTestUtils.AppConnector\\VisualTestUtils.AppConnector.csproj",
+      "src\\VisualTestUtils.ImageHash\\VisualTestUtils.ImageHash.csproj",
+      "src\\VisualTestUtils.MagickNet\\VisualTestUtils.MagickNet.csproj",
+      "src\\VisualTestUtils\\VisualTestUtils.csproj",
+      "test\\VisualTestUtils.Tests\\VisualTestUtils.Tests.csproj"
+    ]
+  }
+}
