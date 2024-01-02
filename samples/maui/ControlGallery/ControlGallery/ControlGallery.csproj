@@ -91,9 +91,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\..\..\..\..\example-framework\src\ExampleFramework.Tooling.Maui\ExampleFramework.Tooling.Maui.csproj" />
-	  <ProjectReference Include="..\..\..\..\..\example-framework\src\ExampleFramework.Tooling\ExampleFramework.Tooling.csproj" />
-	  <ProjectReference Include="..\..\..\..\..\example-framework\src\ExampleFramework\ExampleFramework.csproj" />
+	  <ProjectReference Include="..\..\..\..\src\ExampleFramework.Tooling.Maui\ExampleFramework.Tooling.Maui.csproj" />
+	  <ProjectReference Include="..\..\..\..\src\ExampleFramework.Tooling\ExampleFramework.Tooling.csproj" />
+	  <ProjectReference Include="..\..\..\..\src\ExampleFramework\ExampleFramework.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>

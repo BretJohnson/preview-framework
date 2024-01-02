@@ -42,7 +42,6 @@ indent_size = 4
 # Sort using and Import directives with System.* appearing first
 dotnet_sort_system_directives_first = true
 
-# Sort using and Import directives with System.* appearing first
 dotnet_style_qualification_for_field = false:warning
 dotnet_style_qualification_for_property = true:warning
 dotnet_style_qualification_for_method = true:warning
