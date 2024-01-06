@@ -19,18 +19,14 @@ public class StaticMethodUIExample : UIExample
         return MethodInfo.Invoke(null, null);
     }
 
-    /// <summary>
-    /// Get a user friendly display title for the example method, suitable for error
-    /// messages.
-    /// </summary>
-    /// <returns>user friendly title of example method</returns>
-    public override string DefaultTitle => $"{MethodInfo.DeclaringType.Name}.{MethodInfo.Name}";
+    /// <inheritdoc/>
+    public override string DefaultTitle => MethodInfo.Name;
 
     public override Type? DefaultUIComponentType => MethodInfo.ReturnType;
 
     /// <summary>
-    /// FullName is intended to be what's used by the code to identify the example. It's the examples's
-    /// full qualitified method name.
+    /// FullName is intended to be what's used by the code to identify the example. It's the example's
+    /// full qualified method name.
     /// </summary>
     public override string FullName => MethodInfo.DeclaringType.FullName + "." + MethodInfo.Name;
 }

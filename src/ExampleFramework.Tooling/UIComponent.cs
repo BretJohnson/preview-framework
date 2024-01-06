@@ -36,7 +36,7 @@ public class UIComponent
 
     /// <summary>
     /// FullName is intended to be what's used by the code to identify the component. It's just the component's
-    /// full qualitified type name. It's unique.
+    /// full qualified type name. It's unique.
     /// </summary>
     public string FullName => _type.FullName;
 
@@ -108,7 +108,7 @@ public class UIComponent
 
         if (type.IsInterface)
         {
-            foreach (var baseInterface in type.GetInterfaces())
+            foreach (Type baseInterface in type.GetInterfaces())
             {
                 AddReflectionProperties(baseInterface, typesProcessed, properties);
             }

@@ -1,9 +1,13 @@
-﻿namespace ExampleFramework.Tooling;
+﻿using System.Data;
+using VisualTestUtils;
+
+namespace ExampleFramework.Tooling;
 
 public abstract class UIExample
 {
     private readonly string? _title;
     private readonly Type? _uiComponentType;
+    private Dictionary<string, ImageSnapshot?>? _snapshotsByEnvironment;
 
     public UIExample(UIExampleAttribute uiExampleAttribute)
     {
@@ -11,6 +15,11 @@ public abstract class UIExample
         _uiComponentType = uiExampleAttribute.UIComponentType;
     }
 
+    /// <summary>
+    /// Create an instance of the example. Normally this returns an instance of a UI framework control/page, suitable
+    /// for display.
+    /// </summary>
+    /// <returns>instantiated example</returns>
     public abstract object Create();
 
     /// <summary>

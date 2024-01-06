@@ -7,6 +7,6 @@ public class RegisterRemoteControlManagerAttribute : Attribute
 
     public RegisterRemoteControlManagerAttribute(Type remoteControlManagerType)
     {
-        RemoteControlManagerType = remoteControlManagerType;
+        this.RemoteControlManagerType = remoteControlManagerType;
     }
 }

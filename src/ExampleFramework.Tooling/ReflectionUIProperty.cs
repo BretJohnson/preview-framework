@@ -8,10 +8,10 @@ public class ReflectionUIProperty : UIProperty
 
     public ReflectionUIProperty(PropertyInfo propertyInfo) : base(propertyInfo.Name)
     {
-        PropertyInfo = propertyInfo;
+        this.PropertyInfo = propertyInfo;
     }
 
-    public override object GetValue(object obj) => PropertyInfo.GetValue(obj);
+    public override object GetValue(object obj) => this.PropertyInfo.GetValue(obj);
 
-    public override void SetValue(object obj, object propertyValue) => PropertyInfo.SetValue(obj, propertyValue);
+    public override void SetValue(object obj, object propertyValue) => this.PropertyInfo.SetValue(obj, propertyValue);
 }
