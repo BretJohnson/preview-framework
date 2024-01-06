@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\VisualTestUtils.AppConnector\VisualTestUtils.AppConnector.csproj" />
+    <ProjectReference Include="..\..\..\src\visual-test-utils\VisualTestUtils.AppConnector\VisualTestUtils.AppConnector.csproj" />
   </ItemGroup>
 
 </Project>
