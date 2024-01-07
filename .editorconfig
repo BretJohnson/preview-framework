@@ -201,7 +201,7 @@ dotnet_naming_style.prefix_underscore.capitalization = camel_case
 dotnet_naming_style.prefix_underscore.required_prefix = _
 
 # CS1591: Missing XML comment for publicly visible type or member
-# TODO: Remove this at some point to warn on missing doc, but for now it's annoying
+# TODO: Change this at some point to warn on missing doc, but for now it's annoying
 dotnet_diagnostic.CS1591.severity = silent
 
 [*.sln]
