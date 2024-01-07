@@ -4,7 +4,7 @@ namespace ExampleFramework.Tooling.Maui;
 
 public static class MauiAppBuilderExtensions
 {
-    public static void EnableExamplesMode<TApp>(this MauiAppBuilder builder) where TApp : class, IApplication
+    public static MauiAppBuilder EnableExamplesMode<TApp>(this MauiAppBuilder builder) where TApp : class, IApplication
     {
 #if true
         ExamplesMode examplesMode;
@@ -16,7 +16,7 @@ public static class MauiAppBuilderExtensions
 #endif
 
         if (examplesMode == ExamplesMode.None)
-            return;
+            return builder;
 
         if (examplesMode == ExamplesMode.Gallery)
         {
@@ -30,6 +30,8 @@ public static class MauiAppBuilderExtensions
             //app.MainPage = new RemoteControlMainPage();
             //return true;
         }
+
+        return builder;
     }
 
 #if OLD

@@ -17,22 +17,22 @@
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
 		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
-	</PropertyGroup>
+  </PropertyGroup>
 
-	<ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ExampleFramework.Tooling\ExampleFramework.Tooling.csproj" />
+    <ProjectReference Include="..\ExampleFramework\ExampleFramework.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <MauiFont Include="Resources\Fonts\*" />
-	</ItemGroup>
+  </ItemGroup>
 
   <ItemGroup>
     <EmbeddedResource Include="Controls\TreeView\Resources\*" />
   </ItemGroup>
 
-  	<ItemGroup>
-	  <ProjectReference Include="..\ExampleFramework.Tooling\ExampleFramework.Tooling.csproj" />
-	  <ProjectReference Include="..\ExampleFramework\ExampleFramework.csproj" />
-	</ItemGroup>
-
-	<ItemGroup>
+  <ItemGroup>
 	  <Compile Update="App.xaml.cs">
 	    <DependentUpon>App.xaml</DependentUpon>
 	  </Compile>
