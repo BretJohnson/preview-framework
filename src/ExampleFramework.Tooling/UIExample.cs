@@ -7,7 +7,7 @@ public abstract class UIExample
 {
     private readonly string? _title;
     private readonly Type? _uiComponentType;
-    private Dictionary<string, ImageSnapshot?>? _snapshotsByEnvironment;
+    //private Dictionary<string, ImageSnapshot?>? _snapshotsByEnvironment;
 
     public UIExample(UIExampleAttribute uiExampleAttribute)
     {

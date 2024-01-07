@@ -176,14 +176,14 @@ public class TreeViewNodeView : ContentView
             {
                 new GenericTriggerAction<ImageButton>((sender) =>
                 {
-                    sender.RotateTo(0, TreeView.ExpandRotateAnimationLength);
+                    _ = sender.RotateTo(0, TreeView.ExpandRotateAnimationLength);
                 })
             },
             ExitActions =
             {
                 new GenericTriggerAction<ImageButton>((sender) =>
                 {
-                    sender.RotateTo(-90, TreeView.ExpandRotateAnimationLength);
+                    _ = sender.RotateTo(-90, TreeView.ExpandRotateAnimationLength);
                 })
             }
         });
@@ -195,11 +195,11 @@ public class TreeViewNodeView : ContentView
 
             if (node.IsExpanded)
             {
-                _expandButton.RotateTo(0, TreeView.ExpandRotateAnimationLength);
+                _ = _expandButton.RotateTo(0, TreeView.ExpandRotateAnimationLength);
 
                 if (node is ILazyLoadTreeViewNode lazyNode && lazyNode.GetChildren != null && !lazyNode.Children.Any())
                 {
-                    var lazyChildren = lazyNode.GetChildren(lazyNode);
+                    IEnumerable<IHasChildrenTreeViewNode> lazyChildren = lazyNode.GetChildren(lazyNode);
                     foreach (IHasChildrenTreeViewNode child in lazyChildren)
                     {
                         lazyNode.Children.Add(child);
@@ -214,7 +214,7 @@ public class TreeViewNodeView : ContentView
             }
             else
             {
-                _expandButton.RotateTo(-90, TreeView.ExpandRotateAnimationLength);
+                _ = _expandButton.RotateTo(-90, TreeView.ExpandRotateAnimationLength);
             }
         };
 

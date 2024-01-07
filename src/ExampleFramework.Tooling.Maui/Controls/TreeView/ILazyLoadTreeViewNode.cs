@@ -2,5 +2,5 @@
 
 public interface ILazyLoadTreeViewNode : IHasChildrenTreeViewNode
 {
-    Func<ITreeViewNode, IEnumerable<IHasChildrenTreeViewNode>> GetChildren { get; }
+    Func<ITreeViewNode, IEnumerable<IHasChildrenTreeViewNode>>? GetChildren { get; }
 }

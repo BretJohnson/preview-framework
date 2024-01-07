@@ -4,8 +4,6 @@ namespace ExampleFramework.Tooling.Maui;
 
 public static class ExamplesManagerMaui
 {
-    private static Window? _window = null;
-
     public static void Noop()
     {
     }

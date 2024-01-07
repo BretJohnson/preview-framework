@@ -109,11 +109,10 @@ public class GalleryViewModel : INotifyPropertyChanged
         foreach (PropertyInfo p in propertyInfos)
         {
             string name = p.Name;
-            object? prop = p.GetValue(obj);
-            if (prop != null && p.GetValue(obj)?.ToString() != null)
+            string? value = p.GetValue(obj)?.ToString();
+            if (value != null)
             {
-                var val = p.GetValue(obj).ToString();
-                properties.Add(new PropertyDefinition(name, val));
+                properties.Add(new PropertyDefinition(name, value));
             }
         }
         properties.Add(new PropertyDefinition("", ""));
