@@ -7,17 +7,20 @@ public partial class DesktopGalleryMainPage : ContentPage
 {
 	public DesktopGalleryMainPage()
 	{
-        this.InitializeComponent();
+        InitializeComponent();
 
-        this.BindingContext = new GalleryViewModel();
-        this.Loaded += this.DesktopMainPage_Loaded;
+        BindingContext = new GalleryViewModel();
+        Loaded += DesktopMainPage_Loaded;
     }
 
     private void DesktopMainPage_Loaded(object? sender, EventArgs e)
     {
         IReadOnlyList<Window> appWindows = Application.Current!.Windows;
+        // TODO: Set proper title
+        /*
         if (appWindows.Count > 0)
             appWindows[0].Title = "PointOfSale App Gallery";
+        */
     }
 
     private void OnTreeNodeTapped(object sender, TappedEventArgs e)
@@ -51,7 +54,7 @@ public partial class DesktopGalleryMainPage : ContentPage
                         ExampleWrapper.Content = contentPage.Content;
                         ExampleWrapper.BindingContext = contentPage.BindingContext;
                         
-                        ((GalleryViewModel)this.BindingContext).UpdatePropertiesForObject(contentPage);
+                        ((GalleryViewModel)BindingContext).UpdatePropertiesForObject(contentPage);
                     }
                     else if (exampleUI is View view)
                     {

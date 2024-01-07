@@ -1,9 +1,10 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
-            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-            xmlns:t="clr-namespace:ExampleFramework.Tooling.Maui.Controls.TreeView"
-            x:Class="ExampleFramework.Tooling.Maui.Views.DesktopGalleryMainPage"
-            Title="Example Book">
+<ContentPage
+    x:Class="ExampleFramework.Tooling.Maui.Views.DesktopGalleryMainPage"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:t="clr-namespace:ExampleFramework.Tooling.Maui.Controls.TreeView"
+    Title="Example Framework">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -11,55 +12,84 @@
             <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="*"/>
-            <RowDefinition Height="40"/>
-            <RowDefinition Height="200"/>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="0" />
+            <RowDefinition Height="0" />
+            <!--
+            <RowDefinition Height="40" />
+            <RowDefinition Height="200" />
+            -->
         </Grid.RowDefinitions>
 
-        <ScrollView Grid.Column="0"
-                    Grid.Row="0"
-                    Grid.RowSpan="3"
-                    BackgroundColor="{AppThemeBinding Light=#f3f3f3, Dark=#202020}">
-            <t:TreeView x:Name="NavigationTree"
-                        ItemsSource="{Binding Nodes}"
-                        SelectedItemColor="{AppThemeBinding Light=#eaeaea, Dark=#292929}">
+        <ScrollView
+            Grid.Row="0"
+            Grid.RowSpan="3"
+            Grid.Column="0"
+            BackgroundColor="{AppThemeBinding Light=#f3f3f3,
+                                              Dark=#202020}">
+            <t:TreeView
+                x:Name="NavigationTree"
+                ItemsSource="{Binding Nodes}"
+                SelectedItemColor="{AppThemeBinding Light=#eaeaea,
+                                                    Dark=#292929}">
                 <t:TreeView.ItemTemplate>
                     <DataTemplate>
-                        <HorizontalStackLayout Padding="8,8">
+                        <HorizontalStackLayout VerticalOptions="Center">
                             <HorizontalStackLayout.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="OnTreeNodeTapped"
-                                                        NumberOfTapsRequired="1" />
+                                <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="OnTreeNodeTapped" />
                             </HorizontalStackLayout.GestureRecognizers>
-                            <Label Text="{Binding Name}" />
+                            <Label Text="{Binding Name}" ToolTipProperties.Text="{Binding ToolTip}" />
                         </HorizontalStackLayout>
                     </DataTemplate>
                 </t:TreeView.ItemTemplate>
             </t:TreeView>
         </ScrollView>
 
-        <ScrollView Grid.Column="1" Grid.Row="0">
-            <ContentView x:Name="ExampleWrapper"
-                         />
+        <ScrollView Grid.Row="0" Grid.Column="1">
+            <Border
+                Margin="20"
+                Stroke="Red"
+                StrokeDashArray="3">
+                <ContentView x:Name="ExampleWrapper" />
+            </Border>
         </ScrollView>
 
-        <HorizontalStackLayout Grid.Column="1" Grid.Row="1" BackgroundColor="White" Spacing="10" Padding="8,2" >
-            <Button BackgroundColor="DarkBlue" Text="Properties"></Button>
-            <Button BackgroundColor="SkyBlue" Text="Emitted Events"></Button>
-            <Button BackgroundColor="SkyBlue" Text="Accessibility" ></Button>
+        <!--
+        <HorizontalStackLayout
+            Grid.Row="1"
+            Grid.Column="1"
+            Padding="8,2"
+            BackgroundColor="White"
+            Spacing="10">
+            <Button BackgroundColor="DarkBlue" Text="Properties" />
+            <Button BackgroundColor="SkyBlue" Text="Emitted Events" />
+            <Button BackgroundColor="SkyBlue" Text="Accessibility" />
         </HorizontalStackLayout>
 
-        <ScrollView Orientation="Vertical" Grid.Column="1" Grid.Row="2" BackgroundColor="White" Padding="8">
+        <ScrollView
+            Grid.Row="2"
+            Grid.Column="1"
+            Padding="8"
+            BackgroundColor="White"
+            Orientation="Vertical">
             <CollectionView ItemsSource="{Binding SelectedItemsProperties}">
                 <CollectionView.ItemTemplate>
                     <DataTemplate>
                         <HorizontalStackLayout>
-                            <Label WidthRequest="300" Text="{Binding Name}" TextColor="Black"/>
-                            <Label WidthRequest="400" Text="{Binding Value}" TextColor="Black"/>
+                            <Label
+                                Text="{Binding Name}"
+                                TextColor="Black"
+                                WidthRequest="300" />
+                            <Label
+                                Text="{Binding Value}"
+                                TextColor="Black"
+                                WidthRequest="400" />
                         </HorizontalStackLayout>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>
         </ScrollView>
+        -->
     </Grid>
 
 </ContentPage>
