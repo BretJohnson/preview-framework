@@ -12,13 +12,13 @@ namespace ControlGallery.Views.XAML
 
         void OnColorsRadioButtonCheckedChanged(object sender, CheckedChangedEventArgs e)
         {
-            RadioButton button = sender as RadioButton;
+            RadioButton button = (RadioButton)sender;
             colorLabel.Text = $"You have chosen: {button.Content}";
         }
 
         void OnFruitsRadioButtonCheckedChanged(object sender, CheckedChangedEventArgs e)
         {
-            RadioButton button = sender as RadioButton;
+            RadioButton button = (RadioButton)sender;
             fruitLabel.Text = $"You have chosen: {button.Content}";
         }
     }

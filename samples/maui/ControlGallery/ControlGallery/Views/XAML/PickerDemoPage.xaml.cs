@@ -24,8 +24,8 @@ namespace ControlGallery.Views.XAML
             else
             {
                 string colorName = picker.Items[picker.SelectedIndex];
-                FieldInfo colorField = typeof(Colors).GetRuntimeField(colorName);
-                boxView.Color = (Color)(colorField.GetValue(null));
+                FieldInfo colorField = typeof(Colors).GetRuntimeField(colorName)!;
+                boxView.Color = (Color)(colorField.GetValue(null))!;
             }
         }
     }

@@ -17,10 +17,10 @@ namespace ControlGallery.Models
             FavoriteColor = favoriteColor;
         }
 
-        public string Name { set; get; }
+        public string? Name { set; get; }
 
-        public DateTime Birthday { set; get; }
+        public DateTime? Birthday { set; get; }
 
-        public Color FavoriteColor { set; get; }
+        public Color? FavoriteColor { set; get; }
     };
 }

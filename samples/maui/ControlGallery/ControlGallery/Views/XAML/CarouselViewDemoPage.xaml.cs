@@ -7,7 +7,7 @@ namespace ControlGallery.Views.XAML
     [UIExample(typeof(CarouselView))]
     public partial class CarouselViewDemoPage : ContentPage
     {
-        public IList<Monkey> Monkeys { get; private set; }
+        public IList<Monkey> Monkeys { get; private set; } = new List<Monkey>();
 
         public CarouselViewDemoPage()
         {
@@ -18,8 +18,6 @@ namespace ControlGallery.Views.XAML
 
         void CreateMonkeyCollection()
         {
-            Monkeys = new List<Monkey>();
-
             Monkeys.Add(new Monkey
             {
                 Name = "Baboon",

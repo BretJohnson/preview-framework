@@ -60,7 +60,7 @@ namespace ControlGallery.ViewModels
 
         #region INotifyPropertyChanged
 
-        public event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler? PropertyChanged;
 
         void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {

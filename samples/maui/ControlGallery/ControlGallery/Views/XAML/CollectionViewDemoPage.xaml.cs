@@ -7,7 +7,7 @@ namespace ControlGallery.Views.XAML
     [UIExample(typeof(CollectionView))]
     public partial class CollectionViewDemoPage : ContentPage
     {
-        public IList<Monkey> Monkeys { get; private set; }
+        public IList<Monkey> Monkeys { get; private set; } = new List<Monkey>();
 
         public CollectionViewDemoPage()
         {
@@ -18,8 +18,6 @@ namespace ControlGallery.Views.XAML
 
         void CreateMonkeyCollection()
         {
-            Monkeys = new List<Monkey>();
-
             Monkeys.Add(new Monkey
             {
                 Name = "Baboon",

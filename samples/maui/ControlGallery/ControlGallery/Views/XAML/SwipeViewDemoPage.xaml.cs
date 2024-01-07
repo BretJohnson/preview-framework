@@ -8,7 +8,7 @@ namespace ControlGallery.Views.XAML
     [UIExample(typeof(SwipeView))]
     public partial class SwipeViewDemoPage : ContentPage
     {        
-        public ObservableCollection<Monkey> Monkeys { get; private set; }
+        public ObservableCollection<Monkey> Monkeys { get; private set; } = new ObservableCollection<Monkey>();
         public ICommand DeleteCommand => new Command<Monkey>(RemoveMonkey);
 
         public SwipeViewDemoPage()
@@ -20,8 +20,6 @@ namespace ControlGallery.Views.XAML
 
         void CreateMonkeyCollection()
         {
-            Monkeys = new ObservableCollection<Monkey>();
-
             Monkeys.Add(new Monkey
             {
                 Name = "Baboon",

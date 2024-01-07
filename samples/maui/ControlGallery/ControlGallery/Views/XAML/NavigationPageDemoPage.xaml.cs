@@ -18,8 +18,8 @@ namespace ControlGallery.Views.XAML
             string id = btn.StyleId;
 
             Assembly assembly = GetType().GetTypeInfo().Assembly;
-            Type pageType = assembly.GetType("ControlGallery.Views.XAML." + id);
-            Page page = (Page)Activator.CreateInstance(pageType);
+            Type pageType = assembly.GetType("ControlGallery.Views.XAML." + id)!;
+            Page page = (Page)Activator.CreateInstance(pageType)!;
             await Navigation.PushAsync(page);
         }
     }

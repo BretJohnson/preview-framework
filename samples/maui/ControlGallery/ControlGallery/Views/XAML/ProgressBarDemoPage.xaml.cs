@@ -32,7 +32,7 @@ namespace ControlGallery.Views.XAML
             timer.Start();
         }
 
-        void OnTimerTick(object sender, EventArgs e)
+        void OnTimerTick(object? sender, EventArgs e)
         {
             progressBar.Progress += 0.01;
             if (progressBar.Progress == 1)

@@ -7,6 +7,8 @@ namespace ControlGallery.Models
     {
         public NamedColor()
         {
+            Name = "";
+            Color = Colors.White;
         }
 
         public NamedColor(string name, Color color)
