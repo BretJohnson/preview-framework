@@ -4,9 +4,12 @@
 namespace ExampleFramework.TestAdapter;
 
 /// <summary>
-/// unit test outcomes.
+/// unit test outcomes. This enum was named UnitTestOutcome in the original MSTest adapter code -
+/// there were two UnitTestCome types in the original code, this one (part of the public MSTest
+/// framework API apparently) and the one used by the adapter (which is still called
+/// UnitTestOutcome in this code). This enum may get cleaned up/removed at some point.
 /// </summary>
-public enum TestOutcome : int
+public enum FrameworkUnitTestOutcome : int
 {
     /// <summary>
     /// Test was executed, but there were issues.

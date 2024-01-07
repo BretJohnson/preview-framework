@@ -1,8 +1,6 @@
 // Copyright (c) Microsoft Corporation. All rights reserved.
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
-using System.Collections.Generic;
-
 namespace ExampleFramework.TestAdapter.PlatformServices.Interfaces;
 
 /// <summary>
@@ -34,7 +32,7 @@ public interface ITestContext
     /// Sets the outcome of a Test Method in the TestContext.
     /// </summary>
     /// <param name="outcome"> The outcome. </param>
-    void SetOutcome(TestOutcome outcome);
+    void SetOutcome(FrameworkUnitTestOutcome outcome);
 
     /// <summary>
     /// Set data row for particular run of TestMethod.

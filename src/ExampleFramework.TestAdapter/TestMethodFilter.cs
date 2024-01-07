@@ -48,8 +48,8 @@ internal class TestMethodFilter
         try
         {
             filter = context is IRunContext runContext
-                ? GetTestCaseFilterFromRunContext(runContext)
-                : GetTestCaseFilterFromDiscoveryContext(context, logger);
+                ? this.GetTestCaseFilterFromRunContext(runContext)
+                : this.GetTestCaseFilterFromDiscoveryContext(context, logger);
         }
         catch (TestPlatformFormatException ex)
         {
@@ -67,7 +67,7 @@ internal class TestMethodFilter
     /// <returns>a TestProperty instance.</returns>
     internal TestProperty PropertyProvider(string propertyName)
     {
-        _supportedProperties.TryGetValue(propertyName, out var testProperty);
+        _supportedProperties.TryGetValue(propertyName, out TestProperty testProperty);
         Debug.Assert(testProperty != null, "Invalid property queried");
         return testProperty;
     }
@@ -103,7 +103,7 @@ internal class TestMethodFilter
     /// <returns>Filter expression.</returns>
     private ITestCaseFilterExpression? GetTestCaseFilterFromRunContext(IRunContext context)
     {
-        return context.GetTestCaseFilter(_supportedProperties.Keys, PropertyProvider);
+        return context.GetTestCaseFilter(_supportedProperties.Keys, this.PropertyProvider);
     }
 
     /// <summary>

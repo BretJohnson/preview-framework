@@ -2,6 +2,7 @@
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
 using ExampleFramework.TestAdapater.PlatformServices.Services;
+using ExampleFramework.TestAdapter.PlatformServices;
 using ExampleFramework.TestAdapter.PlatformServices.Interfaces;
 using ExampleFramework.TestAdapter.PlatformServices.Services;
 using ExampleFramework.Tooling;
@@ -119,5 +120,28 @@ internal class PlatformServiceProvider : IPlatformServiceProvider
     public ITraceListenerManager GetTraceListenerManager(TextWriter outputWriter, TextWriter errorWriter)
     {
         return new TraceListenerManager(outputWriter, errorWriter);
+    }
+
+    /// <summary>
+    /// Gets the TestContext object for a platform.
+    /// </summary>
+    /// <param name="testMethod">
+    /// The test method.
+    /// </param>
+    /// <param name="writer">
+    /// The writer instance for logging.
+    /// </param>
+    /// <param name="properties">
+    /// The default set of properties the test context needs to be filled with.
+    /// </param>
+    /// <returns>
+    /// The <see cref="ITestContext"/> instance.
+    /// </returns>
+    /// <remarks>
+    /// This was required for compatibility reasons since the TestContext object that the V1 adapter had for desktop is not .Net Core compliant.
+    /// </remarks>
+    public ITestContext GetTestContext(UIExample example, ThreadSafeStringWriter writer, IDictionary<string, object?> properties)
+    {
+        return new TestContextImplementation(example, writer, properties);
     }
 }

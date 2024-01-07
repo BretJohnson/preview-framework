@@ -108,65 +108,62 @@ internal class ExampleTestDiscoverer
 
             foreach (TestElement testElement in testElements)
             {
-                foreach (UIExample uiExample in testElement.UIComponent.Examples)
+                TestCase testCase = testElement.ToTestCase();
+
+                // Filter tests based on test case filters
+                if (filterExpression != null && filterExpression.MatchTestCase(testCase, (p) => TestMethodFilter.PropertyValueProvider(testCase, p)) == false)
                 {
-                    TestCase testCase = testElement.ToTestCase(uiExample);
+                    continue;
+                }
 
-                    // Filter tests based on test case filters
-                    if (filterExpression != null && filterExpression.MatchTestCase(testCase, (p) => TestMethodFilter.PropertyValueProvider(testCase, p)) == false)
-                    {
-                        continue;
-                    }
+                if (!shouldCollectSourceInformation)
+                {
+                    discoverySink.SendTestCase(testCase);
+                    continue;
+                }
 
-                    if (!shouldCollectSourceInformation)
-                    {
-                        discoverySink.SendTestCase(testCase);
-                        continue;
-                    }
+                if (!navigationSessions.TryGetValue(source, out var testNavigationSession))
+                {
+                    testNavigationSession = PlatformServiceProvider.Instance.FileOperations.CreateNavigationSession(source);
+                    navigationSessions.Add(source, testNavigationSession);
+                }
 
-                    if (!navigationSessions.TryGetValue(source, out var testNavigationSession))
-                    {
-                        testNavigationSession = PlatformServiceProvider.Instance.FileOperations.CreateNavigationSession(source);
-                        navigationSessions.Add(source, testNavigationSession);
-                    }
+                if (testNavigationSession == null)
+                {
+                    discoverySink.SendTestCase(testCase);
+                    continue;
+                }
 
-                    if (testNavigationSession == null)
-                    {
-                        discoverySink.SendTestCase(testCase);
-                        continue;
-                    }
+                MethodInfo methodInfo = testElement.Example.MethodInfo;
 
-                    MethodInfo methodInfo = uiExample.MethodInfo;
-
-                    string className = methodInfo.DeclaringType?.FullName ?? "";
-                    string methodName = methodInfo.Name;
+                string className = methodInfo.DeclaringType?.FullName ?? "";
+                string methodName = methodInfo.Name;
 
 #if false
-                    // If it is async test method use compiler generated type and method name for navigation data.
-                    if (!string.IsNullOrEmpty(uiComponent.AsyncTypeName))
-                    {
-                        className = uiComponent.AsyncTypeName;
+                // If it is async test method use compiler generated type and method name for navigation data.
+                if (!string.IsNullOrEmpty(uiComponent.AsyncTypeName))
+                {
+                    className = uiComponent.AsyncTypeName;
 
-                        // compiler generated method name is "MoveNext".
-                        methodName = "MoveNext";
-                    }
+                    // compiler generated method name is "MoveNext".
+                    methodName = "MoveNext";
+                }
 #endif
 
-                    PlatformServiceProvider.Instance.FileOperations.GetNavigationData(
-                        testNavigationSession,
-                        className,
-                        methodName,
-                        out var minLineNumber,
-                        out var fileName);
+                PlatformServiceProvider.Instance.FileOperations.GetNavigationData(
+                    testNavigationSession,
+                    className,
+                    methodName,
+                    out var minLineNumber,
+                    out var fileName);
 
-                    if (!string.IsNullOrEmpty(fileName))
-                    {
-                        testCase.LineNumber = minLineNumber;
-                        testCase.CodeFilePath = fileName;
-                    }
-
-                    discoverySink.SendTestCase(testCase);
+                if (!string.IsNullOrEmpty(fileName))
+                {
+                    testCase.LineNumber = minLineNumber;
+                    testCase.CodeFilePath = fileName;
                 }
+
+                discoverySink.SendTestCase(testCase);
             }
         }
         finally

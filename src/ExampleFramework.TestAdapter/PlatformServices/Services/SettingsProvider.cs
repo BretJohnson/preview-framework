@@ -51,4 +51,15 @@ public class TestSettingsProvider : ISettingsProvider
         s_settings = TestAdapterSettings.ToSettings(reader);
 #endif
     }
+
+    public IDictionary<string, object> GetProperties(string source)
+    {
+#if !WINDOWS_UWP
+        // TODO: Support properties later if they are useful
+        //return TestDeployment.GetDeploymentInformation(source);
+        return new Dictionary<string, object>();
+#else
+        return new Dictionary<string, object>();
+#endif
+    }
 }

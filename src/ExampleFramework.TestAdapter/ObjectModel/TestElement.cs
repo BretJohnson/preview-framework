@@ -14,29 +14,28 @@ namespace ExampleFramework.TestAdapter.ObjectModel;
 [Serializable]
 internal class TestElement
 {
-    public TestElement(UIComponent uiComponent, string source)
+    public TestElement(UIExample example, string source)
     {
-        UIComponent = uiComponent;
-        Source = source;
+        this.Example = example;
+        this.Source = source;
     }
 
-    public UIComponent UIComponent { get; }
+    public UIExample Example { get; }
 
     public string Source { get; }
 
-    public TestCase ToTestCase(UIExample uiExample)
+    public TestCase ToTestCase()
     {
         // This causes compatibility problems with older runners.
         // string testFullName = this.TestMethod.HasManagedMethodAndTypeProperties
         //                 ? string.Format(CultureInfo.InvariantCulture, "{0}.{1}", this.TestMethod.ManagedTypeName, this.TestMethod.ManagedMethodName)
         //                 : string.Format(CultureInfo.InvariantCulture, "{0}.{1}", this.TestMethod.FullClassName, this.TestMethod.Name);
-        var testFullName = uiExample.FullName;
+        var testFullName = Example.FullName;
 
-        var testCase = new TestCase(testFullName, Constants.ExecutorUri, Source)
+        var testCase = new TestCase(testFullName, Constants.ExecutorUri, this.Source)
         {
-            DisplayName = uiExample.Title,
+            DisplayName = Example.Title,
         };
-
 
 #if false
         if (UIExample.HasManagedMethodAndTypeProperties)
@@ -128,12 +127,12 @@ internal class TestElement
         }
 #endif
 
-        testCase.Id = GenerateTestId(uiExample);
+        testCase.Id = this.GenerateTestId();
 
         return testCase;
     }
 
-    private Guid GenerateTestId(UIExample uiExample)
+    private Guid GenerateTestId()
     {
         var idProvider = new TestIdProvider();
 
@@ -149,7 +148,7 @@ internal class TestElement
         // contained garbage character the API Path.GetFileName() we are simply returning original input.
         // For UWP where source during discovery, & during execution can be on different machine, in such case we should
         // always use Path.GetFileName().
-        string fileNameOrFilePath = Source;
+        string fileNameOrFilePath = this.Source;
         try
         {
             fileNameOrFilePath = Path.GetFileName(fileNameOrFilePath);
@@ -160,7 +159,7 @@ internal class TestElement
         }
 
         idProvider.AppendString(fileNameOrFilePath);
-        idProvider.AppendString(uiExample.FullName);
+        idProvider.AppendString(this.Example.FullName);
 
         return idProvider.GetId();
     }

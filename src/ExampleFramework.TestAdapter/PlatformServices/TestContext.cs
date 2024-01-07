@@ -2,6 +2,7 @@
 // Licensed under the MIT license. See LICENSE file in the project root for full license information.
 
 using ExampleFramework.TestAdapter.Internal;
+using ExampleFramework.TestAdapter.ObjectModel;
 using System;
 using System.Collections.Generic;
 #if NETFRAMEWORK
@@ -156,7 +157,7 @@ public abstract class TestContext
     /// <summary>
     /// Gets the current test outcome.
     /// </summary>
-    public virtual TestOutcome CurrentTestOutcome => TestOutcome.Unknown;
+    public virtual FrameworkUnitTestOutcome CurrentTestOutcome => FrameworkUnitTestOutcome.Unknown;
 
     /// <summary>
     /// Adds a file name to the list in TestResult.ResultFileNames.

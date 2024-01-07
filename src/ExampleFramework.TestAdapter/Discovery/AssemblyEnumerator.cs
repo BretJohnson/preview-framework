@@ -75,7 +75,10 @@ internal class AssemblyEnumerator : MarshalByRefObject
         var testElements = new List<TestElement>();
         foreach (UIComponent uiComponent in uiComponents.Components)
         {
-            testElements.Add(new TestElement(uiComponent, assemblyFileName));
+            foreach (UIExample uiExample in uiComponent.Examples)
+            {
+                testElements.Add(new TestElement(uiExample, assemblyFileName));
+            }
         }
 
         /*

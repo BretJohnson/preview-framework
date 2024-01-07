@@ -2,7 +2,6 @@
 using Microsoft.VisualStudio.TestPlatform.ObjectModel;
 using Microsoft.VisualStudio.TestPlatform.ObjectModel.Adapter;
 using Microsoft.VisualStudio.TestPlatform.ObjectModel.Logging;
-using System.Diagnostics;
 
 namespace ExampleFramework.TestAdapter;
 
