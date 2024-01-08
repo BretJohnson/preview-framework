@@ -1,11 +1,7 @@
-﻿using System;
-using System.ComponentModel;
+﻿using System.ComponentModel;
 using System.Collections.ObjectModel;
 using System.Runtime.CompilerServices;
 using System.Windows.Input;
-using System.Threading.Tasks;
-using Microsoft.Maui.Controls;
-using Microsoft.Maui.Graphics;
 using ControlGallery.Models;
 
 namespace ControlGallery.ViewModels
@@ -58,16 +54,12 @@ namespace ControlGallery.ViewModels
             IsRefreshing = false;
         }
 
-        #region INotifyPropertyChanged
-
         public event PropertyChangedEventHandler? PropertyChanged;
 
         void OnPropertyChanged([CallerMemberName] string? propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
-
-        #endregion
     }
 }
 
