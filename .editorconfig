@@ -38,10 +38,9 @@ indent_size = 4
 
 # Dotnet code style settings:
 [*.{cs,vb}]
-
 # Sort using and Import directives with System.* appearing first
 dotnet_sort_system_directives_first = true
-
+dotnet_separate_import_directive_groups = false
 dotnet_style_qualification_for_field = false:warning
 dotnet_style_qualification_for_property = true:warning
 dotnet_style_qualification_for_method = true:warning
@@ -135,12 +134,6 @@ csharp_indent_case_contents = true
 csharp_indent_switch_labels = true
 csharp_indent_labels = flush_left
 
-# avoid this. unless absolutely necessary
-dotnet_style_qualification_for_field = false:suggestion
-dotnet_style_qualification_for_property = false:suggestion
-dotnet_style_qualification_for_method = false:suggestion
-dotnet_style_qualification_for_event = false:suggestion
-
 # Prefer "var" where type is apparent
 csharp_style_var_for_built_in_types = false
 csharp_style_var_when_type_is_apparent = true:suggestion
@@ -189,20 +182,6 @@ dotnet_diagnostic.DOC108.severity = warning
 dotnet_diagnostic.DOC200.severity = warning
 dotnet_diagnostic.DOC202.severity = warning
 
-# Use _ prefix for private fields
-dotnet_naming_rule.private_members_with_underscore.symbols  = private_fields
-dotnet_naming_rule.private_members_with_underscore.style    = prefix_underscore
-dotnet_naming_rule.private_members_with_underscore.severity = suggestion
-
-dotnet_naming_symbols.private_fields.applicable_kinds           = field
-dotnet_naming_symbols.private_fields.applicable_accessibilities = private
-
-dotnet_naming_style.prefix_underscore.capitalization = camel_case
-dotnet_naming_style.prefix_underscore.required_prefix = _
-
-# CS1591: Missing XML comment for publicly visible type or member
-# TODO: Change this at some point to warn on missing doc, but for now it's annoying
-dotnet_diagnostic.CS1591.severity = silent
 
 [*.sln]
 indent_style = tab
