@@ -37,6 +37,12 @@ jobs:
           mono --version
         }
       shell: pwsh
+    # Install Java SDK explicitly since we still build for .NET7; see https://stackoverflow.com/questions/77519046/maui-xamarin-build-failing-with-microsoft-android-sdk-tooling-targets20-5/77519051#77519051
+    - name: Setup Java JDK
+      uses: actions/setup-java@v3.13.0
+      with:
+        distribution: 'microsoft'
+        java-version: '17'
     - name: ⚙️ Set pipeline variables based on source
       run: azure-pipelines/variables/_pipelines.ps1
       shell: pwsh
