@@ -10,11 +10,11 @@ namespace VisualTestUtils.MagickNet
     /// </summary>
     public class MagickNetVisualDiffGenerator : IVisualDiffGenerator
     {
-        private ErrorMetric errorMetric;
+        private ErrorMetric _errorMetric;
 
         public MagickNetVisualDiffGenerator(ErrorMetric error = ErrorMetric.Fuzz)
         {
-            this.errorMetric = error;
+            _errorMetric = error;
         }
 
         public ImageSnapshot GenerateDiff(ImageSnapshot baselineImage, ImageSnapshot actualImage)
@@ -25,7 +25,7 @@ namespace VisualTestUtils.MagickNet
             MagickImage magickDiffImage = new MagickImage();
             magickDiffImage.Format = MagickFormat.Png;
 
-            double percentageDifference = magickBaselineImage.Compare(magickActualImage, this.errorMetric, magickDiffImage, Channels.Red);
+            double percentageDifference = magickBaselineImage.Compare(magickActualImage, this._errorMetric, magickDiffImage, Channels.Red);
 
             return new ImageSnapshot(magickDiffImage.ToByteArray(), ImageSnapshotFormat.PNG);
         }

@@ -2,21 +2,21 @@
 {
     public class ImageSizeDifference : ImageDifference
     {
-        int baselineWidth;
-        int baselineHeight;
-        int actualWidth;
-        int actualHeight;
+        private int _baselineWidth;
+        private int _baselineHeight;
+        private int _actualWidth;
+        private int _actualHeight;
 
         public ImageSizeDifference(int baselineWidth, int baselineHeight, int actualWidth, int actualHeight)
         {
-            this.baselineWidth = baselineWidth;
-            this.baselineHeight = baselineHeight;
-            this.actualWidth = actualWidth;
-            this.actualHeight = actualHeight;
+            _baselineWidth = baselineWidth;
+            _baselineHeight = baselineHeight;
+            _actualWidth = actualWidth;
+            _actualHeight = actualHeight;
         }
 
         public override string Description =>
-            $"size differs - baseline is {this.baselineWidth}x{this.baselineHeight} pixels, actual is {this.actualWidth}x{this.actualHeight} pixels";
+            $"size differs - baseline is {_baselineWidth}x{_baselineHeight} pixels, actual is {_actualWidth}x{_actualHeight} pixels";
 
         public static ImageSizeDifference? Compare(int baselineWidth, int baselineHeight, int actualWidth, int actualHeight) =>
             baselineWidth != actualWidth || baselineHeight != actualHeight

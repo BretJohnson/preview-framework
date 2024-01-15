@@ -2,14 +2,14 @@
 {
     public class ImagePercentageDifference : ImageDifference
     {
-        double percentage;
+        private double _percentage;
 
         public ImagePercentageDifference(double percentage)
         {
-            this.percentage = percentage;
+            _percentage = percentage;
         }
 
         public override string Description =>
-            string.Format("{0:0.00}% difference", this.percentage * 100.0);
+            string.Format("{0:0.00}% difference", _percentage * 100.0);
     }
 }

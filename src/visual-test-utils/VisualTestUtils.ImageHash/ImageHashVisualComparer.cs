@@ -11,8 +11,8 @@ namespace VisualTestUtils.ImageHash
     /// </summary>
     public class ImageHashVisualComparer : IVisualComparer
     {
-        private IHashAlgorithm hashAlgorithm;
-        private double differenceThreshold;
+        private IHashAlgorithm _hashAlgorithm;
+        private double _differenceThreshold;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ImageHashVisualComparer"/> class, defaulting
@@ -31,8 +31,8 @@ namespace VisualTestUtils.ImageHash
         /// <param name="differenceThreshold">The maximum percent difference that is allowed between the baseline and actual snapshot images. Default value is .005, meaning the images must be at least 99.5% the same.).</param>
         public ImageHashVisualComparer(IHashAlgorithm hashAlgorithm, double differenceThreshold = 0.005)
         {
-            this.hashAlgorithm = hashAlgorithm;
-            this.differenceThreshold = differenceThreshold;
+            _hashAlgorithm = hashAlgorithm;
+            _differenceThreshold = differenceThreshold;
         }
 
         /// <inheritdoc/>
@@ -46,11 +46,11 @@ namespace VisualTestUtils.ImageHash
                 return imageSizeDifference;
 
             // Get the similarity, 0-100 range (99.0 = 99% same)
-            double similarity = CompareHash.Similarity(this.hashAlgorithm.Hash(baselineSKBitmap), this.hashAlgorithm.Hash(actualSKBitmap));
+            double similarity = CompareHash.Similarity(this._hashAlgorithm.Hash(baselineSKBitmap), this._hashAlgorithm.Hash(actualSKBitmap));
 
             // Convert to difference, 0-1 range (.01 = 1% different)
             double difference = (100.0 - similarity) / 100.0;
-            if (difference > this.differenceThreshold)
+            if (difference > _differenceThreshold)
                 return new ImagePercentageDifference(difference);
             else return null;
         }

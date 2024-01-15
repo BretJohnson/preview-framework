@@ -4,11 +4,11 @@ namespace VisualTestUtils
 {
     public class VisualRegressionTester
     {
-        private readonly string snapshotsDirectory;
-        private readonly string snapshotsDiffDirectory;
-        private readonly IVisualComparer visualComparer;
-        private readonly IVisualDiffGenerator visualDiffGenerator;
-        private readonly bool isCI;
+        private readonly string _snapshotsDirectory;
+        private readonly string _snapshotsDiffDirectory;
+        private readonly IVisualComparer _visualComparer;
+        private readonly IVisualDiffGenerator _visualDiffGenerator;
+        private readonly bool _isCI;
 
         /// <summary>
         /// Initialize visual regression testing, configured as specified.
@@ -24,13 +24,13 @@ namespace VisualTestUtils
             testRootDirectory = Path.GetFullPath(testRootDirectory);
             ciArtifactsDirectory = ciArtifactsDirectory != null ? Path.GetFullPath(ciArtifactsDirectory) : null;
 
-            this.isCI = ciArtifactsDirectory != null;
+            _isCI = ciArtifactsDirectory != null;
 
-            this.snapshotsDirectory = Path.Combine(testRootDirectory, "snapshots");
-            this.snapshotsDiffDirectory = Path.Combine(ciArtifactsDirectory ?? testRootDirectory, "snapshots-diff");
+            _snapshotsDirectory = Path.Combine(testRootDirectory, "snapshots");
+            _snapshotsDiffDirectory = Path.Combine(ciArtifactsDirectory ?? testRootDirectory, "snapshots-diff");
 
-            this.visualComparer = visualComparer;
-            this.visualDiffGenerator = visualDiffGenerator;
+            _visualComparer = visualComparer;
+            _visualDiffGenerator = visualDiffGenerator;
         }
 
         /// <summary>
@@ -48,10 +48,10 @@ namespace VisualTestUtils
         {
             string imageFileName = $"{name}{actualImage.Format.GetFileExtension()}";
 
-            string snapshotsEnvironmentDirectory = GetEnvironmentDirectory(this.snapshotsDirectory, environmentName);
+            string snapshotsEnvironmentDirectory = GetEnvironmentDirectory(this._snapshotsDirectory, environmentName);
             string baselineImagePath = Path.Combine(snapshotsEnvironmentDirectory, imageFileName);
 
-            string diffEnvironmentDirectory = GetEnvironmentDirectory(this.snapshotsDiffDirectory, environmentName);
+            string diffEnvironmentDirectory = GetEnvironmentDirectory(this._snapshotsDiffDirectory, environmentName);
             string diffDirectoryImagePath = Path.Combine(diffEnvironmentDirectory, imageFileName);
             string diffDirectoryDiffImagePath = Path.Combine(diffEnvironmentDirectory, name + "-diff.png");
             string ciGetImagesText = testContext != null ? "See test attachment or download the build artifacts to get the new snapshot file." : "Download the build artifacts to get the new snapshot files.";
@@ -65,7 +65,7 @@ namespace VisualTestUtils
 
                 string copyCommand = RuntimeInformation.IsOSPlatform(OSPlatform.Windows) ? "copy" : "cp";
 
-                if (! this.isCI)
+                if (! _isCI)
                 {
                     this.Fail(
                         $"Baseline snapshot not yet created: {baselineImagePath}\n" +
@@ -75,7 +75,7 @@ namespace VisualTestUtils
                         $"Commands:\n" +
                         $"View this file: vview {diffDirectoryImagePath}\n" +
                         $"Add this file:  {copyCommand} {diffDirectoryImagePath} {snapshotsEnvironmentDirectory}{Path.DirectorySeparatorChar}\n" +
-                        $"Diff all files: vdiff {this.snapshotsDirectory} {this.snapshotsDiffDirectory}\n" +
+                        $"Diff all files: vdiff {this._snapshotsDirectory} {this._snapshotsDiffDirectory}\n" +
                         $"More info:      https://aka.ms/visual-test-workflow\n");
                 }
                 else
@@ -94,19 +94,19 @@ namespace VisualTestUtils
 
             var baselineImage = new ImageSnapshot(baselineImagePath);
 
-            ImageDifference? imageDifference = this.visualComparer.Compare(baselineImage, actualImage);
+            ImageDifference? imageDifference = _visualComparer.Compare(baselineImage, actualImage);
             if (imageDifference != null)
             {
                 Directory.CreateDirectory(diffEnvironmentDirectory);
                 actualImage.Save(diffEnvironmentDirectory, name);
 
-                ImageSnapshot diffImage = this.visualDiffGenerator.GenerateDiff(baselineImage, actualImage);
+                ImageSnapshot diffImage = _visualDiffGenerator.GenerateDiff(baselineImage, actualImage);
                 diffImage.Save(diffEnvironmentDirectory, name + "-diff");
 
                 testContext?.AddTestAttachment(diffDirectoryImagePath);
                 testContext?.AddTestAttachment(diffDirectoryDiffImagePath);
 
-                if (! this.isCI)
+                if (! _isCI)
                 {
                     this.Fail(
                         $"Snapshot different than baseline: {imageFileName} ({imageDifference.Description})\n" +
@@ -114,7 +114,7 @@ namespace VisualTestUtils
                         $"\n" +
                         $"Commands:\n" +
                         $"Diff this file: vdiff {baselineImagePath} {diffDirectoryImagePath}\n" +
-                        $"Diff all files: vdiff {this.snapshotsDirectory} {this.snapshotsDiffDirectory}\n" +
+                        $"Diff all files: vdiff {_snapshotsDirectory} {_snapshotsDiffDirectory}\n" +
                         $"More info:      https://aka.ms/visual-test-workflow\n");
                 }
                 else
