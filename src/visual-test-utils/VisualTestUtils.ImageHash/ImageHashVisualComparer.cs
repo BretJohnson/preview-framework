@@ -46,7 +46,7 @@ namespace VisualTestUtils.ImageHash
                 return imageSizeDifference;
 
             // Get the similarity, 0-100 range (99.0 = 99% same)
-            double similarity = CompareHash.Similarity(this._hashAlgorithm.Hash(baselineSKBitmap), this._hashAlgorithm.Hash(actualSKBitmap));
+            double similarity = CompareHash.Similarity(_hashAlgorithm.Hash(baselineSKBitmap), _hashAlgorithm.Hash(actualSKBitmap));
 
             // Convert to difference, 0-1 range (.01 = 1% different)
             double difference = (100.0 - similarity) / 100.0;
