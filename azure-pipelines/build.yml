@@ -5,7 +5,7 @@ parameters:
     vmImage: windows-2022
 - name: RunTests
   type: boolean
-  default: false
+  default: true
 
 jobs:
 - job: Windows
