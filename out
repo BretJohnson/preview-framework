@@ -1,0 +1,44 @@
+
+    Directory: C:\my-projects\example-framework
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+d----           1/21/2024  7:01 PM                .config
+d----            1/7/2024  8:31 PM                .devcontainer
+d----           2/10/2024 11:32 PM                .github
+d----            1/7/2024  8:49 PM                .vscode
+d----           1/31/2024  1:43 AM                azure-pipelines
+d----           1/31/2024  1:26 AM                bin
+d----            8/4/2023 11:25 AM                MauiApp1
+d----           1/31/2024  1:18 AM                MauiApp2
+d----           1/31/2024  1:26 AM                MauiApp3
+d----           1/31/2024  1:29 AM                MauiLib1
+d----           1/31/2024  1:26 AM                obj
+d----            1/7/2024  8:57 PM                samples
+d----           1/28/2024  2:02 AM                src
+d----            1/7/2024  8:31 PM                test
+d----            1/7/2024  8:31 PM                tools
+-a---            1/7/2024  8:37 PM           7308 .editorconfig
+-a---            1/7/2024  8:31 PM           2770 .gitattributes
+-a---            1/7/2024  8:31 PM           6450 .gitignore
+-a---           2/10/2024  2:56 PM            772 azure-pipelines.yml
+-a---            1/7/2024  8:48 PM           4307 build-save.yml
+-a---            1/2/2024 12:31 AM           2944 CONTRIBUTING.md
+-a---            1/7/2024  8:40 PM           4425 Directory.Build.props
+-a---            1/7/2024  8:31 PM            792 Directory.Build.rsp
+-a---            1/7/2024  8:31 PM            523 Directory.Build.targets
+-a---            1/7/2024  8:45 PM            646 Directory.Packages.props
+-a---            1/2/2024 12:31 AM            663 ExampleFramework-CI.slnf
+-a---           1/31/2024  1:31 AM          10048 ExampleFramework.sln
+-a---            1/7/2024  8:31 PM            109 global.json
+-a---            1/7/2024  8:31 PM            666 init.cmd
+-a---            1/7/2024  8:46 PM           5076 init.ps1
+-a---            8/1/2023  5:44 PM           1095 LICENSE
+-a---            8/1/2023  5:44 PM            535 nuget.config
+-a---           2/12/2024 12:04 AM              0 out
+-a---           2/11/2024 11:47 PM           1858 README.md
+-a---            8/1/2023  5:44 PM           1172 strongname.snk
+-a---            8/1/2023  5:44 PM            707 stylecop.json
+-a---           1/28/2024 11:29 PM           3886 THIRD-PARTY-NOTICES.txt
+-a---            1/2/2024 12:31 AM            324 version.json
+
