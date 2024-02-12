@@ -7,14 +7,16 @@
 | VisualTestUtils | [![NuGet Version](https://img.shields.io/nuget/v/VisualTestUtils.svg)](https://nuget.org/packages/VisualTestUtils) |
 | VisualTestUtils.AppConnector | [![NuGet Version](https://img.shields.io/nuget/v/VisualTestUtils.AppConnector.svg)](https://nuget.org/packages/VisualTestUtils.AppConnector) |
 | VisualTestUtils.ImageHash| [![NuGet Version](https://img.shields.io/nuget/v/VisualTestUtils.ImageHash.svg)](https://nuget.org/packages/VisualTestUtils.ImageHash) |
-| VisualTestUtils.MakickNet| [![NuGet Version](https://img.shields.io/nuget/v/VisualTestUtils.MagickNet.svg)](https://nuget.org/packages/VisualTestUtils.MagickNet) |
+| VisualTestUtils.MagickNet| [![NuGet Version](https://img.shields.io/nuget/v/VisualTestUtils.MagickNet.svg)](https://nuget.org/packages/VisualTestUtils.MagickNet) |
+| ExampleFramework| [![NuGet Version](https://img.shields.io/nuget/v/ExampleFramework.svg)](https://nuget.org/packages/ExampleFramework) |
+| ExampleFramework.Tooling| [![NuGet Version](https://img.shields.io/nuget/v/ExampleFramework.Tooling.svg)](https://nuget.org/packages/ExampleFramework.Tooling) |
+| ExampleFramework.Tooling.Maui| [![NuGet Version](https://img.shields.io/nuget/v/ExampleFramework.Tooling.Maui.svg)](https://nuget.org/packages/ExampleFramework.Tooling.Maui) |
 
 ## Overview
 
 This repo contains shared code for UI examples and visual testing.
 
-Current/intended clients include .NET MAUI SDK visual tests, VS UITools Hot Reload visual component tests, and Example Framework
-example visual tests.
+Current/intended clients include .NET MAUI SDK visual tests and Example Framework example visual tests.
 
 ## How to build
 
