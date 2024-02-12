@@ -2,7 +2,7 @@
 
 ***Define UI examples and easily add visual regression testing to your test process***
 
-[![Build Status](https://dev.azure.com/bretjohn-public/example-framework/_apis/build/status%2Fexample-framework?branchName=main)](https://dev.azure.com/bretjohn-public/example-framework/_build/latest?definitionId=1&branchName=main)
+[![Build Status](https://dev.azure.com/bretjohn-public/example-framework/_apis/build/status%2Fexample-framework?branchName=main)](https://dev.azure.com/bretjohn-public/example-framework/_build/latest?definitionId=3&branchName=main)
 
 | Package | Version |
 | ------- | ------- |
