@@ -42,12 +42,6 @@
     <AdditionalFiles Include="$(MSBuildThisFileDirectory)stylecop.json" Link="stylecop.json" />
   </ItemGroup>
 
-  <!-- The GlobalPackageReference for Nerdbank.GitVersioning works for "dotnet build" but not for -->
-  <!-- "dotnet build VisualTestUtils-CI.slnf", so use an explicit PackageReference here instead. -->
-  <ItemGroup>
-    <PackageReference Include="Nerdbank.GitVersioning" Version="3.6.133" PrivateAssets="all" />
-  </ItemGroup>
-
   <ItemDefinitionGroup>
     <!-- We always want MSBuild properties generated that point at the restored location of each package. -->
     <PackageReference GeneratePathProperty="true" />
