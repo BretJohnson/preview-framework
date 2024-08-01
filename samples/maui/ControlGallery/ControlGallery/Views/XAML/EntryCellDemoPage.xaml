@@ -1,14 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage
-    x:Class="ControlGallery.Views.XAML.EntryCellDemoPage"
-    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="ControlGallery.Views.XAML.EntryCellDemoPage"
     Title="EntryCell Demo">
     <StackLayout>
-        <TableView Margin="10,0" Intent="Form">
+        <TableView Intent="Form"
+                   Margin="10, 0">
             <TableRoot>
                 <TableSection>
-                    <EntryCell Label="Entry Cell" Placeholder="Type text here" />
+                    <EntryCell Label="Entry Cell"
+                               Placeholder="Type text here" />
                 </TableSection>
             </TableRoot>
         </TableView>
