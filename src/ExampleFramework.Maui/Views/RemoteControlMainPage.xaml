@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+            xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+            xmlns:t="clr-namespace:TreeView.Maui.Controls;assembly=TreeView.Maui"
+            x:Class="ExampleFramework.Maui.Views.RemoteControlMainPage"
+            Title="Example Book">
+
+    <ContentView x:Name="ExampleWrapper" />
+
+</ContentPage>
