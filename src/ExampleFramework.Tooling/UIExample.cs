@@ -27,7 +27,7 @@ public abstract class UIExample
     /// isn't necessarily unique. It defaults to the example method/class name but can be overridden by
     /// the developer.
     /// </summary>
-    public string Title => _title ?? DefaultTitle;
+    public string Title => _title ?? this.DefaultTitle;
 
     /// <summary>
     /// Default title based on the example method/class name, ignoring any title override.
@@ -41,9 +41,9 @@ public abstract class UIExample
             if (_uiComponentType != null)
                 return _uiComponentType;
 
-            Type? defaultUIComponentType = DefaultUIComponentType;
+            Type? defaultUIComponentType = this.DefaultUIComponentType;
             if (defaultUIComponentType == null)
-                throw new InvalidOperationException($"No DefaultUICompentType specified for example: {FullName}");
+                throw new InvalidOperationException($"No DefaultUIComponentType specified for example: {this.FullName}");
             else return defaultUIComponentType;
         }
     }
@@ -55,8 +55,8 @@ public abstract class UIExample
     public abstract Type? DefaultUIComponentType { get; }
 
     /// <summary>
-    /// FullName is intended to be what's used by the code to identify the example. It's the examples's
-    /// full qualitified method name.
+    /// FullName is intended to be what's used by the code to identify the example. It's the example's
+    /// full qualified method name.
     /// </summary>
     public abstract string FullName { get; }
 }

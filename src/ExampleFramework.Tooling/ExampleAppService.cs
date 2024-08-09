@@ -5,7 +5,7 @@ namespace ExampleFramework.Tooling;
 
 public abstract class ExampleAppService : AppService, IExampleAppService
 {
-    public abstract Task NaviateToExampleAsync(string uiComponentName, string? exampleName);
+    public abstract Task NavigateToExampleAsync(string uiComponentName, string? exampleName);
     public abstract Task<ImageSnapshot> GetExampleSnapshotAsync(string uiComponentName, string? exampleName);
 
     protected static UIComponent GetUIComponent(string uiComponentName)
