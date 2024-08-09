@@ -4,8 +4,10 @@ using WeatherTwentyOne.Models;
 
 namespace WeatherTwentyOne.ViewModels;
 
-public class HomeViewModel : INotifyPropertyChanged
+public class HomeViewModel : INotifyPropertyChanged, IQueryAttributable
 {
+    public Current Current { get; set; }
+
     public List<Forecast> Week { get; set; }
 
     public List<Forecast> Hours { get; set; }
@@ -47,8 +49,46 @@ public class HomeViewModel : INotifyPropertyChanged
         });
     }
 
+    public void ApplyQueryAttributes(IDictionary<string, object> query)
+    {
+        Current? current = query["Current"] as Current;
+        if (current != null)
+        {
+            Current = current;
+        }
+
+        List<Forecast>? week = query["Week"] as List<Forecast>;
+        if (week != null)
+        {
+            UpdateWeek(week);
+        }
+
+        List<Forecast>? hours = query["Hours"] as List<Forecast>;
+        if (hours != null)
+        {
+            UpdateHours(hours);
+        }
+    }
+    
+    private void UpdateWeek(List<Forecast> week)
+    {
+        Week = week;
+    }
+
+    private void UpdateHours(List<Forecast> hours)
+    {
+        Hours = hours;
+    }
+
     private void InitData()
     {
+        Current = new Current
+        {
+            Phrase = "fluent_weather_sunny_20_filled",
+            Description = "Sunny",
+            Temperature = "68"
+        };
+
         Week = new List<Forecast>
             {
                 new Forecast

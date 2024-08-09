@@ -30,4 +30,12 @@ public partial class SettingsPage : ContentPage
 
         App.Current.UserAppTheme = val;
     }
+
+#if EXAMPLES
+    [UIExample("Imperial")]
+    public static SettingsPage ImperialSettings() => new();
+
+    [UIExample("Metric")]
+    public static SettingsPage MetricSettings() => new();
+#endif
 }

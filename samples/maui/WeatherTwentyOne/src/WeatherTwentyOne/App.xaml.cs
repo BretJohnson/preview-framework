@@ -1,4 +1,6 @@
 ﻿using System.Diagnostics;
+using ExampleFramework.Maui;
+using ExampleFramework.Maui.Pages;
 using WeatherTwentyOne.Pages;
 
 namespace WeatherTwentyOne;
@@ -9,20 +11,15 @@ public partial class App : Application
     {
         InitializeComponent();
 
-        //App.Current.UserAppTheme = AppTheme.Dark;
+        MainPage = new AppShell();
 
+#if EXAMPLES
+        this.EnableExamplesMode();
+#endif
+
+        /*
         if (DeviceInfo.Idiom == DeviceIdiom.Phone)
-            Shell.Current.CurrentItem = PhoneTabs;
-
-        //Routing.RegisterRoute(nameof(SettingsPage), typeof(SettingsPage));
-    }
-
-    async void TapGestureRecognizer_Tapped(System.Object sender, System.EventArgs e)
-    {
-        try { 
-            await Shell.Current.GoToAsync($"///settings");
-        }catch (Exception ex) {
-            Debug.WriteLine($"err: {ex.Message}");
-        }
+            Shell.Current.CurrentItem = appShell.PhoneTabs;
+        */
     }
 }

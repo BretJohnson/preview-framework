@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using Microsoft.Maui.Devices.Sensors;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Runtime.CompilerServices;
 using WeatherClient2021;
@@ -6,7 +7,7 @@ using Location = WeatherClient2021.Location;
 
 namespace WeatherTwentyOne.ViewModels;
 
-public class FavoritesViewModel : INotifyPropertyChanged
+public class FavoritesViewModel : INotifyPropertyChanged, IQueryAttributable
 {
     IWeatherService weatherService = new WeatherService(null);
 
@@ -22,14 +23,27 @@ public class FavoritesViewModel : INotifyPropertyChanged
         }
     }
 
+    public void ApplyQueryAttributes(IDictionary<string, object> query)
+    {
+        IEnumerable<Location>? favoriteLocations = query["FavoriteLocations"] as IEnumerable<Location>;
+        if (favoriteLocations != null)
+        {
+            UpdateFavorites(favoriteLocations);
+        }
+    }
+
+    public IEnumerable<Location> FavoriteLocations
+    {
+        set
+        {
+            UpdateFavorites(value);
+        }
+    }
+
     async void Fetch()
     {
         var locations = await weatherService.GetLocations(string.Empty);
-
         UpdateFavorites(locations);
-
-        OnPropertyChanged(nameof(Favorites));
-
     }
 
     private void UpdateFavorites(IEnumerable<Location> locations)
@@ -39,6 +53,7 @@ public class FavoritesViewModel : INotifyPropertyChanged
         {
             favorites.Add(locations.ElementAt(i));
         }
+        OnPropertyChanged(nameof(Favorites));
     }
 
     public event PropertyChangedEventHandler PropertyChanged;

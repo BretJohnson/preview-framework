@@ -1,5 +1,7 @@
 ﻿using System.Diagnostics;
+using ExampleFramework.Maui;
 using Microsoft.Maui.Controls.PlatformConfiguration.WindowsSpecific;
+using WeatherTwentyOne.Models;
 using WeatherTwentyOne.Services;
 using WeatherTwentyOne.ViewModels;
 using Application = Microsoft.Maui.Controls.Application;
@@ -33,7 +35,7 @@ public partial class HomePage : ContentPage
 #if WINDOWS
             //AppActions.IconDirectory = Application.Current.On<WindowsConfiguration>().GetImageDirectory();
 #endif
-            AppActions.SetAsync(
+            _ = AppActions.SetAsync(
                 new AppAction("current_info", "Check Current Weather", icon: "current_info"),
                 new AppAction("add_location", "Add a Location", icon: "add_location")
             );
@@ -56,4 +58,18 @@ public partial class HomePage : ContentPage
                     ?.ShowNotification("Hello Build! 😻 From .NET MAUI", "How's your weather?  It's sunny where we are 🌞");
         }
     }
+
+#if EXAMPLES
+    [UIExample("Thunderstorms", typeof(HomePage))]
+    public static ShellExample Thunderstorms() => new("///home", nameof(HomeViewModel.Current),
+        new Current
+        {
+            Phrase = "fluent_weather_thunderstorm_20_filled",
+            Description = "Thunderstorms",
+            Temperature = "72"
+        });
+
+    [UIExample("Mixed weather", typeof(HomePage))]
+    public static ShellExample MixedWeather() => new("///home");
+#endif
 }

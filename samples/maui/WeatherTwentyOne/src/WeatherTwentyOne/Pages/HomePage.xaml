@@ -5,7 +5,7 @@
     xmlns:v="clr-namespace:WeatherTwentyOne.Views"
     xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
     ios:Page.UseSafeArea="True"
-    Title="{OnIdiom 'St. Louis, Missouri USA', Desktop=''}"
+    Title="{OnIdiom 'Raleigh, NC USA', Desktop=''}"
     Shell.NavBarIsVisible="{OnPlatform True, MacCatalyst=False}"
     x:Class="WeatherTwentyOne.Pages.HomePage"
     x:Name="this">
@@ -47,6 +47,7 @@
                     AlignContent="Center"
                     JustifyContent="SpaceEvenly">
                     <v:CurrentWidget
+                        BindingContext=""
                         WidthRequest="200" />
                     <v:WindLiveWidget 
                         x:Name="WindWidget"

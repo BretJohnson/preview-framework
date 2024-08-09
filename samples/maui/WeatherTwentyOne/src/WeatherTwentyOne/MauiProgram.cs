@@ -1,6 +1,7 @@
 ﻿using Microsoft.Maui.LifecycleEvents;
 using WeatherTwentyOne.Pages;
 using WeatherTwentyOne.ViewModels;
+using ExampleFramework.Maui;
 
 namespace WeatherTwentyOne;
 
@@ -16,6 +17,11 @@ public static class MauiProgram
                 fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                 fonts.AddFont("OpenSans-SemiBold.ttf", "OpenSansSemiBold");
             });
+
+#if EXAMPLES
+        builder.UseExamplesOverlay(Colors.Orange);
+#endif
+
         builder.ConfigureLifecycleEvents(lifecycle => {
 #if WINDOWS
         //lifecycle
@@ -44,9 +50,6 @@ public static class MauiProgram
 #endif
         services.AddSingleton<HomeViewModel>();
         services.AddSingleton<HomePage>();
-
-
-
 
         return builder.Build();
     }

@@ -6,4 +6,12 @@ public partial class MapPage : ContentPage
     {
         InitializeComponent();
     }
+
+#if EXAMPLES
+    [UIExample("Seattle")]
+    public static MapPage Seattle() => new();
+
+    [UIExample("Raleigh")]
+    public static MapPage Raleigh() => new();
+#endif
 }

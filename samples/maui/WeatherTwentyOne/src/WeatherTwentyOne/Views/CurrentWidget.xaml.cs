@@ -1,4 +1,6 @@
-﻿namespace WeatherTwentyOne.Views;
+﻿using WeatherTwentyOne.ViewModels;
+
+namespace WeatherTwentyOne.Views;
 
 public partial class CurrentWidget
 {

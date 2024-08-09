@@ -42,6 +42,18 @@ public class Night
     public string Phrase { get; set; }
 }
 
+public class Current
+{
+    [JsonPropertyName("phrase")]
+    public string Phrase { get; set; }
+
+    [JsonPropertyName("description")]
+    public string Description { get; set; }
+
+    [JsonPropertyName("temperature")]
+    public string Temperature { get; set; }
+}
+
 public class Forecast
 {
     [JsonPropertyName("dateTime")]
