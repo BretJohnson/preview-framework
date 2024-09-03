@@ -11,10 +11,12 @@ namespace VisualTestUtils.MagickNet
     public class MagickNetVisualDiffGenerator : IVisualDiffGenerator
     {
         private ErrorMetric _errorMetric;
+        private Channels _channelsToCompare;
 
-        public MagickNetVisualDiffGenerator(ErrorMetric error = ErrorMetric.Fuzz)
+        public MagickNetVisualDiffGenerator(ErrorMetric error = ErrorMetric.Fuzz, Channels channelsToCompare = Channels.RGBA)
         {
             _errorMetric = error;
+            _channelsToCompare = channelsToCompare;
         }
 
         public ImageSnapshot GenerateDiff(ImageSnapshot baselineImage, ImageSnapshot actualImage)
@@ -25,7 +27,7 @@ namespace VisualTestUtils.MagickNet
             var magickDiffImage = new MagickImage();
             magickDiffImage.Format = MagickFormat.Png;
 
-            magickBaselineImage.Compare(magickActualImage, _errorMetric, magickDiffImage, Channels.Red);
+            magickBaselineImage.Compare(magickActualImage, _errorMetric, magickDiffImage, _channelsToCompare);
 
             return new ImageSnapshot(magickDiffImage.ToByteArray(), ImageSnapshotFormat.PNG);
         }
