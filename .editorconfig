@@ -26,6 +26,7 @@ indent_size = 2
 # Xml config files
 [*.{ruleset,config,nuspec,resx,vsixmanifest,vsct,runsettings}]
 indent_size = 2
+indent_style = space
 
 # JSON files
 [*.json]
@@ -41,7 +42,7 @@ indent_size = 4
 # Sort using and Import directives with System.* appearing first
 dotnet_sort_system_directives_first = true
 dotnet_separate_import_directive_groups = false
-dotnet_style_qualification_for_field = false:warning
+dotnet_style_qualification_for_field = true:warning
 dotnet_style_qualification_for_property = true:warning
 dotnet_style_qualification_for_method = true:warning
 dotnet_style_qualification_for_event = true:warning
@@ -88,7 +89,7 @@ dotnet_naming_symbols.static_fields.required_modifiers = static
 
 dotnet_naming_style.static_field_style.capitalization = camel_case
 
-# Instance fields are camelCase and start with _
+# Instance fields are camelCase
 dotnet_naming_rule.instance_fields_should_be_camel_case.severity = suggestion
 dotnet_naming_rule.instance_fields_should_be_camel_case.symbols = instance_fields
 dotnet_naming_rule.instance_fields_should_be_camel_case.style = instance_field_style
@@ -96,7 +97,6 @@ dotnet_naming_rule.instance_fields_should_be_camel_case.style = instance_field_s
 dotnet_naming_symbols.instance_fields.applicable_kinds = field
 
 dotnet_naming_style.instance_field_style.capitalization = camel_case
-dotnet_naming_style.instance_field_style.required_prefix = _
 
 # Locals and parameters are camelCase
 dotnet_naming_rule.locals_should_be_camel_case.severity = suggestion
@@ -182,6 +182,29 @@ dotnet_diagnostic.DOC108.severity = warning
 dotnet_diagnostic.DOC200.severity = warning
 dotnet_diagnostic.DOC202.severity = warning
 
-
 [*.sln]
 indent_style = tab
+
+# Disable doc warnings for now
+[*.cs]
+
+# SA1600: Elements should be documented
+dotnet_diagnostic.SA1600.severity = silent
+
+# SA1601: Partial elements should be documented
+dotnet_diagnostic.SA1601.severity = silent
+
+# SA1602: Enumeration items should be documented
+dotnet_diagnostic.SA1602.severity = silent
+
+# SA1615: Element return value should be documented
+dotnet_diagnostic.SA1615.severity = silent
+
+# CS1591: Missing XML comment for publicly visible type or member
+dotnet_diagnostic.CS1591.severity = silent
+
+# SA1130: The file header is missing or not located at the top of the file.
+dotnet_diagnostic.SA1633.severity = silent
+
+# SA1117: The parameters should all be placed on the same line or each parameter should be placed on its own line
+dotnet_diagnostic.SA1117.severity = silent

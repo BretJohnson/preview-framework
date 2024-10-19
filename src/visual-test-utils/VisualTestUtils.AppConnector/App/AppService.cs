@@ -6,18 +6,18 @@ namespace VisualTestUtils.AppConnector.App;
 
 public class AppService : IAppService
 {
-    public bool _supportInvoke;
+    public bool supportInvoke;
 
     public AppService(bool supportInvoke = false)
     {
-        _supportInvoke = supportInvoke;
+        this.supportInvoke = supportInvoke;
     }
 
     public async Task<string> PingAsync() => "Pong";
 
     public async Task<string[]> InvokeMethodAsync(string typeFullName, string staticMethodName, string[] args)
     {
-        if (!_supportInvoke)
+        if (!this.supportInvoke)
         {
             throw new UnauthorizedAccessException("InvokeMethod supported is not enabled");
         }

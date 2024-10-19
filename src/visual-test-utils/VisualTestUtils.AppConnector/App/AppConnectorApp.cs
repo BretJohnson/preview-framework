@@ -6,28 +6,28 @@ namespace VisualTestUtils.AppConnector.App;
 
 public class AppConnectorApp
 {
-    private string _ip;
-    private int _port;
-    private AppService _appService;
-    private ILogger? _logger;
-    private TcpClient? _client;
+    private string ip;
+    private int port;
+    private AppService appService;
+    private ILogger? logger;
+    private TcpClient? client;
 
     public AppConnectorApp(AppService appService, ILogger? logger = null)
     {
-        _logger = logger;
-        _appService = appService;
+        this.logger = logger;
+        this.appService = appService;
 
-        _ip = "127.0.0.1";
-        _port = 8888;
+        this.ip = "127.0.0.1";
+        this.port = 8888;
     }
 
     public async Task StartClientAsync()
     {
-        _client = new TcpClient();
+        this.client = new TcpClient();
 
-        await _client.ConnectAsync(_ip, _port);
-        NetworkStream networkStream = _client.GetStream();
+        await this.client.ConnectAsync(this.ip, this.port);
+        NetworkStream networkStream = this.client.GetStream();
 
-        JsonRpc.Attach(networkStream, _appService);
+        JsonRpc.Attach(networkStream, this.appService);
     }
 }
