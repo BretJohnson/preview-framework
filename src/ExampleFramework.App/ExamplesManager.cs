@@ -4,21 +4,21 @@ namespace ExampleFramework.App;
 
 public class ExamplesManager
 {
-    private static Lazy<ExamplesManager> instance = new Lazy<ExamplesManager> (() =>  new ExamplesManager());
-    private readonly AppUIComponents uiComponents;
+    private readonly static Lazy<ExamplesManager> s_instance = new Lazy<ExamplesManager> (() =>  new ExamplesManager());
+    private readonly AppUIComponents _uiComponents;
 
-    public static ExamplesManager Instance => instance.Value;
+    public static ExamplesManager Instance => s_instance.Value;
 
     private ExamplesManager()
     {
-        this.uiComponents = new AppUIComponents();
+        this._uiComponents = new AppUIComponents();
 
         Assembly[] assemblies = AppDomain.CurrentDomain.GetAssemblies();
         foreach (Assembly assembly in assemblies)
         {
-            this.uiComponents.AddFromAssembly(assembly);
+            _uiComponents.AddFromAssembly(assembly);
         }
     }
 
-    public AppUIComponents UIComponents => this.uiComponents;
+    public AppUIComponents UIComponents => _uiComponents;
 }

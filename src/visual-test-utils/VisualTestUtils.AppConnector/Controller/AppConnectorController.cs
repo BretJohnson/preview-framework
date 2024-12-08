@@ -9,8 +9,8 @@ public class AppConnectorController : IDisposable
 {
     private IAppService? _appService;
     private JsonRpc? _rpc;
-    private IPAddress _ipAddress;
-    private int _port;
+    private readonly IPAddress _ipAddress;
+    private readonly int _port;
     private bool _closed;
     private TcpListener? _listener;
     private TcpClient? _client;
