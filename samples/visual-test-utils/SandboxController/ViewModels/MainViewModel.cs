@@ -7,11 +7,9 @@ using System.Net;
 using System.Net.NetworkInformation;
 using System.Net.Sockets;
 using Drastic.Tempest;
-using Drastic.Tools;
 using Drastic.ViewModels;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using VisualTestUtils.AppConnector;
 
 namespace SandboxServer.ViewModels;
 
@@ -22,7 +20,7 @@ public class MainViewModel : BaseViewModel
 {
     private NetworkInterface? _selectedInterface;
     private SandboxController? _controller;
-    private int? port = 8888;
+    private int? _port = 8888;
     private ILogger? _logger;
 
     /// <summary>
@@ -35,11 +33,11 @@ public class MainViewModel : BaseViewModel
         ILoggerProvider? loggerFactory = services.GetService<ILoggerProvider>();
         if (loggerFactory is not null)
         {
-            this._logger = loggerFactory.CreateLogger("Server");
+            _logger = loggerFactory.CreateLogger("Server");
         }
 
         IEnumerable<NetworkInterface> test = NetworkUtils.GoodInterfaces();
-        this.NetworkInterfaces = new ObservableCollection<NetworkInterface>();
+        NetworkInterfaces = new ObservableCollection<NetworkInterface>();
     }
 
     public SandboxController? Controller => _controller;
@@ -65,9 +63,9 @@ public class MainViewModel : BaseViewModel
     /// </summary>
     public int? Port
     {
-        get => port;
+        get => _port;
 
-        set => SetProperty(ref this.port, value);
+        set => SetProperty(ref _port, value);
     }
 
     /// <summary>
@@ -77,26 +75,26 @@ public class MainViewModel : BaseViewModel
     {
         get => _selectedInterface;
 
-        set => SetProperty(ref this._selectedInterface, value);
+        set => SetProperty(ref _selectedInterface, value);
     }
 
     /// <inheritdoc/>
     public override async Task OnLoad()
     {
         await base.OnLoad();
-        this.Reload();
+        Reload();
     }
 
     public void Reload()
     {
-        this.NetworkInterfaces.Clear();
+        NetworkInterfaces.Clear();
 
         foreach (NetworkInterface item in NetworkUtils.GoodInterfaces())
         {
-            this.NetworkInterfaces.Add(item);
+            NetworkInterfaces.Add(item);
         }
 
-        this.SelectedInterface = this.NetworkInterfaces.LastOrDefault();
+        SelectedInterface = NetworkInterfaces.LastOrDefault();
     }
 
     public Task StartServerAsync(NetworkInterface netInterface)
@@ -106,9 +104,9 @@ public class MainViewModel : BaseViewModel
             throw new InvalidOperationException("Server is already running.");
         }
 
-        _controller = new SandboxController(ipAddress: this.IPAddress!, logger: this._logger);
+        _controller = new SandboxController(ipAddress: IPAddress!, logger: _logger);
         _logger?.LogInformation($"Server Started");
-        return _controller.InitializeAsync(TimeSpan.FromSeconds(120));
+        return _controller.WaitForConnectionAsync(TimeSpan.FromSeconds(120));
     }
 
     public async Task StartServerAsync(IPAddress ipAddress, int port)
@@ -120,14 +118,14 @@ public class MainViewModel : BaseViewModel
 
         _controller = new SandboxController(ipAddress: ipAddress, port: port, logger: _logger);
         _logger?.LogInformation($"Starting server and waiting for connection");
-        await _controller.InitializeAsync(TimeSpan.FromSeconds(120));
+        await _controller.WaitForConnectionAsync(TimeSpan.FromSeconds(120));
 
         _logger?.LogInformation($"Connected");
     }
 
     public void StopServer()
     {
-        if (this._controller is null)
+        if (_controller is null)
         {
             return;
         }

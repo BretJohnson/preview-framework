@@ -6,10 +6,10 @@ namespace VisualTestUtils.AppConnector.App;
 
 public class AppConnectorApp
 {
-    private string ip;
-    private int port;
-    private AppService appService;
-    private ILogger? logger;
+    private readonly string ip;
+    private readonly int port;
+    private readonly AppService appService;
+    private readonly ILogger? logger;
     private TcpClient? client;
 
     public AppConnectorApp(AppService appService, ILogger? logger = null)

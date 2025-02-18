@@ -17,13 +17,18 @@ public class AppConnectorController : IDisposable
 
     public ILogger? Logger { get; }
 
-    public AppConnectorController(IPAddress ipAddress, int port = 4243, ILogger? logger = null)
+    public AppConnectorController(IPAddress ipAddress, int port, ILogger? logger = null)
     {
         _ipAddress = ipAddress;
         _port = port;
         Logger = logger;
 
+        _listener = new TcpListener(_ipAddress, _port);
+        _listener.Start();
     }
+
+    public int Port =>
+        _listener?.LocalEndpoint is IPEndPoint ipEndpoint ? ipEndpoint.Port : -1;
 
     public IAppService AppService => _appService!;
 
@@ -33,11 +38,8 @@ public class AppConnectorController : IDisposable
     /// <param name="timeout">The maximum time to wait for a client connection.</param>
     /// <param name="token">A cancellation token that can be used to cancel the operation.</param>
     /// <returns>A task representing the asynchronous operation that, when completed, contains a TcpClient instance representing the accepted client connection.</returns>
-    public Task InitializeAsync(TimeSpan timeout, CancellationToken token = default(CancellationToken))
+    public Task WaitForConnectionAsync(TimeSpan timeout, CancellationToken token = default(CancellationToken))
     {
-        _listener = new TcpListener(_ipAddress, _port);
-
-        _listener.Start();
         //this.Port = ((IPEndPoint)listener.LocalEndpoint).Port;
         //this.IP = ((IPEndPoint)listener.LocalEndpoint).Address.ToString();
 
@@ -78,7 +80,7 @@ public class AppConnectorController : IDisposable
             using (var cts = CancellationTokenSource.CreateLinkedTokenSource(cancellationToken))
             {
                 cts.CancelAfter(timespan);
-                using (cts.Token.Register(this.Close))
+                using (cts.Token.Register(Close))
                 {
                     try
                     {

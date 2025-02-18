@@ -4,21 +4,21 @@ namespace ExampleFramework.App.Maui;
 
 public class ExamplesWindowOverlay : WindowOverlay
 {
-    private ExamplesWindowOverlayElement overlayElement;
+    private ExamplesWindowOverlayElement _overlayElement;
 
-    private Color? badgeColor;
+    private Color? _badgeColor;
     
     public ExamplesWindowOverlay(IWindow window, Color? badgeColor = null) : base(window)
     {
-        this.badgeColor = badgeColor;
-        overlayElement = new ExamplesWindowOverlayElement(this, badgeColor: badgeColor);
-        this.AddWindowElement(overlayElement);
-        this.Tapped += this.ExamplesOverlay_Tapped;
+        _badgeColor = badgeColor;
+        _overlayElement = new ExamplesWindowOverlayElement(this, badgeColor: badgeColor);
+        AddWindowElement(_overlayElement);
+        Tapped += ExamplesOverlay_Tapped;
     }
 
     private void ExamplesOverlay_Tapped(object? sender, WindowOverlayTappedEventArgs e)
     {
-        if (overlayElement.Contains(e.Point))
+        if (_overlayElement.Contains(e.Point))
         {
             _ = MauiExamplesApplication.Instance.ShowExamplesAsync();
 
