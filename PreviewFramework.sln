@@ -29,7 +29,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SandboxController", "sample
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PreviewFramework.App", "src\PreviewFramework.App\PreviewFramework.App.csproj", "{6D157948-B362-4BC6-975C-EBCCAE2BF706}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PreviewFramework.App.Maui", "src\PreviewFramework.App.Maui\PreviewFramework.App.Maui.csproj", "{70FC4263-9C01-46E6-B884-CF39E170A9EF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PreviewFramework.Maui", "src\PreviewFramework.Maui\PreviewFramework.Maui.csproj", "{70FC4263-9C01-46E6-B884-CF39E170A9EF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PreviewFramework.Tooling", "src\PreviewFramework.Tooling\PreviewFramework.Tooling.csproj", "{2B1E5950-1519-47EE-92E3-6FEA470EAF2B}"
 EndProject
