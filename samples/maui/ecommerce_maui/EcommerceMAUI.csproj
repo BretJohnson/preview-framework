@@ -178,7 +178,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\..\..\src\PreviewFramework.App.Maui\PreviewFramework.App.Maui.csproj" />
+	  <ProjectReference Include="..\..\..\src\PreviewFramework.Maui\PreviewFramework.Maui.csproj" />
 	  <ProjectReference Include="..\..\..\src\PreviewFramework\PreviewFramework.csproj" />
 	</ItemGroup>
 
