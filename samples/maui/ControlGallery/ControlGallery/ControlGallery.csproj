@@ -64,9 +64,9 @@
   </ItemGroup>
 
   <ItemGroup>
-	  <ProjectReference Include="..\..\..\..\src\ExampleFramework.App.Maui\ExampleFramework.App.Maui.csproj" />
-	  <ProjectReference Include="..\..\..\..\src\ExampleFramework.App\ExampleFramework.App.csproj" />
-	  <ProjectReference Include="..\..\..\..\src\ExampleFramework\ExampleFramework.csproj" />
+	  <ProjectReference Include="..\..\..\..\src\PreviewFramework.App.Maui\PreviewFramework.App.Maui.csproj" />
+	  <ProjectReference Include="..\..\..\..\src\PreviewFramework.App\PreviewFramework.App.csproj" />
+	  <ProjectReference Include="..\..\..\..\src\PreviewFramework\PreviewFramework.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>

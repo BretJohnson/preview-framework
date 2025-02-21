@@ -30,7 +30,7 @@
 		<AssemblyName>Food</AssemblyName>
 	</PropertyGroup>
 
-	
+
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net7.0-ios|AnyCPU'">
 	  <CodesignProvision>dPOSDev</CodesignProvision>
 	  <CodesignKey>Apple Development: Created via API (2NJFZDD9ZM)</CodesignKey>
@@ -78,7 +78,7 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\..\..\..\..\src\ExampleFramework.Tooling.Maui\ExampleFramework.Tooling.Maui.csproj" />
+	  <ProjectReference Include="..\..\..\..\..\src\PreviewFramework.Tooling.Maui\PreviewFramework.Tooling.Maui.csproj" />
 	</ItemGroup>
-	
+
 </Project>

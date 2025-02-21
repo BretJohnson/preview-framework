@@ -3,9 +3,9 @@
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
-  
+
   <ItemGroup>
-    <ProjectReference Include="..\ExampleFramework\ExampleFramework.csproj" />
+    <ProjectReference Include="..\PreviewFramework\PreviewFramework.csproj" />
     <ProjectReference Include="..\visual-test-utils\VisualTestUtils.AppConnector\VisualTestUtils.AppConnector.csproj" />
     <ProjectReference Include="..\visual-test-utils\VisualTestUtils\VisualTestUtils.csproj" />
   </ItemGroup>

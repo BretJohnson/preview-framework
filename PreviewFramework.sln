@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33213.308
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ExampleFramework", "src\ExampleFramework\ExampleFramework.csproj", "{D0041716-74DA-45E3-A0D3-B4CC5CAC766B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PreviewFramework", "src\PreviewFramework\PreviewFramework.csproj", "{D0041716-74DA-45E3-A0D3-B4CC5CAC766B}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "samples", "samples", "{D2D79087-63DE-48DA-A903-D915B1FAE013}"
 EndProject
@@ -27,11 +27,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MauiSandboxApp", "samples\v
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SandboxController", "samples\visual-test-utils\SandboxController\SandboxController.csproj", "{20F25A3F-DC6C-4D54-BF60-E41B551AC9CE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExampleFramework.App", "src\ExampleFramework.App\ExampleFramework.App.csproj", "{6D157948-B362-4BC6-975C-EBCCAE2BF706}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PreviewFramework.App", "src\PreviewFramework.App\PreviewFramework.App.csproj", "{6D157948-B362-4BC6-975C-EBCCAE2BF706}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExampleFramework.App.Maui", "src\ExampleFramework.App.Maui\ExampleFramework.App.Maui.csproj", "{70FC4263-9C01-46E6-B884-CF39E170A9EF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PreviewFramework.App.Maui", "src\PreviewFramework.App.Maui\PreviewFramework.App.Maui.csproj", "{70FC4263-9C01-46E6-B884-CF39E170A9EF}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExampleFramework.Tooling", "src\ExampleFramework.Tooling\ExampleFramework.Tooling.csproj", "{2B1E5950-1519-47EE-92E3-6FEA470EAF2B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PreviewFramework.Tooling", "src\PreviewFramework.Tooling\PreviewFramework.Tooling.csproj", "{2B1E5950-1519-47EE-92E3-6FEA470EAF2B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EcommerceMAUI", "samples\maui\ecommerce_maui\EcommerceMAUI.csproj", "{E0839FD8-A3E2-4632-9A76-0A33F2A44329}"
 EndProject
