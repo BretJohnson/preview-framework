@@ -49,7 +49,7 @@
 		<CodesignProvision>MyMauiApp</CodesignProvision> -->
 		<ArchiveOnBuild>true</ArchiveOnBuild>
 	</PropertyGroup>
-	
+
 	<ItemGroup>
 		<MauiIcon Include="Resources\appicon.svg" ForegroundFile="Resources\appiconfg.svg" Color="#081B25" />
 		<MauiSplashScreen Include="Resources\appiconfg.svg" Color="#081B25" />
@@ -86,7 +86,7 @@
 	<ProjectExtensions><VisualStudio><UserProperties XamarinHotReloadGenericExceptionInfoBarWeatherTwentyOneHideInfoBar="True" /></VisualStudio></ProjectExtensions>
 
 	<ItemGroup>
-		<ProjectReference Include="..\..\..\..\..\src\ExampleFramework.Maui\ExampleFramework.Maui.csproj" />
+		<ProjectReference Include="..\..\..\..\..\src\PreviewFramework.App.Maui\PreviewFramework.App.Maui.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>

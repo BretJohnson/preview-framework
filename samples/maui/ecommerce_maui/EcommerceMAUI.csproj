@@ -178,10 +178,10 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <ProjectReference Include="..\..\..\src\ExampleFramework.App.Maui\ExampleFramework.App.Maui.csproj" />
-	  <ProjectReference Include="..\..\..\src\ExampleFramework\ExampleFramework.csproj" />
+	  <ProjectReference Include="..\..\..\src\PreviewFramework.App.Maui\PreviewFramework.App.Maui.csproj" />
+	  <ProjectReference Include="..\..\..\src\PreviewFramework\PreviewFramework.csproj" />
 	</ItemGroup>
-	
+
 	<ProjectExtensions><VisualStudio><UserProperties XamarinHotReloadDebuggerTimeoutExceptionEcommerceMAUIHideInfoBar="True" /></VisualStudio></ProjectExtensions>
 
 </Project>

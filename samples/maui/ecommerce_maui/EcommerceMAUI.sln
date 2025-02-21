@@ -5,11 +5,11 @@ VisualStudioVersion = 17.0.31611.283
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EcommerceMAUI", "EcommerceMAUI.csproj", "{0D564165-F79B-455B-AD3B-2BE03413E463}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExampleFramework", "..\..\..\src\ExampleFramework\ExampleFramework.csproj", "{E5E769EB-F74D-410A-90C1-EBB66C0A5AC3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PreviewFramework", "..\..\..\src\PreviewFramework\PreviewFramework.csproj", "{E5E769EB-F74D-410A-90C1-EBB66C0A5AC3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExampleFramework.Maui", "..\..\..\src\ExampleFramework.Maui\ExampleFramework.Maui.csproj", "{7CEB206A-2B9F-42CB-85A5-9C582836175D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PreviewFramework.Maui", "..\..\..\src\PreviewFramework.Maui\PreviewFramework.App.Maui.csproj", "{7CEB206A-2B9F-42CB-85A5-9C582836175D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExampleFramework.Tooling", "..\..\..\src\ExampleFramework.Tooling\ExampleFramework.Tooling.csproj", "{B950B955-B4DB-403B-9F7F-937EDE25ADC0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PreviewFramework.Tooling", "..\..\..\src\PreviewFramework.Tooling\PreviewFramework.Tooling.csproj", "{B950B955-B4DB-403B-9F7F-937EDE25ADC0}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

@@ -1,6 +1,4 @@
 ﻿using System.Diagnostics;
-using ExampleFramework.Maui.Pages;
-using WeatherTwentyOne.Pages;
 
 namespace WeatherTwentyOne;
 
