@@ -2,9 +2,9 @@
   "solution": {
     "path": "PreviewFramework.sln",
     "projects": [
-      "src\\PreviewFramework.Tooling.Maui\\PreviewFramework.Tooling.Maui.csproj",
-      "src\\PreviewFramework.Tooling\\PreviewFramework.Tooling.csproj",
-      "src\\PreviewFramework\\PreviewFramework.csproj",
+      "src\\Microsoft.PreviewFramework.Tooling.Maui\\Microsoft.PreviewFramework.Tooling.Maui.csproj",
+      "src\\Microsoft.PreviewFramework.Tooling\\Microsoft.PreviewFramework.Tooling.csproj",
+      "src\\Microsoft.PreviewFramework\\Microsoft.PreviewFramework.csproj",
       "src\\visual-test-utils\\VisualTestUtils.AppConnector\\VisualTestUtils.AppConnector.csproj",
       "src\\visual-test-utils\\VisualTestUtils.ImageHash\\VisualTestUtils.ImageHash.csproj",
       "src\\visual-test-utils\\VisualTestUtils.MagickNet\\VisualTestUtils.MagickNet.csproj",
