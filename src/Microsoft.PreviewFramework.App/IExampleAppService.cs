@@ -1,7 +1,7 @@
 using VisualTestUtils;
 using VisualTestUtils.AppConnector;
 
-namespace ExampleFramework.App;
+namespace Microsoft.PreviewFramework.App;
 
 public interface IExampleAppService : IAppService
 {

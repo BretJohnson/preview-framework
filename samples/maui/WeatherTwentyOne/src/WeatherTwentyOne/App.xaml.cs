@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
-using ExampleFramework.App.Maui;
-using ExampleFramework.App.Maui.Pages;
+using Microsoft.PreviewFramework.Maui;
+using Microsoft.PreviewFramework.Maui.Pages;
 using WeatherTwentyOne.Pages;
 
 namespace WeatherTwentyOne;

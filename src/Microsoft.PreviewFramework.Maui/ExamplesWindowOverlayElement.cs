@@ -1,4 +1,4 @@
-namespace ExampleFramework.App.Maui;
+namespace Microsoft.PreviewFramework.Maui;
 
 public class ExamplesWindowOverlayElement : IWindowOverlayElement
 {

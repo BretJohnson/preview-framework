@@ -1,4 +1,4 @@
-﻿namespace ExampleFramework.Tooling;
+﻿namespace Microsoft.PreviewFramework.Tooling;
 
 public abstract class ToolingUIExample : UIExample
 {

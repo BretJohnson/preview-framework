@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 
-namespace ExampleFramework.App.Maui;
+namespace Microsoft.PreviewFramework.Maui;
 
 public class ExamplesWindowOverlay : WindowOverlay
 {

@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             xmlns:local="clr-namespace:ExampleFramework.App.Maui.ViewModels"
-             xmlns:pages="clr-namespace:ExampleFramework.App.Maui.Pages"
-             xmlns:tooling="clr-namespace:ExampleFramework.Tooling;assembly=ExampleFramework.Tooling"
-             x:Class="ExampleFramework.App.Maui.Pages.ExamplesPage"
+             xmlns:local="clr-namespace:Microsoft.PreviewFramework.Maui.ViewModels"
+             xmlns:pages="clr-namespace:Microsoft.PreviewFramework.Maui.Pages"
+             x:Class="Microsoft.PreviewFramework.Maui.Pages.ExamplesPage"
              Title="ExamplesPage">
     <ContentPage.Resources>
         <DataTemplate x:Key="uiComponentTemplate">

@@ -1,4 +1,4 @@
-﻿namespace ExampleFramework;
+﻿namespace Microsoft.PreviewFramework;
 
 /// <summary>
 /// An attribute that specifies metadata for UI component that has examples.

@@ -1,6 +1,6 @@
-using ExampleFramework.App.Maui.ViewModels;
+using Microsoft.PreviewFramework.Maui.ViewModels;
 
-namespace ExampleFramework.App.Maui.Pages;
+namespace Microsoft.PreviewFramework.Maui.Pages;
 
 public partial class ExamplesPage : ContentPage
 {

@@ -4,7 +4,7 @@ using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Microsoft.CodeAnalysis.CSharp;
 using System.ComponentModel;
 
-namespace ExampleFramework.Tooling;
+namespace Microsoft.PreviewFramework.Tooling;
 
 public class ToolingUIComponents : UIComponents<ToolingUIComponent, ToolingUIExample>
 {

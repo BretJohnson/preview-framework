@@ -1,6 +1,7 @@
+using Microsoft.PreviewFramework.App;
 using VisualTestUtils;
 
-namespace ExampleFramework.App.Maui.Views;
+namespace Microsoft.PreviewFramework.Maui.Views;
 
 public partial class RemoteControlMainPage : ContentPage
 {

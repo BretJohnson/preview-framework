@@ -1,6 +1,6 @@
 ﻿using Microsoft.CodeAnalysis;
 
-namespace ExampleFramework.Tooling;
+namespace Microsoft.PreviewFramework.Tooling;
 
 public class ExamplesManager
 {
