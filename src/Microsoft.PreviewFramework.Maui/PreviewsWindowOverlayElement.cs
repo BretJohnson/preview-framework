@@ -1,12 +1,12 @@
 namespace Microsoft.PreviewFramework.Maui;
 
-public class ExamplesWindowOverlayElement : IWindowOverlayElement
+public class PreviewsWindowOverlayElement : IWindowOverlayElement
 {
     readonly WindowOverlay overlay;
     private readonly Color badgeColor;
     private RectF badgeRect;
 
-    public ExamplesWindowOverlayElement(WindowOverlay overlay, Color? badgeColor = null)
+    public PreviewsWindowOverlayElement(WindowOverlay overlay, Color? badgeColor = null)
     {
         this.overlay = overlay;
         this.badgeColor = badgeColor ?? Colors.MediumPurple;

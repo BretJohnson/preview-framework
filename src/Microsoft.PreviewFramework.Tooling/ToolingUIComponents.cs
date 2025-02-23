@@ -6,7 +6,7 @@ using System.ComponentModel;
 
 namespace Microsoft.PreviewFramework.Tooling;
 
-public class ToolingUIComponents : UIComponents<ToolingUIComponent, ToolingUIExample>
+public class ToolingUIComponents : UIComponents<ToolingUIComponent, ToolingPreview>
 {
     public void AddFromRoslynCompilation(Compilation compilation)
     {
@@ -29,18 +29,18 @@ public class ToolingUIComponents : UIComponents<ToolingUIComponent, ToolingUIExa
         {
             SemanticModel semanticModel = compilation.GetSemanticModel(syntaxTree);
 
-            var exampleWalker = new ExampleWalker(this, semanticModel);
+            var previewWalker = new PreviewWalker(this, semanticModel);
 
             SyntaxNode root = syntaxTree.GetRoot();
-            exampleWalker.Visit(root);
+            previewWalker.Visit(root);
         }
 
         // TODO: Handle this case
         /*
-        UIExampleAttribute? typeExampleAttribute = type.GetCustomAttribute<UIExampleAttribute>(false);
-        if (typeExampleAttribute != null)
+        PreviewAttribute? typePreviewAttribute = type.GetCustomAttribute<PreviewAttribute>(false);
+        if (typePreviewAttribute != null)
         {
-            AddExample(new ClassUIExample(typeExampleAttribute, type));
+            AddPreview(new ClassPreview(typePreviewAttribute, type));
         }
         */
     }
@@ -57,18 +57,18 @@ public class ToolingUIComponents : UIComponents<ToolingUIComponent, ToolingUIExa
         return component;
     }
 
-    public void AddExample(string uiComponentName, ToolingUIExample uiExample)
+    public void AddPreview(string uiComponentName, ToolingPreview preview)
     {
         ToolingUIComponent component = this.GetOrAddComponent(uiComponentName);
-        component.AddExample(uiExample);
+        component.AddPreview(preview);
     }
 
-    private class ExampleWalker : CSharpSyntaxWalker
+    private class PreviewWalker : CSharpSyntaxWalker
     {
         private ToolingUIComponents uiComponents;
         private SemanticModel semanticModel;
 
-        public ExampleWalker(ToolingUIComponents uiComponents, SemanticModel semanticModel)
+        public PreviewWalker(ToolingUIComponents uiComponents, SemanticModel semanticModel)
         {
 
             this.uiComponents = uiComponents;
@@ -77,22 +77,22 @@ public class ToolingUIComponents : UIComponents<ToolingUIComponent, ToolingUIExa
 
         public override void VisitMethodDeclaration(MethodDeclarationSyntax methodDeclaration)
         {
-            this.CheckForUIExample(methodDeclaration);
+            this.CheckForPreview(methodDeclaration);
             base.VisitMethodDeclaration(methodDeclaration);
         }
 
-        private void CheckForUIExample(MethodDeclarationSyntax methodDeclaration)
+        private void CheckForPreview(MethodDeclarationSyntax methodDeclaration)
         {
-            AttributeSyntax uiExampleAttribute = methodDeclaration.AttributeLists
+            AttributeSyntax previewAttribute = methodDeclaration.AttributeLists
                 .SelectMany(attrList => attrList.Attributes)
-                .FirstOrDefault(attr => attr.Name.ToString() == "UIExample");
+                .FirstOrDefault(attr => attr.Name.ToString() == "Preview");
 
-            if (uiExampleAttribute == null)
+            if (previewAttribute == null)
             {
                 return;
             }
 
-            var attributeSymbol = this.semanticModel.GetSymbolInfo(uiExampleAttribute).Symbol as IMethodSymbol;
+            var attributeSymbol = this.semanticModel.GetSymbolInfo(previewAttribute).Symbol as IMethodSymbol;
             if (attributeSymbol == null)
             {
                 return;
@@ -100,18 +100,18 @@ public class ToolingUIComponents : UIComponents<ToolingUIComponent, ToolingUIExa
 
             // Verify that the full qualified name of the attribute is correct
             string fullQualifiedAttributeName = attributeSymbol.ContainingType.ToDisplayString(SymbolDisplayFormat.FullyQualifiedFormat);
-            if (fullQualifiedAttributeName != "global::ExampleFramework.UIExampleAttribute")
+            if (fullQualifiedAttributeName != "global::Microsoft.PreviewFramework.PreviewAttribute")
             {
                 return;
             }
 
             string? uiComponentName = null;
             string? title = null;
-            if (uiExampleAttribute.ArgumentList != null)
+            if (previewAttribute.ArgumentList != null)
             {
-                SeparatedSyntaxList<AttributeArgumentSyntax> attributeArgs = uiExampleAttribute.ArgumentList.Arguments;
+                SeparatedSyntaxList<AttributeArgumentSyntax> attributeArgs = previewAttribute.ArgumentList.Arguments;
 
-                // If the attribute specifies an example title (1st argument), use it. Otherwise,
+                // If the attribute specifies a preview title (1st argument), use it. Otherwise,
                 // the title defaults to the method name.
                 if (attributeArgs.Count >= 1)
                 {
@@ -163,10 +163,10 @@ public class ToolingUIComponents : UIComponents<ToolingUIComponent, ToolingUIExa
                 return;
             }
 
-            string exampleFullName = $"{parentTypeSymbol.ToDisplayString()}.{methodDeclaration.Identifier.Text}";
+            string previewFullName = $"{parentTypeSymbol.ToDisplayString()}.{methodDeclaration.Identifier.Text}";
 
-            var uiExample = new StaticMethodUIExample(exampleFullName, title);
-            this.uiComponents.AddExample(uiComponentName, uiExample);
+            var preview = new StaticMethodPreview(previewFullName, title);
+            this.uiComponents.AddPreview(uiComponentName, preview);
         }
 
         public override void VisitClassDeclaration(ClassDeclarationSyntax classDeclaration)
@@ -177,7 +177,7 @@ public class ToolingUIComponents : UIComponents<ToolingUIComponent, ToolingUIExa
 
         private void CheckForUIComponent(ClassDeclarationSyntax classDeclaration)
         {
-            if (this.CanBeAutoGeneratedExample(classDeclaration))
+            if (this.CanBeAutoGeneratedPreview(classDeclaration))
             {
                 INamedTypeSymbol? classTypeSymbol = this.semanticModel.GetDeclaredSymbol(classDeclaration);
                 if (classTypeSymbol == null)
@@ -188,17 +188,17 @@ public class ToolingUIComponents : UIComponents<ToolingUIComponent, ToolingUIExa
                 string uiComponentName = classTypeSymbol.ToDisplayString();
 
                 ToolingUIComponent? uiComponent = this.uiComponents.GetUIComponent(uiComponentName);
-                if (uiComponent == null || uiComponent.Examples.Count == 0)
+                if (uiComponent == null || uiComponent.Previews.Count == 0)
                 {
                     uiComponent ??= this.uiComponents.GetOrAddComponent(uiComponentName);
 
-                    var uiExample = new ClassUIExample(uiComponentName, isAutoGenerated: true);
-                    this.uiComponents.AddExample(uiComponentName, uiExample);
+                    var preview = new ClassPreview(uiComponentName, isAutoGenerated: true);
+                    this.uiComponents.AddPreview(uiComponentName, preview);
                 }
             }
         }
 
-        private bool CanBeAutoGeneratedExample(ClassDeclarationSyntax classDeclaration)
+        private bool CanBeAutoGeneratedPreview(ClassDeclarationSyntax classDeclaration)
         {
             if (classDeclaration.Modifiers.Any(SyntaxKind.AbstractKeyword))
             {

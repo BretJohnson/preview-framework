@@ -2,7 +2,7 @@
 
 namespace ControlGallery.Views.XAML
 {
-    [UIExample(typeof(GraphicsView))]
+    [Preview(typeof(GraphicsView))]
     public partial class GraphicsViewDemoPage : ContentPage
     {
         public GraphicsViewDemoPage()

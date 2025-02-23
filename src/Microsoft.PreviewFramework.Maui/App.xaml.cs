@@ -9,6 +9,6 @@ public partial class App : Application
         this.InitializeComponent();
 
         //MainPage = new AppShell();
-        this.MainPage = new ExamplesPage();
+        this.MainPage = new PreviewsPage();
     }
 }

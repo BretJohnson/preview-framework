@@ -2,11 +2,11 @@
 
 namespace Microsoft.PreviewFramework.Tooling;
 
-public class ExamplesManager
+public class PreviewsManager
 {
     private ToolingUIComponents uiComponents = new ToolingUIComponents();
 
-    public ExamplesManager(Compilation compilation)
+    public PreviewsManager(Compilation compilation)
     {
         this.uiComponents = new ToolingUIComponents();
 

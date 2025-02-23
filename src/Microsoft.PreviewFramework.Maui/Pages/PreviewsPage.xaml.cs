@@ -2,11 +2,11 @@ using Microsoft.PreviewFramework.Maui.ViewModels;
 
 namespace Microsoft.PreviewFramework.Maui.Pages;
 
-public partial class ExamplesPage : ContentPage
+public partial class PreviewsPage : ContentPage
 {
-	public ExamplesPage()
+	public PreviewsPage()
 	{
 		this.InitializeComponent();
-        this.BindingContext = ExamplesViewModel.Instance;
+        this.BindingContext = PreviewsViewModel.Instance;
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace Microsoft.PreviewFramework.App;
 
-public class AppUIComponent : UIComponent<AppUIExample>
+public class AppUIComponent : UIComponent<AppPreview>
 {
     private readonly Type type;
 

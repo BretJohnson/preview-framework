@@ -1,6 +1,6 @@
 ﻿namespace ControlGallery.Views.XAML
 {
-    [UIExample(typeof(Entry))]
+    [Preview(typeof(Entry))]
     public partial class EntryDemoPage : ContentPage
     {
         public EntryDemoPage()

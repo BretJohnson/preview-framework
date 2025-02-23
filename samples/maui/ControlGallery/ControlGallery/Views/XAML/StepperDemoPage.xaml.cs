@@ -3,7 +3,7 @@ using Microsoft.Maui.Controls;
 
 namespace ControlGallery.Views.XAML
 {
-    [UIExample(typeof(Stepper))]
+    [Preview(typeof(Stepper))]
     public partial class StepperDemoPage : ContentPage
     {
         public StepperDemoPage()

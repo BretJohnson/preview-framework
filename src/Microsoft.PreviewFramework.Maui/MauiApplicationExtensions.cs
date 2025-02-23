@@ -2,8 +2,8 @@
 
 public static class MauiApplicationExtensions
 {
-    public static void EnableExamplesMode(this Application application)
+    public static void EnablePreviewMode(this Application application)
     {
-        MauiExamplesApplication.Init(application);
+        MauiPreviewsApplication.Init(application);
     }
 }

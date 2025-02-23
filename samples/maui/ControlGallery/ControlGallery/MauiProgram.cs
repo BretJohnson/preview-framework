@@ -21,7 +21,7 @@ public static class MauiProgram
 #endif
 
 #if EXAMPLES
-        builder.EnableExamplesMode<App>();
+        builder.EnablePreviewMode<App>();
 #endif
         builder.Services.AddSingleton<WeatherForecastService>();
 

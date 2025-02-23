@@ -2,7 +2,7 @@
 
 namespace ControlGallery.Views.XAML
 {
-    [UIExample(typeof(CheckBox))]
+    [Preview(typeof(CheckBox))]
     public partial class CheckBoxPage : ContentPage
     {
         public CheckBoxPage()

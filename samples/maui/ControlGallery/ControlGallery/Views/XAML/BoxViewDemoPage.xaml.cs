@@ -1,6 +1,6 @@
 ﻿namespace ControlGallery.Views.XAML
 {
-    [UIExample(typeof(BoxView))]
+    [Preview(typeof(BoxView))]
     public partial class BoxViewDemoPage : ContentPage
     {
         public BoxViewDemoPage()

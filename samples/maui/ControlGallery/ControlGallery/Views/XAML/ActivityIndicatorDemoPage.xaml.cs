@@ -1,6 +1,6 @@
 ﻿namespace ControlGallery.Views.XAML
 {
-    [UIExample(typeof(ActivityIndicator))]
+    [Preview(typeof(ActivityIndicator))]
     public partial class ActivityIndicatorDemoPage : ContentPage
     {
         public ActivityIndicatorDemoPage()

@@ -13,9 +13,9 @@ public class UIComponentCategoryViewModel : List<object>
         {
             this.Add(new UIComponentViewModel(uiComponent));
 
-            foreach (AppUIExample example in uiComponent.Examples)
+            foreach (AppPreview preview in uiComponent.Previews)
             {
-                this.Add(new ExampleViewModel(example));
+                this.Add(new PreviewViewModel(preview));
             }
         }
     }

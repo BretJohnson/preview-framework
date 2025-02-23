@@ -3,7 +3,7 @@ using Microsoft.Maui.Controls;
 
 namespace ControlGallery.Views.XAML
 {
-    [UIExample(typeof(Editor))]
+    [Preview(typeof(Editor))]
     public partial class EditorDemoPage : ContentPage
     {
         public EditorDemoPage()

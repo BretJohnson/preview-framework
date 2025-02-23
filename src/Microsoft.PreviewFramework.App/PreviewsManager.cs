@@ -2,14 +2,14 @@
 
 namespace Microsoft.PreviewFramework.App;
 
-public class ExamplesManager
+public class PreviewsManager
 {
-    private readonly static Lazy<ExamplesManager> s_instance = new Lazy<ExamplesManager> (() =>  new ExamplesManager());
+    private readonly static Lazy<PreviewsManager> s_instance = new Lazy<PreviewsManager> (() =>  new PreviewsManager());
     private readonly AppUIComponents _uiComponents;
 
-    public static ExamplesManager Instance => s_instance.Value;
+    public static PreviewsManager Instance => s_instance.Value;
 
-    private ExamplesManager()
+    private PreviewsManager()
     {
         this._uiComponents = new AppUIComponents();
 

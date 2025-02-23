@@ -5,7 +5,7 @@ using ControlGallery.Models;
 
 namespace ControlGallery.Views.XAML
 {
-    [UIExample(typeof(SwipeView))]
+    [Preview(typeof(SwipeView))]
     public partial class SwipeViewDemoPage : ContentPage
     {        
         public ObservableCollection<Monkey> Monkeys { get; private set; } = new ObservableCollection<Monkey>();

@@ -11,7 +11,7 @@ public partial class OrderDetailsView : ContentPage
     }
 
 #if EXAMPLES
-    [UIExample()]
+    [Preview()]
     public static OrderDetailsView Default() => new();
 #endif
 }

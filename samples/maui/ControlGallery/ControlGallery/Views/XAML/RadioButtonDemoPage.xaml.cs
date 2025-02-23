@@ -2,7 +2,7 @@
 
 namespace ControlGallery.Views.XAML
 {
-    [UIExample(typeof(RadioButton))]
+    [Preview(typeof(RadioButton))]
     public partial class RadioButtonDemoPage : ContentPage
     {
         public RadioButtonDemoPage()

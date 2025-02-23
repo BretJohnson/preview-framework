@@ -10,63 +10,63 @@ public partial class RemoteControlMainPage : ContentPage
         this.InitializeComponent();
     }
 
-    public async Task SetExampleAsync(AppUIExample example)
+    public async Task SetPreviewAsync(AppPreview preview)
     {
         await MainThread.InvokeOnMainThreadAsync(() =>
         {
-            object? exampleUI = example.Create();
+            object? previewUI = preview.Create();
 
-            if (exampleUI is ContentPage contentPage)
+            if (previewUI is ContentPage contentPage)
             {
-                this.ExampleWrapper.BackgroundColor = contentPage.BackgroundColor;
-                this.ExampleWrapper.Content = contentPage.Content;
-                this.ExampleWrapper.BindingContext = contentPage.BindingContext;
+                this.PreviewWrapper.BackgroundColor = contentPage.BackgroundColor;
+                this.PreviewWrapper.Content = contentPage.Content;
+                this.PreviewWrapper.BindingContext = contentPage.BindingContext;
             }
-            else if (exampleUI is View view)
+            else if (previewUI is View view)
             {
-                this.ExampleWrapper.Content = view;
+                this.PreviewWrapper.Content = view;
             }
             else
             {
-                this.ExampleWrapper.Content = null;
+                this.PreviewWrapper.Content = null;
             }
         });
     }
 
-    public async Task<ImageSnapshot> GetExampleSnapshotAsync(AppUIExample example)
+    public async Task<ImageSnapshot> GetPreviewSnapshotAsync(AppPreview preview)
     {
         return await MainThread.InvokeOnMainThreadAsync<ImageSnapshot>(async () =>
         {
-            object? exampleUI = example.Create();
+            object? previewUI = preview.Create();
 
-            if (exampleUI is ContentPage contentPage)
+            if (previewUI is ContentPage contentPage)
             {
-                this.ExampleWrapper.BackgroundColor = contentPage.BackgroundColor;
-                this.ExampleWrapper.Content = contentPage.Content;
-                this.ExampleWrapper.BindingContext = contentPage.BindingContext;
+                this.PreviewWrapper.BackgroundColor = contentPage.BackgroundColor;
+                this.PreviewWrapper.Content = contentPage.Content;
+                this.PreviewWrapper.BindingContext = contentPage.BindingContext;
 
-                return await this.GetExampleWrapperSnapshotAsync();
+                return await this.GetPreviewWrapperSnapshotAsync();
 
             }
-            else if (exampleUI is View view)
+            else if (previewUI is View view)
             {
-                this.ExampleWrapper.Content = view;
-                return await this.GetExampleWrapperSnapshotAsync();
+                this.PreviewWrapper.Content = view;
+                return await this.GetPreviewWrapperSnapshotAsync();
             }
-            else if (exampleUI is null)
+            else if (previewUI is null)
             {
-                throw new InvalidOperationException($"Example {example.Name} returned null");
+                throw new InvalidOperationException($"Preview {preview.Name} returned null");
             }
             else
             {
-                throw new InvalidOperationException($"Example type {exampleUI.GetType().FullName} returned from {example.Name} is not supported");
+                throw new InvalidOperationException($"Preview type {previewUI.GetType().FullName} returned from {preview.Name} is not supported");
             }
         });
     }
 
-    private async Task<ImageSnapshot> GetExampleWrapperSnapshotAsync()
+    private async Task<ImageSnapshot> GetPreviewWrapperSnapshotAsync()
     {
-        byte[]? data = await VisualDiagnostics.CaptureAsPngAsync(this.ExampleWrapper);
+        byte[]? data = await VisualDiagnostics.CaptureAsPngAsync(this.PreviewWrapper);
         if (data == null)
         {
             throw new InvalidOperationException("VisualDiagnostics.CaptureAsPngAsync failed, returning null");

@@ -13,7 +13,7 @@ public partial class AppShell : Shell
         if (DeviceInfo.Idiom == DeviceIdiom.Phone)
             CurrentItem = PhoneTabs;
 
-        //MainPage = new ExamplesPage();
+        //MainPage = new PreviewsPage();
 
         //Routing.RegisterRoute(nameof(SettingsPage), typeof(SettingsPage));
     }

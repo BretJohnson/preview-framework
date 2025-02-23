@@ -2,7 +2,7 @@
 
 namespace ControlGallery.Views.XAML
 {
-    [UIExample(typeof(BlazorWebView))]
+    [Preview(typeof(BlazorWebView))]
     public partial class BlazorWebViewDemoPage : ContentPage
     {
         public BlazorWebViewDemoPage()

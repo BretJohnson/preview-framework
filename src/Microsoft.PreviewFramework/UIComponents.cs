@@ -1,6 +1,6 @@
 ﻿namespace Microsoft.PreviewFramework;
 
-public abstract class UIComponents<TUIComponent, TUIExample> where TUIComponent : UIComponent<TUIExample> where TUIExample : UIExample
+public abstract class UIComponents<TUIComponent, TPreview> where TUIComponent : UIComponent<TPreview> where TPreview : Preview
 {
     protected readonly Dictionary<string, UIComponentCategory> categories = new();
     protected readonly Dictionary<string, TUIComponent> componentsByName = new();

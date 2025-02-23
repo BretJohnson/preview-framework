@@ -3,7 +3,7 @@ using Microsoft.Maui.Controls;
 
 namespace ControlGallery.Views.XAML
 {
-    [UIExample(typeof(DatePicker))]
+    [Preview(typeof(DatePicker))]
     public partial class DatePickerDemoPage : ContentPage
     {
         public DatePickerDemoPage()

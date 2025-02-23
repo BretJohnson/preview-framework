@@ -3,7 +3,7 @@ using Microsoft.Maui.Controls;
 
 namespace ControlGallery.Views.XAML
 {
-    [UIExample(typeof(Label))]
+    [Preview(typeof(Label))]
     public partial class LabelDemoPage : ContentPage
     {
         public LabelDemoPage()

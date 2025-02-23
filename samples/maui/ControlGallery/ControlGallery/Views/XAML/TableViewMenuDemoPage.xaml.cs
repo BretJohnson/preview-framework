@@ -2,7 +2,7 @@
 
 namespace ControlGallery.Views.XAML
 {
-    [UIExample(typeof(TableView))]
+    [Preview(typeof(TableView))]
     public partial class TableViewMenuDemoPage : ContentPage
     {
         public TableViewMenuDemoPage()

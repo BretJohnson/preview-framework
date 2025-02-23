@@ -13,7 +13,7 @@ public partial class DeliveryTypeView : ContentPage
     }
 
 #if EXAMPLES
-    [UIExample()]
-    public static DeliveryTypeView Default() => new(ProductListModel.GetExampleProducts());
+    [Preview()]
+    public static DeliveryTypeView Default() => new(ProductListModel.GetPreviewProducts());
 #endif
 }

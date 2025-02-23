@@ -2,7 +2,7 @@
 
 namespace ControlGallery.Views.XAML
 {
-    [UIExample(typeof(RefreshView))]
+    [Preview(typeof(RefreshView))]
     public partial class RefreshViewDemoPage : ContentPage
     {
         public RefreshViewDemoPage()

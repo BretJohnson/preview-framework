@@ -13,10 +13,10 @@ public partial class CartView : ContentPage
     }
 
 #if EXAMPLES
-    [UIExample("Single Item Cart")]
-    public static CartView BluetoothSpeaker() => new(ExampleData.GetBluetoothSpeakerProducts());
+    [Preview("Single Item Cart")]
+    public static CartView BluetoothSpeaker() => new(PreviewData.GetBluetoothSpeakerProducts());
 
-    [UIExample("Large Cart")]
-    public static CartView LargeCart() => new(ExampleData.GetExampleProducts(8));
+    [Preview("Large Cart")]
+    public static CartView LargeCart() => new(PreviewData.GetPreviewProducts(8));
 #endif
 }

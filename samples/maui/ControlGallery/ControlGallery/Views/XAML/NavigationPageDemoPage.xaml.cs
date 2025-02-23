@@ -4,7 +4,7 @@ using Microsoft.Maui.Controls;
 
 namespace ControlGallery.Views.XAML
 {
-    [UIExample(typeof(NavigationPage))]
+    [Preview(typeof(NavigationPage))]
     public partial class NavigationPageDemoPage : ContentPage
     {
         public NavigationPageDemoPage()

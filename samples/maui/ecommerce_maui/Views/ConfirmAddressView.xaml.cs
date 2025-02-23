@@ -13,8 +13,8 @@ public partial class ConfirmAddressView : ContentPage
     }
 
 #if EXAMPLES
-    [UIExample]
-    public static ConfirmAddressView Example() => new ConfirmAddressView(ExampleData.GetExampleProducts(1), new DeliveryTypeModel(),
+    [Preview]
+    public static ConfirmAddressView Preview() => new ConfirmAddressView(PreviewData.GetPreviewProducts(1), new DeliveryTypeModel(),
         new AddressModel()
         {
             StreetOne = "21, Alex Davidson Avenue",
