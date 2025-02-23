@@ -32,10 +32,10 @@ public partial class SettingsPage : ContentPage
     }
 
 #if EXAMPLES
-    [UIExample("Imperial")]
+    [Preview("Imperial")]
     public static SettingsPage ImperialSettings() => new();
 
-    [UIExample("Metric")]
+    [Preview("Metric")]
     public static SettingsPage MetricSettings() => new();
 #endif
 }

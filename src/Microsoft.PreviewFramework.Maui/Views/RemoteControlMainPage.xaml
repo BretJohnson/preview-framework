@@ -2,8 +2,8 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             x:Class="Microsoft.PreviewFramework.Maui.Views.RemoteControlMainPage"
-            Title="Example Book">
+            Title="Previews">
 
-    <ContentView x:Name="ExampleWrapper" />
+    <ContentView x:Name="PreviewWrapper" />
 
 </ContentPage>

@@ -4,7 +4,7 @@ using ControlGallery.Models;
 
 namespace ControlGallery.Views.XAML
 {
-    [UIExample(typeof(CollectionView))]
+    [Preview(typeof(CollectionView))]
     public partial class CollectionViewDemoPage : ContentPage
     {
         public IList<Monkey> Monkeys { get; private set; } = new List<Monkey>();

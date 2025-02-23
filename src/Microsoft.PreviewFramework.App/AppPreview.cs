@@ -1,25 +1,25 @@
 ﻿namespace Microsoft.PreviewFramework.App;
 
-public abstract class AppUIExample : UIExample
+public abstract class AppPreview : Preview
 {
     private readonly Type? uiComponentType;
     //private Dictionary<string, ImageSnapshot?>? _snapshotsByEnvironment;
 
-    public AppUIExample(UIExampleAttribute uiExampleAttribute) : base(uiExampleAttribute.DisplayName)
+    public AppPreview(PreviewAttribute previewAttribute) : base(previewAttribute.DisplayName)
     {
-        this.uiComponentType = uiExampleAttribute.UIComponentType;
+        this.uiComponentType = previewAttribute.UIComponentType;
     }
 
-    public AppUIExample(Type uiComponentType) : base(null)
+    public AppPreview(Type uiComponentType) : base(null)
     {
         this.uiComponentType = uiComponentType;
     }
 
     /// <summary>
-    /// Create an instance of the example. Normally this returns an instance of a UI framework control/page, suitable
+    /// Create an instance of the preview. Normally this returns an instance of a UI framework control/page, suitable
     /// for display.
     /// </summary>
-    /// <returns>instantiated example</returns>
+    /// <returns>instantiated preview</returns>
     public abstract object Create();
 
     public Type UIComponentType

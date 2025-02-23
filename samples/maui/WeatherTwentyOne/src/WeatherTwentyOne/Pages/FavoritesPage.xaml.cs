@@ -41,20 +41,20 @@ public partial class FavoritesPage : ContentPage
     }
 
 #if EXAMPLES
-    [UIExample("Empty favorites", typeof(FavoritesPage))]
-    public static ShellExample NoFavorites() => new("///favorites", nameof(FavoritesViewModel.FavoriteLocations), new List<Location>()
+    [Preview("Empty favorites", typeof(FavoritesPage))]
+    public static ShellPreview NoFavorites() => new("///favorites", nameof(FavoritesViewModel.FavoriteLocations), new List<Location>()
         {
         });
 
-    [UIExample("Two favorites", typeof(FavoritesPage))]
-    public static ShellExample TwoFavorites() => new("///favorites", nameof(FavoritesViewModel.FavoriteLocations), new List<Location>()
+    [Preview("Two favorites", typeof(FavoritesPage))]
+    public static ShellPreview TwoFavorites() => new("///favorites", nameof(FavoritesViewModel.FavoriteLocations), new List<Location>()
         {
             new() { Name = "Redmond", Coordinate = new Coordinate(47.6740, 122.1215), Icon = "fluent_weather_cloudy_20_filled.png", WeatherStation = "USA", Value = "62°" },
             new() { Name = "St. Louis", Coordinate = new Coordinate(38.6270, 90.1994), Icon = "fluent_weather_rain_showers_night_20_filled.png", WeatherStation = "USA", Value = "74°" },
         });
 
-    [UIExample("Ten favorites", typeof(FavoritesPage))]
-    public static ShellExample TenFavorites() => new("///favorites", nameof(FavoritesViewModel.FavoriteLocations), new List<Location>()
+    [Preview("Ten favorites", typeof(FavoritesPage))]
+    public static ShellPreview TenFavorites() => new("///favorites", nameof(FavoritesViewModel.FavoriteLocations), new List<Location>()
         {
             new() { Name = "Redmond", Coordinate = new Coordinate(47.6740, 122.1215), Icon = "fluent_weather_cloudy_20_filled.png", WeatherStation = "USA", Value = "62°" },
             new() { Name = "St. Louis", Coordinate = new Coordinate(38.6270, 90.1994), Icon = "fluent_weather_rain_showers_night_20_filled.png", WeatherStation = "USA", Value = "74°" },

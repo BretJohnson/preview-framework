@@ -2,7 +2,7 @@
 
 namespace ControlGallery.Views.XAML
 {
-    [UIExample(typeof(Ellipse))]
+    [Preview(typeof(Ellipse))]
     public partial class EllipseDemoPage : ContentPage
     {
         public EllipseDemoPage()

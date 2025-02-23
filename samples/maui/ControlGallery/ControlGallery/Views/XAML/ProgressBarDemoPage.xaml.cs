@@ -2,7 +2,7 @@
 
 namespace ControlGallery.Views.XAML
 {
-    [UIExample(typeof(ProgressBar))]
+    [Preview(typeof(ProgressBar))]
     public partial class ProgressBarDemoPage : ContentPage
     {
         IDispatcherTimer timer;

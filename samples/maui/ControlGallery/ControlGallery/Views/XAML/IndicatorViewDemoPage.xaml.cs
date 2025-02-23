@@ -4,7 +4,7 @@ using ControlGallery.Models;
 
 namespace ControlGallery.Views.XAML
 {
-    [UIExample(typeof(IndicatorView))]
+    [Preview(typeof(IndicatorView))]
     public partial class IndicatorViewDemoPage : ContentPage
     {
         public IList<Monkey> Monkeys { get; private set; } = new List<Monkey>();

@@ -4,7 +4,7 @@ using Microsoft.Maui.Graphics;
 
 namespace ControlGallery.Views.XAML
 {
-    [UIExample(typeof(AbsoluteLayout))]
+    [Preview(typeof(AbsoluteLayout))]
     public partial class AbsoluteLayoutDemoPage : ContentPage
     {
         Timer timer;

@@ -2,7 +2,7 @@
 
 namespace ControlGallery.Views.XAML
 {
-    [UIExample(typeof(Line))]
+    [Preview(typeof(Line))]
     public partial class LineDemoPage : ContentPage
     {
         public LineDemoPage()

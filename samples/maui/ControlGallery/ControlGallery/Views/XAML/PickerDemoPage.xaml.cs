@@ -5,7 +5,7 @@ using Microsoft.Maui.Graphics;
 
 namespace ControlGallery.Views.XAML
 {
-    [UIExample(typeof(Picker))]
+    [Preview(typeof(Picker))]
     public partial class PickerDemoPage : ContentPage
     {
         public PickerDemoPage()

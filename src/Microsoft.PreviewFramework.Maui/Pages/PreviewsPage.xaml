@@ -3,8 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:Microsoft.PreviewFramework.Maui.ViewModels"
              xmlns:pages="clr-namespace:Microsoft.PreviewFramework.Maui.Pages"
-             x:Class="Microsoft.PreviewFramework.Maui.Pages.ExamplesPage"
-             Title="ExamplesPage">
+             x:Class="Microsoft.PreviewFramework.Maui.Pages.PreviewsPage"
+             Title="PreviewsPage">
     <ContentPage.Resources>
         <DataTemplate x:Key="uiComponentTemplate">
             <HorizontalStackLayout Margin="0,4,0,0">
@@ -12,28 +12,28 @@
                 <Label Text="{Binding Title}" Margin="4,0,0,0" FontAttributes="Bold"/>
             </HorizontalStackLayout>
         </DataTemplate>
-        <DataTemplate x:Key="exampleTemplate">
+        <DataTemplate x:Key="previewTemplate">
             <Label Text="{Binding Title}" Margin="30,2,0,0">
                 <Label.GestureRecognizers>
                     <TapGestureRecognizer Command="{Binding TapCommand}" />
                 </Label.GestureRecognizers>
             </Label>
         </DataTemplate>
-        <pages:ExampleItemDataTemplateSelector x:Key="exampleItemDataTemplateSelector"
+        <pages:PreviewItemDataTemplateSelector x:Key="previewItemDataTemplateSelector"
                                           UIComponentTemplate="{StaticResource uiComponentTemplate}"
-                                          ExampleTemplate="{StaticResource exampleTemplate}" />
+                                          PreviewTemplate="{StaticResource previewTemplate}" />
     </ContentPage.Resources>
 
     <VerticalStackLayout>
         <Label
-            Text="UI Examples"
+            Text="Previews"
             VerticalOptions="Center" 
             HorizontalOptions="Center"
             FontSize="20" Margin="0,0,0,-5"/>
 
         <SearchBar Placeholder="Search" />
 
-        <CollectionView ItemsSource="{Binding ExamplesData}" IsGrouped="true" ItemTemplate="{StaticResource exampleItemDataTemplateSelector}" Margin="10,5,0,0">
+        <CollectionView ItemsSource="{Binding PreviewsData}" IsGrouped="true" ItemTemplate="{StaticResource previewItemDataTemplateSelector}" Margin="10,5,0,0">
             <!--
             <CollectionView.GroupHeaderTemplate>
                 <DataTemplate>

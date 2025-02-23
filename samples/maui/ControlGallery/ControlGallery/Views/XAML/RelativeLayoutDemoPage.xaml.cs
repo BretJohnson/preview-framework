@@ -4,7 +4,7 @@ using Microsoft.Maui.Controls.Compatibility;
 
 namespace ControlGallery.Views.XAML
 {
-    [UIExample(typeof(RelativeLayout))]
+    [Preview(typeof(RelativeLayout))]
     public partial class RelativeLayoutDemoPage : ContentPage
     {
         public RelativeLayoutDemoPage()

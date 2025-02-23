@@ -13,17 +13,17 @@ public partial class CardView : ContentPage
     }
 
 #if EXAMPLES
-    [UIExample("No Cards")]
-    public static CardView NoCards() => new(ExampleData.GetExampleCards(0));
+    [Preview("No Cards")]
+    public static CardView NoCards() => new(PreviewData.GetPreviewCards(0));
 
-    [UIExample("Single Card")]
-    public static CardView SingleCard() => new(ExampleData.GetExampleCards(1));
+    [Preview("Single Card")]
+    public static CardView SingleCard() => new(PreviewData.GetPreviewCards(1));
 
-    [UIExample("Two Cards")]
-    public static CardView TwoCards() => new(ExampleData.GetExampleCards(2));
+    [Preview("Two Cards")]
+    public static CardView TwoCards() => new(PreviewData.GetPreviewCards(2));
 
-    [UIExample("Six Cards")]
-    public static CardView SixCards() => new(ExampleData.GetExampleCards(6));
+    [Preview("Six Cards")]
+    public static CardView SixCards() => new(PreviewData.GetPreviewCards(6));
 
 #endif
 }

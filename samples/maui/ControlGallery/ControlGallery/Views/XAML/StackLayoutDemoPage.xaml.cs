@@ -3,7 +3,7 @@ using Microsoft.Maui.Controls;
 
 namespace ControlGallery.Views.XAML
 {
-    [UIExample(typeof(StackLayout))]
+    [Preview(typeof(StackLayout))]
     public partial class StackLayoutDemoPage : ContentPage
     {
         public StackLayoutDemoPage()

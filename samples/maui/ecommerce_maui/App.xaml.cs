@@ -12,7 +12,7 @@ public partial class App : Application
         MainPage = new LoginView();
 
 #if EXAMPLES
-        this.EnableExamplesMode();
+        this.EnablePreviewMode();
 #endif
     }
 }

@@ -2,7 +2,7 @@
 
 namespace ControlGallery.Views.XAML
 {
-    [UIExample(typeof(Border))]
+    [Preview(typeof(Border))]
     public partial class BorderDemoPage : ContentPage
     {
         public BorderDemoPage()

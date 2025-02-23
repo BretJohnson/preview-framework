@@ -8,7 +8,7 @@ using Microsoft.Maui.Controls;
 
 namespace ControlGallery.Views.XAML
 {
-    [UIExample(typeof(FlexLayout))]
+    [Preview(typeof(FlexLayout))]
 	public partial class FlexLayoutDemoPage : ContentPage
 	{
 		public FlexLayoutDemoPage ()

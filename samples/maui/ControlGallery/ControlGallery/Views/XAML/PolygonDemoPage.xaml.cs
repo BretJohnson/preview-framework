@@ -2,7 +2,7 @@
 
 namespace ControlGallery.Views.XAML
 {
-    [UIExample(typeof(Polygon))]
+    [Preview(typeof(Polygon))]
     public partial class PolygonDemoPage : ContentPage
     {
         public PolygonDemoPage()

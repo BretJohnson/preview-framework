@@ -3,7 +3,7 @@ using Microsoft.Maui.Controls;
 
 namespace ControlGallery.Views.XAML
 {
-    [UIExample(typeof(FlyoutPage))]
+    [Preview(typeof(FlyoutPage))]
     public partial class FlyoutPageDemoPage : FlyoutPage
     {
         public FlyoutPageDemoPage()

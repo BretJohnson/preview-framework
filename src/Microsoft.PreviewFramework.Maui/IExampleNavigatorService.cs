@@ -2,23 +2,23 @@
 
 namespace Microsoft.PreviewFramework.Maui;
 
-public class MauiExampleNavigatorService : IExampleNavigatorService
+public class MauiPreviewNavigatorService : IPreviewNavigatorService
 {
-    public async Task NavigateToExampleAsync(AppUIExample example)
+    public async Task NavigateToPreviewAsync(AppPreview preview)
     {
         await MainThread.InvokeOnMainThreadAsync(async () =>
         {
-            object? exampleUI = example.Create();
+            object? previewUI = preview.Create();
 
-            //MauiExamplesApplication.Instance.PrepareToNavigateToExample();
+            //MauiPreviewsApplication.Instance.PrepareToNavigateToPreview();
 
-            if (exampleUI is ShellExample shellExample)
+            if (previewUI is ShellPreview shellPreview)
             {
-                await Shell.Current.GoToAsync(shellExample.Route, animate:false, shellExample.Parameters);
+                await Shell.Current.GoToAsync(shellPreview.Route, animate:false, shellPreview.Parameters);
             }
-            else if (exampleUI is ContentPage contentPage)
+            else if (previewUI is ContentPage contentPage)
             {
-                //MauiExamplesApplication.Instance.Application.MainPage = contentPage;
+                //MauiPreviewsApplication.Instance.Application.MainPage = contentPage;
                 await Application.Current.MainPage.Navigation.PushAsync(contentPage);
             }
         });

@@ -1,10 +1,10 @@
 ﻿namespace Microsoft.PreviewFramework.Tooling;
 
-public abstract class ToolingUIExample : UIExample
+public abstract class ToolingPreview : Preview
 {
     private readonly string name;
 
-    public ToolingUIExample(string name, string? displayName) : base(displayName)
+    public ToolingPreview(string name, string? displayName) : base(displayName)
     {
         this.name = name;
     }

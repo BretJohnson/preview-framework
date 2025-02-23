@@ -19,7 +19,7 @@ public static class MauiProgram
             });
 
 #if EXAMPLES
-        builder.UseExamplesOverlay(Colors.Orange);
+        builder.UsePreviewsOverlay(Colors.Orange);
 #endif
 
         builder.ConfigureLifecycleEvents(lifecycle => {

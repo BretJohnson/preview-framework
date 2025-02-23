@@ -8,10 +8,10 @@ public partial class MapPage : ContentPage
     }
 
 #if EXAMPLES
-    [UIExample("Seattle")]
+    [Preview("Seattle")]
     public static MapPage Seattle() => new();
 
-    [UIExample("Raleigh")]
+    [Preview("Raleigh")]
     public static MapPage Raleigh() => new();
 #endif
 }

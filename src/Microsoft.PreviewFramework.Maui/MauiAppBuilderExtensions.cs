@@ -5,21 +5,21 @@ namespace Microsoft.PreviewFramework.Maui;
 
 public static class MauiAppBuilderExtensions
 {
-    public static MauiAppBuilder EnableExamplesMode<TApp>(this MauiAppBuilder builder) where TApp : class, IApplication
+    public static MauiAppBuilder EnablePreviewMode<TApp>(this MauiAppBuilder builder) where TApp : class, IApplication
     {
 #if true
-        ExamplesMode examplesMode;
+        PreviewMode previewMode;
         if (DeviceInfo.Current.Platform == DevicePlatform.WinUI)
-            examplesMode = ExamplesMode.Gallery;
-        else examplesMode = ExamplesMode.RemoteControl;
+            previewMode = PreviewMode.Gallery;
+        else previewMode = PreviewMode.RemoteControl;
 #else
-        ExamplesMode examplesMode = GetExamplesMode(environmentVariable);
+        PreviewMode previewMode = GetPreviewMode(environmentVariable);
 #endif
 
-        if (examplesMode == ExamplesMode.None)
+        if (previewMode == PreviewMode.None)
             return builder;
 
-        if (examplesMode == ExamplesMode.Gallery)
+        if (previewMode == PreviewMode.Gallery)
         {
             // Remove the existing Application service, so we can replace it with ours
             builder.Services.RemoveAll<IApplication>();
@@ -36,21 +36,21 @@ public static class MauiAppBuilderExtensions
     }
 
 #if OLD
-    public static bool LaunchInExamplesMode(string? galleryAppTitle, string? environmentVariable)
+    public static bool LaunchInPreviewMode(string? galleryAppTitle, string? environmentVariable)
     {
 #if true
-        ExamplesMode examplesMode;
+        PreviewMode previewMode;
         if (DeviceInfo.Current.Platform == DevicePlatform.WinUI)
-            examplesMode = ExamplesMode.Gallery;
-        else examplesMode = ExamplesMode.RemoteControl;
+            previewMode = PreviewMode.Gallery;
+        else previewMode = PreviewMode.RemoteControl;
 #else
-        ExamplesMode examplesMode = GetExamplesMode(environmentVariable);
+        PreviewMode previewMode = GetPreviewMode(environmentVariable);
 #endif
 
-        if (examplesMode == ExamplesMode.None)
+        if (previewMode == PreviewMode.None)
             return false;
 
-        if (examplesMode == ExamplesMode.Gallery)
+        if (previewMode == PreviewMode.Gallery)
         {
             app.MainPage = new DesktopMainPage();
 
@@ -68,13 +68,13 @@ public static class MauiAppBuilderExtensions
     }
 #endif
 
-    public static ExamplesMode GetExamplesMode(string? environmentVariable = null)
+    public static PreviewMode GetPreviewMode(string? environmentVariable = null)
     {
         if (environmentVariable != null)
         {
             string? value = Environment.GetEnvironmentVariable(environmentVariable);
             if (value != null && !string.Equals(value, "0") && !string.Equals(value, "false", StringComparison.OrdinalIgnoreCase))
-                return ExamplesMode.Gallery;
+                return PreviewMode.Gallery;
         }
 
         string[] args = Environment.GetCommandLineArgs();
@@ -83,16 +83,16 @@ public static class MauiAppBuilderExtensions
         for (int i = 0; i < count; i++)
         {
             string arg = args[i];
-            if (string.Equals(arg, "--examples-gallery", StringComparison.OrdinalIgnoreCase))
+            if (string.Equals(arg, "--previews-gallery", StringComparison.OrdinalIgnoreCase))
             {
-                return ExamplesMode.Gallery;
+                return PreviewMode.Gallery;
             }
-            else if (string.Equals(arg, "--examples-remote-control", StringComparison.OrdinalIgnoreCase))
+            else if (string.Equals(arg, "--previews-remote-control", StringComparison.OrdinalIgnoreCase))
             {
-                return ExamplesMode.RemoteControl;
+                return PreviewMode.RemoteControl;
             }
         }
 
-        return ExamplesMode.None;
+        return PreviewMode.None;
     }
 }

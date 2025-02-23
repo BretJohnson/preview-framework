@@ -3,7 +3,7 @@ using Microsoft.Maui.Controls;
 
 namespace ControlGallery.Views.XAML
 {
-    [UIExample(typeof(ImageCell))]
+    [Preview(typeof(ImageCell))]
     public partial class ImageCellDemoPage : ContentPage
     {
         public ImageCellDemoPage()

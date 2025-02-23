@@ -3,7 +3,7 @@ using Microsoft.Maui.Controls;
 
 namespace ControlGallery.Views.XAML
 {
-    [UIExample(typeof(Grid))]
+    [Preview(typeof(Grid))]
     public partial class GridDemoPage : ContentPage
     {
         public GridDemoPage()

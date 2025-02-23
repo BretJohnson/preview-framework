@@ -3,7 +3,7 @@ using Microsoft.Maui.Controls;
 
 namespace ControlGallery.Views.XAML
 {
-    [UIExample(typeof(Slider))]
+    [Preview(typeof(Slider))]
     public partial class SliderDemoPage : ContentPage
     {
         public SliderDemoPage()

@@ -3,7 +3,7 @@ using Microsoft.Maui.Controls.Shapes;
 
 namespace ControlGallery.Views.XAML
 {
-    [UIExample(typeof(Rectangle))]
+    [Preview(typeof(Rectangle))]
     public partial class RectangleDemoPage : ContentPage
     {
         public RectangleDemoPage()

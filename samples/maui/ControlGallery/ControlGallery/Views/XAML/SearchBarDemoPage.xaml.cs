@@ -6,7 +6,7 @@ using Microsoft.Maui.Controls;
 
 namespace ControlGallery.Views.XAML
 {
-    [UIExample(typeof(SearchBar))]
+    [Preview(typeof(SearchBar))]
     public partial class SearchBarDemoPage : ContentPage
     {
         public SearchBarDemoPage()

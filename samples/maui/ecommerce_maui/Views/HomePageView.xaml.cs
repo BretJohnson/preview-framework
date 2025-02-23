@@ -11,7 +11,7 @@ public partial class HomePageView : ContentPage
     }
 
 #if EXAMPLES
-    [UIExample]
-    public static LoginView Example() => new();
+    [Preview]
+    public static LoginView Preview() => new();
 #endif
 }

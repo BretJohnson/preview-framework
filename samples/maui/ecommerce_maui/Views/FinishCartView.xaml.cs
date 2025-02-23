@@ -13,9 +13,9 @@ public partial class FinishCartView : ContentPage
     }
 
 #if EXAMPLES
-    [UIExample()]
+    [Preview()]
     public static FinishCartView Default() => new(
-		new ObservableCollection<ProductListModel>(ProductListModel.GetExampleProducts()),
+		new ObservableCollection<ProductListModel>(ProductListModel.GetPreviewProducts()),
 		new DeliveryTypeModel(), new AddressModel(), new CardInfoModel());
 #endif
 }

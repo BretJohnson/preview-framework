@@ -3,29 +3,29 @@ using Microsoft.PreviewFramework.App;
 
 namespace Microsoft.PreviewFramework.Maui.ViewModels;
 
-public class ExamplesViewModel : INotifyPropertyChanged
+public class PreviewsViewModel : INotifyPropertyChanged
 {
-    public static ExamplesViewModel Instance => _lazyInstance.Value;
+    public static PreviewsViewModel Instance => _lazyInstance.Value;
 
     public static readonly UIComponentCategory UncategorizedCategory = new UIComponentCategory("Uncategorized");
 
-    private static readonly Lazy<ExamplesViewModel> _lazyInstance = new Lazy<ExamplesViewModel>(() => new ExamplesViewModel());
+    private static readonly Lazy<PreviewsViewModel> _lazyInstance = new Lazy<PreviewsViewModel>(() => new PreviewsViewModel());
 
-    public IExampleNavigatorService ExampleNavigatorService { get; }
+    public IPreviewNavigatorService PreviewNavigatorService { get; }
 
     private List<UIComponentCategory> categories;
     private List<UIComponentCategoryViewModel> uiComponentCategoryViewModels;
 
-    public List<UIComponentCategoryViewModel> ExamplesData => this.uiComponentCategoryViewModels;
+    public List<UIComponentCategoryViewModel> PreviewsData => this.uiComponentCategoryViewModels;
 
-    private ExamplesViewModel()
+    private PreviewsViewModel()
     {
-        this.ExampleNavigatorService = new MauiExampleNavigatorService();
+        this.PreviewNavigatorService = new MauiPreviewNavigatorService();
 
         this.categories = new List<UIComponentCategory>();
         Dictionary<UIComponentCategory, List<AppUIComponent>> uiComponentsByCategory = [];
 
-        AppUIComponents uiComponents = ExamplesManager.Instance.UIComponents;
+        AppUIComponents uiComponents = PreviewsManager.Instance.UIComponents;
 
         // Create a list of UIComponents for each category, including an "Uncategorized" category.
         // Also save off the list of categories that are used, for sorting.
@@ -60,14 +60,6 @@ public class ExamplesViewModel : INotifyPropertyChanged
         {
             this.uiComponentCategoryViewModels.Add(new UIComponentCategoryViewModel(category, uiComponentsByCategory[category]));
         }
-
-#if false
-        Examples = new ObservableCollection<Example>
-        {
-            new Example { Name = "Example 1", Description = "This is the first example." },
-            new Example { Name = "Example 2", Description = "This is the second example." }
-        };
-#endif
     }
 
     public event PropertyChangedEventHandler? PropertyChanged = null;

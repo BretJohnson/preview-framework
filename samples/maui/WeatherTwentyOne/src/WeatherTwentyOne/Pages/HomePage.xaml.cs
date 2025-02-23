@@ -60,8 +60,8 @@ public partial class HomePage : ContentPage
     }
 
 #if EXAMPLES
-    [UIExample("Thunderstorms", typeof(HomePage))]
-    public static ShellExample Thunderstorms() => new("///home", nameof(HomeViewModel.Current),
+    [Preview("Thunderstorms", typeof(HomePage))]
+    public static ShellPreview Thunderstorms() => new("///home", nameof(HomeViewModel.Current),
         new Current
         {
             Phrase = "fluent_weather_thunderstorm_20_filled",
@@ -69,7 +69,7 @@ public partial class HomePage : ContentPage
             Temperature = "72"
         });
 
-    [UIExample("Mixed weather", typeof(HomePage))]
-    public static ShellExample MixedWeather() => new("///home");
+    [Preview("Mixed weather", typeof(HomePage))]
+    public static ShellPreview MixedWeather() => new("///home");
 #endif
 }

@@ -1,6 +1,6 @@
 ﻿namespace Microsoft.PreviewFramework.App;
 
-public enum ExamplesMode
+public enum PreviewMode
 {
     None,
     Gallery,
