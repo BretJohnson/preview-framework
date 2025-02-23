@@ -1,5 +1,5 @@
 ﻿using EcommerceMAUI.Views;
-using ExampleFramework.App.Maui;
+using Microsoft.PreviewFramework.Maui;
 
 namespace EcommerceMAUI;
 

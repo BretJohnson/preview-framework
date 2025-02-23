@@ -1,6 +1,6 @@
 ﻿using System.Reflection;
 
-namespace ExampleFramework.App;
+namespace Microsoft.PreviewFramework.App;
 
 public class ExamplesManager
 {

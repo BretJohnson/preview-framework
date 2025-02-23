@@ -1,1 +1,1 @@
-global using ExampleFramework;
+global using Microsoft.PreviewFramework;

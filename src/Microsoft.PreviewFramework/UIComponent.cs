@@ -1,4 +1,4 @@
-﻿namespace ExampleFramework;
+﻿namespace Microsoft.PreviewFramework;
 
 public abstract class UIComponent<TUIExample> where TUIExample : UIExample
 {

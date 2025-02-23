@@ -1,7 +1,7 @@
 ﻿using Microsoft.Maui.LifecycleEvents;
 using WeatherTwentyOne.Pages;
 using WeatherTwentyOne.ViewModels;
-using ExampleFramework.App.Maui;
+using Microsoft.PreviewFramework.Maui;
 
 namespace WeatherTwentyOne;
 

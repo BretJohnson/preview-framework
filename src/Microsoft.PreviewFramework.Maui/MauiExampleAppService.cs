@@ -1,7 +1,8 @@
-﻿using ExampleFramework.App.Maui.Views;
+﻿using Microsoft.PreviewFramework.App;
+using Microsoft.PreviewFramework.Maui.Views;
 using VisualTestUtils;
 
-namespace ExampleFramework.App.Maui;
+namespace Microsoft.PreviewFramework.Maui;
 
 public class MauiExampleAppService : ExampleAppService
 {

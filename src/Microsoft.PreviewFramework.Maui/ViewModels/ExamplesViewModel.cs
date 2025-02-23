@@ -1,6 +1,7 @@
 using System.ComponentModel;
+using Microsoft.PreviewFramework.App;
 
-namespace ExampleFramework.App.Maui.ViewModels;
+namespace Microsoft.PreviewFramework.Maui.ViewModels;
 
 public class ExamplesViewModel : INotifyPropertyChanged
 {

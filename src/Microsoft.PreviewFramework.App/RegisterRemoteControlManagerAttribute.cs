@@ -1,4 +1,4 @@
-﻿namespace ExampleFramework.App;
+﻿namespace Microsoft.PreviewFramework.App;
 
 [AttributeUsage(AttributeTargets.Assembly, AllowMultiple = false)]
 public class RegisterRemoteControlManagerAttribute : Attribute

@@ -1,4 +1,4 @@
-﻿namespace ExampleFramework;
+﻿namespace Microsoft.PreviewFramework;
 
 public class UIComponentCategory
 {

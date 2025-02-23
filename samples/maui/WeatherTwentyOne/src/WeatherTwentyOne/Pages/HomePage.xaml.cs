@@ -1,5 +1,5 @@
 ﻿using System.Diagnostics;
-using ExampleFramework.App.Maui;
+using Microsoft.PreviewFramework.Maui;
 using Microsoft.Maui.Controls.PlatformConfiguration.WindowsSpecific;
 using WeatherTwentyOne.Models;
 using WeatherTwentyOne.Services;

@@ -1,4 +1,6 @@
-namespace ExampleFramework.App.Maui.ViewModels;
+using Microsoft.PreviewFramework.App;
+
+namespace Microsoft.PreviewFramework.Maui.ViewModels;
 
 public class UIComponentViewModel
 {

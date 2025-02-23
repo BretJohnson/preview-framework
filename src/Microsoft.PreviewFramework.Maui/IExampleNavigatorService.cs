@@ -1,4 +1,6 @@
-﻿namespace ExampleFramework.App.Maui;
+﻿using Microsoft.PreviewFramework.App;
+
+namespace Microsoft.PreviewFramework.Maui;
 
 public class MauiExampleNavigatorService : IExampleNavigatorService
 {

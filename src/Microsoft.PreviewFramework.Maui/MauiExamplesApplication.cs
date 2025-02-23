@@ -1,6 +1,6 @@
-﻿using ExampleFramework.App.Maui.Pages;
+﻿using Microsoft.PreviewFramework.Maui.Pages;
 
-namespace ExampleFramework.App.Maui;
+namespace Microsoft.PreviewFramework.Maui;
 
 public class MauiExamplesApplication
 {

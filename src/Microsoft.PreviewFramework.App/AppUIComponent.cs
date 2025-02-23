@@ -1,4 +1,4 @@
-﻿namespace ExampleFramework.App;
+﻿namespace Microsoft.PreviewFramework.App;
 
 public class AppUIComponent : UIComponent<AppUIExample>
 {

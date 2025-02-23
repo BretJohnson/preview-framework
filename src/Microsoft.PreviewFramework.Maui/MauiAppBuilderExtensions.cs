@@ -1,6 +1,7 @@
 ﻿using Microsoft.Extensions.DependencyInjection.Extensions;
+using Microsoft.PreviewFramework.App;
 
-namespace ExampleFramework.App.Maui;
+namespace Microsoft.PreviewFramework.Maui;
 
 public static class MauiAppBuilderExtensions
 {

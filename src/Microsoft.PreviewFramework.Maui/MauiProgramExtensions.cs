@@ -1,7 +1,7 @@
 using Microsoft.Maui.Handlers;
 using System.Diagnostics;
 
-namespace ExampleFramework.App.Maui;
+namespace Microsoft.PreviewFramework.Maui;
 
 public static class MauiProgramExtensions
 {
